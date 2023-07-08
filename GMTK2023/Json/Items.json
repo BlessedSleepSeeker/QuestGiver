@@ -5,8 +5,7 @@
 		"SellValue": 10,
 		"RewardValue": 5,
 		"Stackable": false,
-		"Amount": 1,
-		"IconPath": "sword.png"
+		"Amount": 1
 	},
 	"Wooden Shield": {
 		"Name": "Wooden Shield",
@@ -14,8 +13,7 @@
 		"Stackable": false,
 		"SellValue": 10,
 		"RewardValue": 5,
-		"Amount": 1,
-		"IconPath": "shield.png"
+		"Amount": 1
 	},
 	"Apple": {
 		"Name": "Apple",
@@ -23,8 +21,7 @@
 		"Stackable": true,
 		"SellValue": 1,
 		"RewardValue": 0.5,
-		"Amount": 1,
-		"IconPath": "apple.png"
+		"Amount": 1
 	},
 	"Diamond": {
 		"Name": "Diamond",
@@ -32,7 +29,6 @@
 		"Stackable": false,
 		"SellValue": 200,
 		"RewardValue": 180,
-		"Amount": 1,
-		"IconPath": "diamond.png"
+		"Amount": 1
 	}
 }

@@ -9,4 +9,10 @@ offset_right = 320.0
 offset_bottom = 180.0
 script = ExtResource("1_1ccqi")
 
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 2
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]

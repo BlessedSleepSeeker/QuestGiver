@@ -1,10 +1,16 @@
 extends TextureButton
 
+@export var DefaultItemName: String = "DefaultItem"
 @export var ItemName: String = "DefaultItem"
+@onready var icon: TextureRect = $"Icon"
+
+var iconText = preload("res://Sprites/Items/Diamond/iconDiamond.png")
 
 signal itemButtonPressed(itemName)
 
 var MainIconsPath: String = "res://Sprites/Items/%s/%s%s.png"
+var IconPath: String
+const ICON_FILENAME := "icon"
 var NormalIconPath: String
 const NORMAL_ICON_FILENAME := "normal"
 var PressedIconPath: String
@@ -29,11 +35,12 @@ func setName(_itemName: String):
 	loadTextures()
 
 func buildPaths():
-	NormalIconPath = MainIconsPath % [ItemName, NORMAL_ICON_FILENAME, ItemName]
-	PressedIconPath = MainIconsPath % [ItemName, PRESSED_ICON_FILENAME, ItemName]
-	HoverIconPath = MainIconsPath % [ItemName, HOVER_ICON_FILENAME, ItemName]
-	DisabledIconPath = MainIconsPath % [ItemName, DISABLED_ICON_FILENAME, ItemName]
-	FocusedIconPath = MainIconsPath % [ItemName, FOCUSED_ICON_FILENAME, ItemName]
+	NormalIconPath = MainIconsPath % [DefaultItemName, NORMAL_ICON_FILENAME, DefaultItemName]
+	PressedIconPath = MainIconsPath % [DefaultItemName, PRESSED_ICON_FILENAME, DefaultItemName]
+	HoverIconPath = MainIconsPath % [DefaultItemName, HOVER_ICON_FILENAME, DefaultItemName]
+	DisabledIconPath = MainIconsPath % [DefaultItemName, DISABLED_ICON_FILENAME, DefaultItemName]
+	FocusedIconPath = MainIconsPath % [DefaultItemName, FOCUSED_ICON_FILENAME, DefaultItemName]
+	IconPath = MainIconsPath % [ItemName, ICON_FILENAME, ItemName]
 	ClickMaskPath = CLICK_MASK_PATH
 
 func loadTextures():
@@ -43,6 +50,8 @@ func loadTextures():
 	texture_disabled = load(DisabledIconPath)
 	#texture_focused = load(FocusedIconPath)
 	texture_click_mask = load(ClickMaskPath)
+	if ResourceLoader.exists(IconPath):
+		icon.texture = load(IconPath)
 
 func _on_pressed():
 	itemButtonPressed.emit(ItemName)

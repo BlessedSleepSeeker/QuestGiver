@@ -3,9 +3,9 @@ class_name Inventory
 
 var gold: int = 0
 
-signal item_added
-signal item_sold
-signal item_reward
+signal item_added(itemName)
+signal item_sold(itemName)
+signal item_reward(itemName)
 
 
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
@@ -24,6 +24,7 @@ func addItemByDict(itemDict: Dictionary):
 	var instance = defaultItemScene.instantiate()
 	instance.ItemByDict(itemDict)
 	add_child(instance)
+	item_added.emit(instance.Name)
 
 func getAllItems() -> Array:
 	var items := []
