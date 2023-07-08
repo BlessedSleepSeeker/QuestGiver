@@ -1,8 +1,35 @@
-[gd_scene format=3 uid="uid://bf4an2wlenaek"]
+[gd_scene load_steps=8 format=3 uid="uid://bf4an2wlenaek"]
 
-[node name="QuestList" type="VBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://Scenes/Quests/UI/QuestList.gd" id="1_64qnj"]
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/Items/DefaultItem/normalDefaultItem.png" id="2_8wgqs"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/Items/DefaultItem/pressedDefaultItem.png" id="3_nnbu2"]
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/Items/DefaultItem/hoverDefaultItem.png" id="4_lj7lf"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/Items/DefaultItem/disabledDefaultItem.png" id="5_f48lb"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/Items/DefaultSizeClickMask.png" id="6_3dwmb"]
+[ext_resource type="Texture2D" uid="uid://c3d6vllxou1j3" path="res://Sprites/UI/Movement/Plus/iconPlus.png" id="6_bpo12"]
+
+[node name="QuestsList" type="VBoxContainer"]
+offset_left = 464.0
+offset_right = 480.0
+offset_bottom = 16.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
+script = ExtResource("1_64qnj")
+
+[node name="AddQuestButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_8wgqs")
+texture_pressed = ExtResource("3_nnbu2")
+texture_hover = ExtResource("4_lj7lf")
+texture_disabled = ExtResource("5_f48lb")
+texture_click_mask = ExtResource("6_3dwmb")
+
+[node name="Icon" type="TextureRect" parent="AddQuestButton"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 43.0
+texture = ExtResource("6_bpo12")
+stretch_mode = 2

@@ -3,11 +3,11 @@ class_name Quest
 
 @export var id := 0
 @export var defaultObjectiveScene = preload("res://Scenes/Quests/Objectives/objective.tscn")
-@export var questName := ""
-@export var expirationDate := 10
+@export var questName := "Default"
+@export var expirationDate := 0
+@export var difficulty := 0
 @export var maxObjectives := 2
 @export var taken := false
-
 
 signal maximum_objective_reached(max)
 signal objective_added(objective: Objective)
@@ -21,9 +21,12 @@ func _ready():
 	Calendar.new_day.connect(_new_day)
 	calcExpirationDate()
 
+func setId(_id: int):
+	id = _id
+
 func addObjective():
 	if canHaveMoreObjective():
-		var instance = defaultObjectiveScene.instanciate()
+		var instance = defaultObjectiveScene.instantiate()
 		instance.objective_finished.connect(_objective_finished)
 		instance.objective_failed.connect(_objective_failed)
 		instance.objective_modified.connect(_objective_modified)
@@ -38,6 +41,14 @@ func getObjective(objectiveId: int) -> Node:
 		if (_i.id == objectiveId):
 			return _i
 	return null
+
+func sortById(obj_a, obj_b) -> bool:
+	return true if obj_a.id > obj_b.id else false
+
+func getAllObjectives() -> Array:
+	var arr = get_children()
+	arr.sort_custom(sortById)
+	return arr
 
 func findNextObjective() -> Objective:
 	for _i in self.get_children():
@@ -65,8 +76,16 @@ func _objective_modified(_id: int) -> void:
 	calcExpirationDate()
 
 func calcExpirationDate() -> void:
+	var expir = 0
 	for _i in self.get_children():
-		expirationDate += _i.expirationDate
+		expir += _i.expirationDate
+	expirationDate = expir
+
+func calcDifficulty() -> void:
+	var diff = 0
+	for _i in self.get_children():
+		diff += _i.calcDifficulty()
+	difficulty = diff
 
 func isFinished() -> bool:
 	for _i in self.get_children():

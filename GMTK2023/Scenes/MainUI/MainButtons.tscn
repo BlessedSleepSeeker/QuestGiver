@@ -66,7 +66,12 @@ texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_ntqcd")
 
 [node name="ConfirmationDialog" parent="MarginContainer/VBoxContainer/MainButtonsLine/SleepButton" instance=ExtResource("3_43dab")]
+title = "Go To Sleep ?"
 visible = false
+ok_button_text = "Yes"
+dialog_text = "Going to sleep will end this day"
+dialog_autowrap = true
+cancel_button_text = "No"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainButtonsLine/GuildButton" to="MarginContainer/VBoxContainer/MainButtonsLine/GuildButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainButtonsLine/ShopButton" to="MarginContainer/VBoxContainer/MainButtonsLine/ShopButton" method="_on_pressed"]

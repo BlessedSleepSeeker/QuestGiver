@@ -10,7 +10,7 @@ func _ready():
 	sleepButton.ConfirmationPopup.sleep_time.connect(self.sleep)
 	shopButton.shop_transition.connect(self.goToShop)
 	guildButton.guild_transition.connect(self.goToGuild)
-
+	fader.play_backwards("FadeOut")
 
 func sleep():
 	fader.play("FadeOut")

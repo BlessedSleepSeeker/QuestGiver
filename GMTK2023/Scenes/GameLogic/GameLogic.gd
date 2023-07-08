@@ -4,6 +4,7 @@ class_name GameLogic
 @onready var player: Player = $Player
 @onready var inventory: Inventory = $Player/Inventory
 @onready var mainUi := $MainGameUI
+@onready var quests: Quests = $Quests
 
 var items := {}
 const ITEMS_JSON_PATH = "res://Json/Items.json"
@@ -81,6 +82,7 @@ func sellItem(item: Item):
 	item.queue_free()
 
 func _guild_transition() -> void:
+	#quests.printQuestsId()
 	state = STATE.Guild
 	state_changed.emit(state)
 

@@ -5,7 +5,7 @@ extends HBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Calendar.new_day.connect(new_day)
-	update_date()
+	labl.text = Calendar.getCurrentDay()
 
 func new_day(_nbr: int):
 	update_date()

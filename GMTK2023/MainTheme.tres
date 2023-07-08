@@ -1,12 +1,91 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blu2ho5t3snyv"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://blu2ho5t3snyv"]
 
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/Items/DefaultItem/hoverDefaultItem.png" id="1_g3utj"]
 [ext_resource type="FontFile" uid="uid://y06ktkg88vy4" path="res://Fonts/sci-bi.ttf" id="1_k1t8o"]
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/Items/DefaultItem/normalDefaultItem.png" id="1_p35a1"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/Items/DefaultItem/disabledDefaultItem.png" id="1_wsntc"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/Items/DefaultItem/pressedDefaultItem.png" id="4_en8be"]
+[ext_resource type="Texture2D" uid="uid://bkialc0qhovjt" path="res://Sprites/UI/Theme/LineEditDefault.png" id="5_2wvyp"]
+[ext_resource type="Texture2D" uid="uid://cr4hx7igqd7ag" path="res://Sprites/UI/Theme/LineEditSelected.png" id="5_vd00d"]
+[ext_resource type="Texture2D" uid="uid://chss5ma52btf5" path="res://Sprites/UI/Theme/Label.png" id="5_wpat6"]
+[ext_resource type="Texture2D" uid="uid://cdq30owpdhmlt" path="res://Sprites/UI/Theme/LineEditDisabled.png" id="7_s1neb"]
+[ext_resource type="Texture2D" uid="uid://dj83vx1io67x4" path="res://Sprites/UI/Theme/Window.png" id="9_76du8"]
+[ext_resource type="Texture2D" uid="uid://dexgkq7meqcab" path="res://Sprites/UI/Movement/Cancel.png" id="9_ci2y3"]
+[ext_resource type="Texture2D" uid="uid://bxa1ihw1xo32a" path="res://Sprites/UI/Movement/CancelPressed.png" id="10_siswv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s72mq"]
+texture = ExtResource("9_76du8")
+texture_margin_left = 2.0
+texture_margin_top = 4.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ainb8"]
+texture = ExtResource("1_wsntc")
+texture_margin_left = 13.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 13.0
+region_rect = Rect2(0, 0, 16, 16)
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkj5e"]
+texture = ExtResource("1_g3utj")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qo3os"]
+texture = ExtResource("1_p35a1")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygn6p"]
+texture = ExtResource("4_en8be")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nefw"]
+texture = ExtResource("5_wpat6")
+texture_margin_left = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cx6q"]
+texture = ExtResource("5_vd00d")
+texture_margin_left = 15.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_novmp"]
+texture = ExtResource("5_2wvyp")
+texture_margin_left = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6f7o"]
+texture = ExtResource("7_s1neb")
+texture_margin_left = 30.0
 
 [resource]
 default_font = ExtResource("1_k1t8o")
 default_font_size = 20
+AcceptDialog/styles/panel = SubResource("StyleBoxTexture_s72mq")
+Button/styles/disabled = SubResource("StyleBoxTexture_ainb8")
+Button/styles/hover = SubResource("StyleBoxTexture_gkj5e")
+Button/styles/normal = SubResource("StyleBoxTexture_qo3os")
+Button/styles/pressed = SubResource("StyleBoxTexture_ygn6p")
 ColorPicker/constants/margin = 0
 ItemList/constants/icon_margin = 0
+Label/constants/line_spacing = 1
+Label/styles/normal = SubResource("StyleBoxTexture_1nefw")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_4cx6q")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_novmp")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_q6f7o")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
@@ -20,4 +99,5 @@ Tree/constants/scrollbar_margin_bottom = 0
 Tree/constants/scrollbar_margin_left = 0
 Tree/constants/scrollbar_margin_right = 0
 Tree/constants/scrollbar_margin_top = 0
-Window/constants/resize_margin = 0
+Window/icons/close = ExtResource("9_ci2y3")
+Window/icons/close_pressed = ExtResource("10_siswv")

@@ -2,7 +2,7 @@ extends Node
 class_name Quests
 
 @export var maxQuests = 3
-@export var defaultQuestScene = preload("res://Scenes/Quests/quest.tscn")
+@export var defaultQuestScene := preload("res://Scenes/Quests/quest.tscn")
 
 signal maximum_quest_reached
 signal quest_added(quest: Quest)
@@ -14,19 +14,26 @@ signal quest_took(quest: Quest)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-func addQuest():
+func printQuestsId():
+	for _i in self.get_children():
+		print(_i.id)
+
+func addQuest() -> int:
 	if canHaveMoreQuest():
-		var instance = defaultQuestScene.instanciate()
+		var instance = defaultQuestScene.instantiate()
+		instance.setId(findFreeId())
 		instance.finished.connect(_quest_finished)
 		instance.failed.connect(_quest_failed)
 		instance.expired.connect(_quest_expired)
 		instance.took.connect(_quest_took)
 		quest_added.emit(instance)
 		add_child(instance)
+		return instance.id
 	else:
 		maximum_quest_reached.emit(maxQuests)
+	return -1
 
 func findFreeId():
 	var ids: Array = []
@@ -35,6 +42,14 @@ func findFreeId():
 	for _j in range(maxQuests):
 		if !ids.has(_j):
 			return _j
+
+func sortById(obj_a, obj_b) -> bool:
+	return true if obj_a.id > obj_b.id else false
+
+func getAllQuests() -> Array:
+	var arr = get_children()
+	arr.sort_custom(sortById)
+	return arr
 
 func canHaveMoreQuest():
 	return true if get_child_count() < maxQuests else false

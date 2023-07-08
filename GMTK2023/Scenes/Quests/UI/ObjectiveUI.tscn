@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://4f0xeelw8egt"]
+[gd_scene load_steps=2 format=3 uid="uid://4f0xeelw8egt"]
 
-[node name="ObjectiveUI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
+[ext_resource type="Script" path="res://Scenes/Quests/UI/ObjectiveUI.gd" id="1_5tmtg"]
+
+[node name="ObjectiveUI" type="HBoxContainer"]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 26.0
 grow_horizontal = 2
-grow_vertical = 2
+script = ExtResource("1_5tmtg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "OBJECTIVE"
+autowrap_mode = 2
