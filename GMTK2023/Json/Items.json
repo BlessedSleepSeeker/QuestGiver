@@ -19,7 +19,15 @@
 		"Name": "Apple",
 		"FlavorText": "Mm apl",
 		"Stackable": true,
-		"SellValue": 1,
+		"SellValue": 3,
+		"RewardValue": 0.5,
+		"Amount": 2
+	},
+	"ConstructionStone": {
+		"Name": "Construction Stones",
+		"FlavorText": "\"We're Building Empire here ! Move !\"",
+		"Stackable": true,
+		"SellValue": 20,
 		"RewardValue": 0.5,
 		"Amount": 1
 	},

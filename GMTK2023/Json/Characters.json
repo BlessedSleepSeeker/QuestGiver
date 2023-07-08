@@ -1,0 +1,38 @@
+{
+    "Wolfs": {
+        "characterName": "3 Wolf",
+        "difficulty": 5
+    },
+    "RivalMerchant": {
+        "characterName": "Aganir, my merchant rival",
+        "difficulty": 8
+    },
+    "StarterDungeon": {
+        "characterName": "The Evil Tower of Rinaga",
+        "difficulty": 12
+    },
+    "Troll": {
+        "characterName": "The Troll of Dimaks",
+        "difficulty": 20
+    },
+    "WanderingWarrior": {
+        "characterName": "The Blade of Asmax",
+        "difficulty": 25
+    },
+    "Caravane": {
+        "characterName": "Raphael's Caravan",
+        "difficulty": 3
+    },
+    "BillionSlime": {
+        "characterName": "A billion slimes",
+        "difficulty": 1000
+    },
+    "Dragon": {
+        "characterName": "A Big White Dragon",
+        "difficulty": 80
+    },
+    "Dragon2": {
+        "characterName": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
+        "difficulty": 10
+    }
+}

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn6jsj2atxsu8"]
+
+[ext_resource type="Script" path="res://Scenes/MainUI/BasicHUD.gd" id="1_23wql"]
+[ext_resource type="PackedScene" uid="uid://uo4b2gopnfkx" path="res://Scenes/MainUI/GoldDisplay.tscn" id="2_hbi1a"]
+[ext_resource type="PackedScene" uid="uid://cbsbnwffl272t" path="res://Scenes/MainUI/CalendarDisplay.tscn" id="3_yft5g"]
+
+[node name="BasicHUD" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_23wql")
+
+[node name="GoldDisplay" parent="." instance=ExtResource("2_hbi1a")]
+layout_mode = 2
+
+[node name="CalendarDisplay" parent="." instance=ExtResource("3_yft5g")]
+layout_mode = 2

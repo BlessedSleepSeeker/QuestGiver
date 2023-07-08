@@ -30,6 +30,8 @@ func ItemByDict(ItemDict: Dictionary) -> void:
 	Stackable = ItemDict["Stackable"]
 	Amount = ItemDict["Amount"]
 
+func getDifficulty():
+	return SellValue
 
 func printSelf():
 	print(Name)

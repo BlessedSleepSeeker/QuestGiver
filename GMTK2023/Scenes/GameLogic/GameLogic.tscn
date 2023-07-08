@@ -8,8 +8,8 @@
 [node name="GameLogic" type="Node"]
 script = ExtResource("1_l48e2")
 
-[node name="MainGameUI" parent="." instance=ExtResource("2_r76nb")]
-
 [node name="Player" parent="." instance=ExtResource("3_w20fw")]
+
+[node name="MainGameUI" parent="." instance=ExtResource("2_r76nb")]
 
 [node name="RoomTransition" parent="." instance=ExtResource("4_keeol")]

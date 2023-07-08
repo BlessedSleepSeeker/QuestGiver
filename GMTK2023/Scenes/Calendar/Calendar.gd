@@ -9,6 +9,11 @@ var loan_day := 1
 
 const current_day_str := "Day %s of %s, Year %s"
 
+signal new_day(nbr)
+signal new_season(season)
+signal new_year(nbr)
+signal loan_time
+
 const DAY_PER_SEASON = 15
 const LOAN_REPETITION = 7
 
@@ -20,6 +25,9 @@ func progressSeason() -> void:
 	if current_season > 4:
 		year += 1
 		current_season = 1
+		new_year.emit(year)
+	new_season.emit(current_season)
+	
 
 func addDay() -> void:
 	current_day += 1
@@ -27,6 +35,7 @@ func addDay() -> void:
 	if (current_day > DAY_PER_SEASON):
 		current_day = 1
 		progressSeason()
+	new_day.emit(current_day)
 
 func GetRemainingLoanDay() -> int:
 	return LOAN_REPETITION - loan_day

@@ -11,3 +11,6 @@ var reputationXpPerLevel := {0: 0, 1: 10, 2: 10, 3: 70, 4: 300, 5: 1000}
 
 func _ready():
 	pass # Replace with function body.
+
+func addGold(nbr: int):
+	inventory.addGold(nbr)

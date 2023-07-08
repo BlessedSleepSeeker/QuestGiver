@@ -4,8 +4,6 @@ extends TextureButton
 @export var ItemName: String = "DefaultItem"
 @onready var icon: TextureRect = $"Icon"
 
-var iconText = preload("res://Sprites/Items/Diamond/iconDiamond.png")
-
 signal itemButtonPressed(itemName)
 
 var MainIconsPath: String = "res://Sprites/Items/%s/%s%s.png"
@@ -40,7 +38,7 @@ func buildPaths():
 	HoverIconPath = MainIconsPath % [DefaultItemName, HOVER_ICON_FILENAME, DefaultItemName]
 	DisabledIconPath = MainIconsPath % [DefaultItemName, DISABLED_ICON_FILENAME, DefaultItemName]
 	FocusedIconPath = MainIconsPath % [DefaultItemName, FOCUSED_ICON_FILENAME, DefaultItemName]
-	IconPath = MainIconsPath % [ItemName, ICON_FILENAME, ItemName]
+	IconPath = (MainIconsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
 	ClickMaskPath = CLICK_MASK_PATH
 
 func loadTextures():

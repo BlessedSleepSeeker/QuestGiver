@@ -7,6 +7,9 @@ signal item_added(itemName)
 signal item_sold(itemName)
 signal item_reward(itemName)
 
+signal gold_added(nbr)
+signal gold_removed(nbr)
+
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
 @onready var inventoryUi = get_node("/root/GameLogic/MainGameUI/Margin/VBoxContainer/MainSpaceColumns/InventoryUI")
 
@@ -16,6 +19,14 @@ signal item_selected(Item)
 func _ready():
 	#addItem("DefaultItem", 0, 0, "EasterEgg !", "DefaultItem")
 	inventoryUi.itemButtonPressed.connect(_itemSelected)
+
+func addGold(nbr: int):
+	gold += nbr
+	gold_added.emit(nbr)
+
+func removeGold(nbr: int):
+	gold -= nbr
+	gold_removed.emit(nbr)
 
 func addItemByParam(itemName: String, sellValue: int, rewardValue: int, flavorText: String, stackable: bool, icon: String):
 	var instance = defaultItemScene.instantiate()
