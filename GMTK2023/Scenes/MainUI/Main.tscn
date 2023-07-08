@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://db0skdg02pmrc"]
+
+[ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_mn1id"]
+[ext_resource type="Script" path="res://Scenes/MainUI/Main.gd" id="2_4j3wm"]
+[ext_resource type="PackedScene" uid="uid://d3eil6wj7mchc" path="res://Scenes/MainUI/MainButtons.tscn" id="2_pp16e"]
+
+[node name="MainGameUI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mn1id")
+script = ExtResource("2_4j3wm")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="MainSpaceColumns" type="HBoxContainer" parent="Margin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_mn1id")
+
+[node name="Column2" type="VBoxContainer" parent="Margin/VBoxContainer/MainSpaceColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Column3" type="VBoxContainer" parent="Margin/VBoxContainer/MainSpaceColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MovementButtons" type="HBoxContainer" parent="Margin/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Center" parent="Margin/VBoxContainer/MovementButtons" instance=ExtResource("2_pp16e")]
+layout_mode = 2

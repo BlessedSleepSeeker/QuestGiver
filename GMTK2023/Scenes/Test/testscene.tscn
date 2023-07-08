@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2px3yvonkvb5"]
+
+[ext_resource type="FontFile" uid="uid://y06ktkg88vy4" path="res://Fonts/sci-bi.ttf" id="1_fextk"]
+[ext_resource type="Script" path="res://Scenes/Test/Label.gd" id="2_6fa2b"]
+[ext_resource type="Script" path="res://Scenes/Test/Label2.gd" id="3_a1okg"]
+[ext_resource type="Script" path="res://Scenes/Test/testbutton.gd" id="4_w2qv1"]
+[ext_resource type="Script" path="res://Scenes/Test/Button2.gd" id="5_0j4he"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wtgn"]
+font = ExtResource("1_fextk")
+
+[node name="Control" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "aaa"
+label_settings = SubResource("LabelSettings_5wtgn")
+script = ExtResource("2_6fa2b")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "aaa"
+label_settings = SubResource("LabelSettings_5wtgn")
+script = ExtResource("3_a1okg")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "GetDay()"
+script = ExtResource("4_w2qv1")
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "addDay()"
+script = ExtResource("5_0j4he")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]

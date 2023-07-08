@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blu2ho5t3snyv"]
+
+[ext_resource type="FontFile" uid="uid://y06ktkg88vy4" path="res://Fonts/sci-bi.ttf" id="1_k1t8o"]
+
+[resource]
+default_font = ExtResource("1_k1t8o")
+default_font_size = 40
+ColorPicker/constants/margin = 0
+ItemList/constants/icon_margin = 0
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+OptionButton/constants/arrow_margin = 0
+TabContainer/constants/side_margin = 0
+Tree/constants/button_margin = 0
+Tree/constants/item_margin = 0
+Tree/constants/parent_hl_line_margin = 0
+Tree/constants/scrollbar_margin_bottom = 0
+Tree/constants/scrollbar_margin_left = 0
+Tree/constants/scrollbar_margin_right = 0
+Tree/constants/scrollbar_margin_top = 0
+Window/constants/resize_margin = 0

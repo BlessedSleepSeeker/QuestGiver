@@ -1,0 +1,38 @@
+{
+	"Wooden Sword": {
+		"Name": "Wooden Sword",
+		"FlavorText": "Baby's first sword !",
+		"SellValue": 10,
+		"RewardValue": 5,
+		"Stackable": false,
+		"Amount": 1,
+		"IconPath": "sword.png"
+	},
+	"Wooden Shield": {
+		"Name": "Wooden Shield",
+		"FlavorText": "Baby's first shield !",
+		"Stackable": false,
+		"SellValue": 10,
+		"RewardValue": 5,
+		"Amount": 1,
+		"IconPath": "shield.png"
+	},
+	"Apple": {
+		"Name": "Apple",
+		"FlavorText": "Mm apl",
+		"Stackable": true,
+		"SellValue": 1,
+		"RewardValue": 0.5,
+		"Amount": 1,
+		"IconPath": "apple.png"
+	},
+	"Diamond": {
+		"Name": "Diamond",
+		"FlavorText": "Shine bright",
+		"Stackable": false,
+		"SellValue": 200,
+		"RewardValue": 180,
+		"Amount": 1,
+		"IconPath": "diamond.png"
+	}
+}
