@@ -1,8 +1,9 @@
 extends Control
 
-@onready var sleepButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/MainButtonsLine/SleepButton"
-@onready var shopButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/MainButtonsLine/ShopButton"
-@onready var guildButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/MainButtonsLine/GuildButton"
+@onready var sleepButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton"
+@onready var shopButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton"
+@onready var guildButton := $"Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton"
+@onready var fader := $Fader
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,10 +13,19 @@ func _ready():
 
 
 func sleep():
-	print("sleep time")
+	fader.play("FadeOut")
+	await fader.animation_finished
+	fader.play_backwards("FadeOut")
+	await fader.animation_finished
 
 func goToShop():
-	print("shop time")
+	fader.play("FadeOut")
+	await fader.animation_finished
+	fader.play_backwards("FadeOut")
+	await fader.animation_finished
 
 func goToGuild():
-	print("guild time")
+	fader.play("FadeOut")
+	await fader.animation_finished
+	fader.play_backwards("FadeOut")
+	await fader.animation_finished

@@ -7,11 +7,14 @@ var slots := columns * rows
 
 @onready var inventory := get_node("/root/GameLogic/Player/Inventory")
 
+signal itemButtonPressed(itemName)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in slots:
 		var instance = itemButton.instantiate()
 		instance.setName("DefaultItem")
+		instance.itemButtonPressed.connect(_itemButtonPressed)
 		add_child(instance)
 	inventory.item_added.connect(_item_added)
 
@@ -24,3 +27,6 @@ func getItem(itemName: String) -> Node:
 		if (_i.ItemName == itemName):
 			return _i
 	return null
+
+func _itemButtonPressed(itemName):
+	itemButtonPressed.emit(itemName)

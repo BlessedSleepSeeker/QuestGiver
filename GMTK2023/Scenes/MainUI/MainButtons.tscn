@@ -19,22 +19,26 @@
 [ext_resource type="Texture2D" uid="uid://bop2i3aplnlhx" path="res://Sprites/UI/Movement/Sleep/hoverSleep.png" id="15_5qoji"]
 [ext_resource type="Texture2D" uid="uid://0c4nyp0g20gl" path="res://Sprites/UI/Movement/Sleep/disabledSleep.png" id="16_iufgu"]
 
-[node name="CenterContainer" type="CenterContainer"]
+[node name="Center" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_dw87v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme = ExtResource("1_dw87v")
 
-[node name="MainButtonsLine" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MainButtonsLine" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GuildButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
+[node name="GuildButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MainButtonsLine"]
 layout_mode = 2
 texture_normal = ExtResource("2_5h53k")
 texture_pressed = ExtResource("3_hjiq0")
@@ -43,7 +47,7 @@ texture_disabled = ExtResource("5_5tpxb")
 texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_36wqx")
 
-[node name="ShopButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
+[node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MainButtonsLine"]
 layout_mode = 2
 texture_normal = ExtResource("8_xuvrc")
 texture_pressed = ExtResource("9_uft6g")
@@ -52,7 +56,7 @@ texture_disabled = ExtResource("11_gbiv6")
 texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("3_5r4tf")
 
-[node name="SleepButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
+[node name="SleepButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MainButtonsLine"]
 layout_mode = 2
 texture_normal = ExtResource("13_is118")
 texture_pressed = ExtResource("14_jfk3p")
@@ -61,9 +65,9 @@ texture_disabled = ExtResource("16_iufgu")
 texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_ntqcd")
 
-[node name="ConfirmationDialog" parent="MarginContainer/MainButtonsLine/SleepButton" instance=ExtResource("3_43dab")]
+[node name="ConfirmationDialog" parent="MarginContainer/VBoxContainer/MainButtonsLine/SleepButton" instance=ExtResource("3_43dab")]
 visible = false
 
-[connection signal="pressed" from="MarginContainer/MainButtonsLine/GuildButton" to="MarginContainer/MainButtonsLine/GuildButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/MainButtonsLine/ShopButton" to="MarginContainer/MainButtonsLine/ShopButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/MainButtonsLine/SleepButton" to="MarginContainer/MainButtonsLine/SleepButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButtonsLine/GuildButton" to="MarginContainer/VBoxContainer/MainButtonsLine/GuildButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButtonsLine/ShopButton" to="MarginContainer/VBoxContainer/MainButtonsLine/ShopButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainButtonsLine/SleepButton" to="MarginContainer/VBoxContainer/MainButtonsLine/SleepButton" method="_on_pressed"]

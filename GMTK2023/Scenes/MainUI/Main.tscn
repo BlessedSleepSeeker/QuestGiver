@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://db0skdg02pmrc"]
+[gd_scene load_steps=8 format=3 uid="uid://db0skdg02pmrc"]
 
 [ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_mn1id"]
 [ext_resource type="Script" path="res://Scenes/MainUI/Main.gd" id="2_4j3wm"]
 [ext_resource type="PackedScene" uid="uid://d3eil6wj7mchc" path="res://Scenes/MainUI/MainButtons.tscn" id="2_pp16e"]
 [ext_resource type="PackedScene" uid="uid://vx35umynft1h" path="res://Scenes/Player/InventoryUI.tscn" id="3_jry7a"]
+
+[sub_resource type="Animation" id="Animation_g6g37"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tvh7t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2j5a"]
+_data = {
+"FadeOut": SubResource("Animation_g6g37"),
+"RESET": SubResource("Animation_tvh7t")
+}
 
 [node name="MainGameUI" type="Control"]
 texture_filter = 1
@@ -49,3 +85,8 @@ alignment = 1
 
 [node name="Center" parent="Margin/VBoxContainer/MovementButtons" instance=ExtResource("2_pp16e")]
 layout_mode = 2
+
+[node name="Fader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c2j5a")
+}

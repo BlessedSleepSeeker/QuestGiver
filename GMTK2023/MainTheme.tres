@@ -4,7 +4,7 @@
 
 [resource]
 default_font = ExtResource("1_k1t8o")
-default_font_size = 40
+default_font_size = 20
 ColorPicker/constants/margin = 0
 ItemList/constants/icon_margin = 0
 MarginContainer/constants/margin_bottom = 10

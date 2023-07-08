@@ -8,13 +8,23 @@ const ITEMS_JSON_PATH = "res://Json/Items.json"
 
 var items := {}
 
+var selectedItem: Node
+
+enum STATE {Guild, Shop, Sleep}
+var state = STATE.Shop
+signal state_changed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	inventory.item_selected.connect(_item_selected)
+	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton").guild_transition.connect(_guild_transition)
+	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
+	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
 	parseObjectList()
-	addItemToPlayer("Diamond")
-	addItemToPlayer("Apple")
-	#print(inventory.getAllItemsName())
-	#print(getItemFromPlayer("Diamond"))
+	_shop_transition()
+
+func _process(_delta):
+	pass
 
 func parseObjectList() -> void:
 	var file = FileAccess.open(ITEMS_JSON_PATH, FileAccess.READ)
@@ -35,3 +45,18 @@ func addItemToPlayer(itemKey: String) -> void:
 
 func getItemFromPlayer(itemKey: String) -> Node:
 	return inventory.getItem(itemKey)
+
+func _item_selected(item: Node) -> void:
+	selectedItem = item
+
+func _guild_transition():
+	state = STATE.Guild
+	state_changed.emit()
+
+func _shop_transition():
+	state = STATE.Shop
+	state_changed.emit()
+
+func _sleep_transition():
+	state = STATE.Sleep
+	state_changed.emit()

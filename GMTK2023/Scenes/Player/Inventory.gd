@@ -7,13 +7,15 @@ signal item_added(itemName)
 signal item_sold(itemName)
 signal item_reward(itemName)
 
-
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
+@onready var inventoryUi = get_node("/root/GameLogic/MainGameUI/Margin/VBoxContainer/MainSpaceColumns/InventoryUI")
+
+signal item_selected(Item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#addItem("DefaultItem", 0, 0, "EasterEgg !", "DefaultItem")
-	pass
+	inventoryUi.itemButtonPressed.connect(_itemSelected)
 
 func addItemByParam(itemName: String, sellValue: int, rewardValue: int, flavorText: String, stackable: bool, icon: String):
 	var instance = defaultItemScene.instantiate()
@@ -44,3 +46,6 @@ func getItem(itemKey: String) -> Node:
 			#print("found %s!" % itemKey)
 			return _i
 	return null
+
+func _itemSelected(itemName):
+	item_selected.emit(getItem(itemName))
