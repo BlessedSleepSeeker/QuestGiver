@@ -13,8 +13,8 @@ func _ready():
 	parseObjectList()
 	addItemToPlayer("Diamond")
 	addItemToPlayer("Apple")
-	print(getItemFromPlayer("Diamond"))
-	print(inventory.getAllItemsName())
+	#print(inventory.getAllItemsName())
+	#print(getItemFromPlayer("Diamond"))
 
 func parseObjectList() -> void:
 	var file = FileAccess.open(ITEMS_JSON_PATH, FileAccess.READ)

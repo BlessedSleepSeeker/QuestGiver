@@ -3,10 +3,6 @@ class_name Inventory
 
 var gold: int = 0
 
-var cols := 3
-var rows := 6
-var slots := cols * rows
-
 signal item_added
 signal item_sold
 signal item_reward
@@ -44,6 +40,6 @@ func getAllItemsName() -> Array:
 func getItem(itemKey: String) -> Node:
 	for _i in self.get_children():
 		if (_i.Name == itemKey):
-			print("found %s!" % itemKey)
+			#print("found %s!" % itemKey)
 			return _i
 	return null

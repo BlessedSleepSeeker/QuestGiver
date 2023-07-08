@@ -1,13 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3eil6wj7mchc"]
+[gd_scene load_steps=19 format=3 uid="uid://d3eil6wj7mchc"]
 
 [ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_dw87v"]
+[ext_resource type="Texture2D" uid="uid://bshqpjsgrgs20" path="res://Sprites/UI/Movement/Guild/normalGuild.png" id="2_5h53k"]
 [ext_resource type="Script" path="res://Scenes/MainUI/GuildButton.gd" id="2_36wqx"]
 [ext_resource type="Script" path="res://Scenes/MainUI/SleepButton.gd" id="2_ntqcd"]
-[ext_resource type="Texture2D" uid="uid://bfemm3wbmw5gx" path="res://Sprites/UI/Movement/GuildButton.png" id="2_yvumh"]
 [ext_resource type="Script" path="res://Scenes/MainUI/ShopButton.gd" id="3_5r4tf"]
 [ext_resource type="PackedScene" uid="uid://cj7kjfem82ngp" path="res://Scenes/MainUI/SleepPopup.tscn" id="3_43dab"]
-[ext_resource type="Texture2D" uid="uid://quhdo85bqpne" path="res://Sprites/UI/Movement/Shop.png" id="4_37ceq"]
-[ext_resource type="Texture2D" uid="uid://dlyay58xkrluy" path="res://Sprites/UI/Movement/SleepButton.png" id="6_ushuy"]
+[ext_resource type="Texture2D" uid="uid://cmisap45rbfkv" path="res://Sprites/UI/Movement/Guild/pressedGuild.png" id="3_hjiq0"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/Items/DefaultSizeClickMask.png" id="3_hpof4"]
+[ext_resource type="Texture2D" uid="uid://4c0akyucphp0" path="res://Sprites/UI/Movement/Guild/hoverGuild.png" id="4_f8a6i"]
+[ext_resource type="Texture2D" uid="uid://botniophj6ac8" path="res://Sprites/UI/Movement/Guild/disabledGuild.png" id="5_5tpxb"]
+[ext_resource type="Texture2D" uid="uid://cuikiik07kryj" path="res://Sprites/UI/Movement/Shop/normalShop.png" id="8_xuvrc"]
+[ext_resource type="Texture2D" uid="uid://85cv73r3jxpu" path="res://Sprites/UI/Movement/Shop/pressedShop.png" id="9_uft6g"]
+[ext_resource type="Texture2D" uid="uid://tmynmqdv0fvb" path="res://Sprites/UI/Movement/Shop/hoverShop.png" id="10_uwb2y"]
+[ext_resource type="Texture2D" uid="uid://cijpk7hk7tuhp" path="res://Sprites/UI/Movement/Shop/disabledShop.png" id="11_gbiv6"]
+[ext_resource type="Texture2D" uid="uid://dpc3mj8ajvpop" path="res://Sprites/UI/Movement/Sleep/normalSleep.png" id="13_is118"]
+[ext_resource type="Texture2D" uid="uid://sjqvvn28eoy8" path="res://Sprites/UI/Movement/Sleep/pressedSleep.png" id="14_jfk3p"]
+[ext_resource type="Texture2D" uid="uid://bop2i3aplnlhx" path="res://Sprites/UI/Movement/Sleep/hoverSleep.png" id="15_5qoji"]
+[ext_resource type="Texture2D" uid="uid://0c4nyp0g20gl" path="res://Sprites/UI/Movement/Sleep/disabledSleep.png" id="16_iufgu"]
 
 [node name="CenterContainer" type="CenterContainer"]
 anchors_preset = 15
@@ -24,22 +34,31 @@ theme = ExtResource("1_dw87v")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GuildButton" type="Button" parent="MarginContainer/MainButtonsLine"]
+[node name="GuildButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
 layout_mode = 2
-icon = ExtResource("2_yvumh")
-flat = true
+texture_normal = ExtResource("2_5h53k")
+texture_pressed = ExtResource("3_hjiq0")
+texture_hover = ExtResource("4_f8a6i")
+texture_disabled = ExtResource("5_5tpxb")
+texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_36wqx")
 
-[node name="ShopButton" type="Button" parent="MarginContainer/MainButtonsLine"]
+[node name="ShopButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
 layout_mode = 2
-icon = ExtResource("4_37ceq")
-flat = true
+texture_normal = ExtResource("8_xuvrc")
+texture_pressed = ExtResource("9_uft6g")
+texture_hover = ExtResource("10_uwb2y")
+texture_disabled = ExtResource("11_gbiv6")
+texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("3_5r4tf")
 
-[node name="SleepButton" type="Button" parent="MarginContainer/MainButtonsLine"]
+[node name="SleepButton" type="TextureButton" parent="MarginContainer/MainButtonsLine"]
 layout_mode = 2
-icon = ExtResource("6_ushuy")
-flat = true
+texture_normal = ExtResource("13_is118")
+texture_pressed = ExtResource("14_jfk3p")
+texture_hover = ExtResource("15_5qoji")
+texture_disabled = ExtResource("16_iufgu")
+texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_ntqcd")
 
 [node name="ConfirmationDialog" parent="MarginContainer/MainButtonsLine/SleepButton" instance=ExtResource("3_43dab")]

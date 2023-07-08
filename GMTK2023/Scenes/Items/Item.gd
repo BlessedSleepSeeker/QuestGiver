@@ -12,7 +12,8 @@ class_name Item
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	printSelf()
+	pass
+	#printSelf()
 
 func ItemByParam(itemName: String, sellValue: int, rewardValue: int, flavorText: String, stackable: bool, amount: int, icon: String) -> void:
 	Name = itemName
