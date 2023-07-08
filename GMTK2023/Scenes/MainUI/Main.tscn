@@ -72,10 +72,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_mn1id")
 
-[node name="Column2" type="VBoxContainer" parent="Margin/VBoxContainer/MainSpaceColumns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="InventoryUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("3_jry7a")]
 layout_mode = 2
 

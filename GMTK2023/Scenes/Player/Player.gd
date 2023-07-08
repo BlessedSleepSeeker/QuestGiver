@@ -14,3 +14,6 @@ func _ready():
 
 func addGold(nbr: int):
 	inventory.addGold(nbr)
+
+func removeGold(nbr: int):
+	inventory.removeGold(nbr)

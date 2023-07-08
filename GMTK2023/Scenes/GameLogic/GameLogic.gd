@@ -12,14 +12,13 @@ var characters := {}
 const CHAR_JSON_PATH = "res://Json/Characters.json"
 
 var selectedItem: Node
+signal sold_item(itemName: String)
 
 enum STATE {Guild, Shop, Sleep}
 var state = STATE.Shop
-signal state_changed
+signal state_changed(state)
 
-@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-const STARTER_GOLD_MIN = 20
-const STARTER_GOLD_MAX = 40
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,22 +26,18 @@ func _ready():
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton").guild_transition.connect(_guild_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
-	generateSeed()
 	parseItemList()
 	parseCharacterList()
 	generateStarterGold()
 	generateStarterItem()
 	_shop_transition()
 
-func generateSeed() -> void:
-	rng.randomize()
-
 func generateStarterGold() -> void:
-	player.addGold(rng.randi_range(STARTER_GOLD_MIN, STARTER_GOLD_MAX))
+	player.addGold(RngHandler.generateStarterGold())
 
 func generateStarterItem() -> void:
 	for item in items:
-		if rng.randi_range(0, 100) > getItemByKey(item)["SellValue"]:
+		if RngHandler.gen.randi_range(0, 100) > getItemByKey(item)["SellValue"]:
 			addItemToPlayer(item)
 
 func parseCharacterList() -> void:
@@ -72,21 +67,28 @@ func getItemByKey(key: String):
 func addItemToPlayer(itemKey: String) -> void:
 	inventory.addItemByDict(getItemByKey(itemKey))
 
-func getItemFromPlayer(itemKey: String) -> Node:
+func getItemFromPlayer(itemKey: String) -> Item:
 	return inventory.getItem(itemKey)
 
-func _item_selected(item: Node) -> void:
+func _item_selected(item: Item) -> void:
 	selectedItem = item
+	if state == STATE.Shop:
+		sellItem(item)
+
+func sellItem(item: Item):
+	sold_item.emit(item.Name)
+	player.addGold(item.SellValue)
+	item.queue_free()
 
 func _guild_transition() -> void:
 	state = STATE.Guild
-	state_changed.emit()
+	state_changed.emit(state)
 
 func _shop_transition() -> void:
 	state = STATE.Shop
-	state_changed.emit()
+	state_changed.emit(state)
 
 func _sleep_transition() -> void:
 	state = STATE.Sleep
-	state_changed.emit()
+	state_changed.emit(state)
 	Calendar.addDay()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hho5td7cvej2"]
+
+[ext_resource type="Script" path="res://Scenes/Quests/UI/QuestUI.gd" id="1_laitl"]
+
+[node name="QuestUI" type="CenterContainer"]
+script = ExtResource("1_laitl")

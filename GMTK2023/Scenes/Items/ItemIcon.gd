@@ -1,4 +1,5 @@
 extends TextureButton
+class_name ItemIcon
 
 @export var DefaultItemName: String = "DefaultItem"
 @export var ItemName: String = "DefaultItem"
@@ -30,7 +31,8 @@ func _ready():
 func setName(_itemName: String):
 	ItemName = _itemName
 	buildPaths()
-	loadTextures()
+	loadBaseTextures()
+	loadIconTexture()
 
 func buildPaths():
 	NormalIconPath = MainIconsPath % [DefaultItemName, NORMAL_ICON_FILENAME, DefaultItemName]
@@ -41,15 +43,24 @@ func buildPaths():
 	IconPath = (MainIconsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
 	ClickMaskPath = CLICK_MASK_PATH
 
-func loadTextures():
+func reset():
+	ItemName = DefaultItemName
+	buildPaths()
+	resetTexture()
+
+func resetTexture():
+	icon.set_texture(null)
+
+func loadIconTexture():
+	if ResourceLoader.exists(IconPath):
+		icon.set_texture(load(IconPath))
+
+func loadBaseTextures():
 	texture_normal = load(NormalIconPath)
 	texture_pressed = load(PressedIconPath)
 	texture_hover = load(HoverIconPath)
 	texture_disabled = load(DisabledIconPath)
-	#texture_focused = load(FocusedIconPath)
 	texture_click_mask = load(ClickMaskPath)
-	if ResourceLoader.exists(IconPath):
-		icon.texture = load(IconPath)
 
 func _on_pressed():
 	itemButtonPressed.emit(ItemName)

@@ -27,7 +27,6 @@ func progressSeason() -> void:
 		current_season = 1
 		new_year.emit(year)
 	new_season.emit(current_season)
-	
 
 func addDay() -> void:
 	current_day += 1

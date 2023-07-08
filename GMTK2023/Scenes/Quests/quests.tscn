@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://d4jgcw3kvafqo"]
+[gd_scene load_steps=2 format=3 uid="uid://d4jgcw3kvafqo"]
+
+[ext_resource type="Script" path="res://Scenes/Quests/quests.gd" id="1_75iir"]
 
 [node name="Quests" type="Node"]
+script = ExtResource("1_75iir")

@@ -7,7 +7,10 @@ extends CanvasLayer
 func _ready():
 	GameLogic.state_changed.connect(_state_changed)
 
-func _state_changed():
-	animPlayer.play("Transition")
-	await animPlayer.animation_finished
-	animPlayer.play("Transition")
+func _state_changed(state):
+	if state == 0 or state == 1:
+		animPlayer.play("Transition")
+		await animPlayer.animation_finished
+		animPlayer.play("Transition")
+	if state == 2:
+		animPlayer.play("Transition")

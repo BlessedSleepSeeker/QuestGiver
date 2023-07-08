@@ -17,7 +17,6 @@ signal item_selected(Item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#addItem("DefaultItem", 0, 0, "EasterEgg !", "DefaultItem")
 	inventoryUi.itemButtonPressed.connect(_itemSelected)
 
 func addGold(nbr: int):
@@ -51,7 +50,7 @@ func getAllItemsName() -> Array:
 		items.append(_i.name)
 	return items
 
-func getItem(itemKey: String) -> Node:
+func getItem(itemKey: String) -> Item:
 	for _i in self.get_children():
 		if (_i.Name == itemKey):
 			#print("found %s!" % itemKey)
@@ -59,4 +58,5 @@ func getItem(itemKey: String) -> Node:
 	return null
 
 func _itemSelected(itemName):
-	item_selected.emit(getItem(itemName))
+	if itemName != "DefaultItem":
+		item_selected.emit(getItem(itemName))
