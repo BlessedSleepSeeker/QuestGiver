@@ -5,6 +5,7 @@ class_name GameLogic
 @onready var inventory: Inventory = $Player/Inventory
 @onready var quests: Quests = $Quests
 @onready var characters: Characters = $Characters
+@onready var adventurers: Adventurers = $Adventurers
 @onready var items: Items = $Items
 @onready var mainUi := $MainGameUI
 
@@ -90,7 +91,6 @@ func sellItem(item: Item):
 	item.queue_free()
 
 func _guild_transition() -> void:
-	#quests.printQuestsId()
 	state = STATE.Guild
 	state_changed.emit(state)
 
@@ -102,6 +102,7 @@ func _sleep_transition() -> void:
 	state = STATE.Sleep
 	state_changed.emit(state)
 	Calendar.addDay()
+	simulate()
 
 func getQuestTypes() -> Dictionary:
 	return questTypes
@@ -114,3 +115,10 @@ func getAllItems() -> Dictionary:
 
 func getPlayerItems() -> Dictionary:
 	return player.getItemsAsDict()
+
+func getQuests() -> Array:
+	return quests.get_children()
+
+func simulate():
+	adventurers.everyoneProgressQuest()
+	adventurers.everyoneLookForQuest()

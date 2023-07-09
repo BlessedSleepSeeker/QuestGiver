@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddkclie0wat08"]
+[gd_scene load_steps=9 format=3 uid="uid://ddkclie0wat08"]
 
 [ext_resource type="Script" path="res://Scenes/GameLogic/GameLogic.gd" id="1_l48e2"]
 [ext_resource type="PackedScene" uid="uid://db0skdg02pmrc" path="res://Scenes/MainUI/Main.tscn" id="2_r76nb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dk8x44wa3nod1" path="res://Scenes/RoomTransition/room_transition.tscn" id="4_keeol"]
 [ext_resource type="PackedScene" uid="uid://davxkhlsulssi" path="res://Scenes/Items/Items.tscn" id="5_5khrv"]
 [ext_resource type="PackedScene" uid="uid://d4jgcw3kvafqo" path="res://Scenes/Quests/quests.tscn" id="5_ilxr0"]
+[ext_resource type="PackedScene" uid="uid://dy8sla8dgaa8x" path="res://Scenes/AdventurersGuild/Adventurers.tscn" id="6_urw3f"]
 
 [node name="GameLogic" type="Node"]
 script = ExtResource("1_l48e2")
@@ -18,6 +19,8 @@ script = ExtResource("1_l48e2")
 [node name="Characters" parent="." instance=ExtResource("4_k1cs1")]
 
 [node name="Items" parent="." instance=ExtResource("5_5khrv")]
+
+[node name="Adventurers" parent="." instance=ExtResource("6_urw3f")]
 
 [node name="MainGameUI" parent="." instance=ExtResource("2_r76nb")]
 

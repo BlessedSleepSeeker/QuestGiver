@@ -82,14 +82,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_mn1id")
-alignment = 1
+alignment = 2
 
 [node name="InventoryUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("3_jry7a")]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="QuestUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("5_f7ybb")]
-position = Vector2i(0, 36)
 
 [node name="QuestsList" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("5_w5s21")]
 layout_mode = 2

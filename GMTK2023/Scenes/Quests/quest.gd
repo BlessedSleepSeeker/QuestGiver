@@ -24,6 +24,9 @@ func _ready():
 func setId(_id: int):
 	id = _id
 
+func setName(_name: String) -> void:
+	questName = _name
+
 func addObjective():
 	if canHaveMoreObjective():
 		var instance = defaultObjectiveScene.instantiate()
@@ -50,8 +53,13 @@ func getAllObjectives() -> Array:
 	arr.sort_custom(sortById)
 	return arr
 
+func tryNextObjective(heroSkill: int) -> void:
+	var nxt = findNextObjective()
+	nxt.tryObjective(heroSkill)
+
 func findNextObjective() -> Objective:
 	for _i in self.get_children():
+		print(_i)
 		if _i.completed != true:
 			return _i
 	return null
@@ -66,7 +74,7 @@ func canHaveMoreObjective() -> bool:
 func _objective_finished(_id: int) -> void:
 	if isFinished():
 		finished.emit(self)
-	
+
 func _objective_failed(_id: int) -> void:
 	taken = false
 	resetProgress()
@@ -86,6 +94,10 @@ func calcDifficulty() -> void:
 	for _i in self.get_children():
 		diff += _i.calcDifficulty()
 	difficulty = diff
+
+func getDifficulty() -> int:
+	calcDifficulty()
+	return difficulty
 
 func isFinished() -> bool:
 	for _i in self.get_children():

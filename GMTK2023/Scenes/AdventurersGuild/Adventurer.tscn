@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpcdaqp2ppeha"]
+
+[ext_resource type="Script" path="res://Scenes/AdventurersGuild/Adventurer.gd" id="1_alrb6"]
+
+[node name="Adventurer" type="Node"]
+script = ExtResource("1_alrb6")

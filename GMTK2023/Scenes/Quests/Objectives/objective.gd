@@ -51,7 +51,13 @@ func setReward(_reward: Item):
 	updated.emit()
 
 func calcDifficulty():
-	return (wantedItem.getDifficulty() + character.getDifficulty())
+	var a = 0
+	var b = 0
+	if wantedItem:
+		a = wantedItem.getDifficulty()
+	if character:
+		b = character.getDifficulty()
+	return (a + b)
 
 func tryObjective(heroSkill: int) -> bool:
 	if RngHandler.gen.randi_range(1, 100) + heroSkill > calcDifficulty():

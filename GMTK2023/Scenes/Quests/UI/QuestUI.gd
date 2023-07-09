@@ -8,6 +8,7 @@ class_name QuestUI
 @onready var expirationDateLabel = $Margin/QuestUIColumn/ExpirationDate
 @onready var difficultyRatingLabel = $Margin/QuestUIColumn/DifficultyRating
 @onready var nameLabel = $Margin/QuestUIColumn/QuestName
+@onready var mainLogic = get_node("/root/GameLogic")
 
 @export var objectiveDefaultScene = preload("res://Scenes/Quests/UI/ObjectiveUI.tscn")
 
@@ -18,8 +19,10 @@ signal modified(quest: Quest)
 
 func _ready():
 	hide()
+	mainLogic.state_changed.connect(_state_changed)
 	questsList.open_quest_tab.connect(_open)
 	objectiveAddButton.pressed.connect(_add_objective)
+	nameLabel.text_changed.connect(_quest_name_updated)
 
 func _open(_quest: Quest):
 	setQuest(_quest)
@@ -41,6 +44,7 @@ func generate() -> void:
 
 func generateName():
 	title = quest.questName
+	nameLabel.text = quest.questName
 
 func generateObjectives():
 	flushObjectives()
@@ -71,3 +75,12 @@ func flushObjectives() -> void:
 
 func _on_close_requested():
 	hide()
+
+func _quest_name_updated(questName: String):
+	quest.setName(questName)
+	title = quest.questName
+
+func _state_changed(_state: int):
+	match _state:
+		0: hide()
+		1: hide()

@@ -11,6 +11,8 @@ func _ready():
 func generateSeed() -> void:
 	gen.randomize()
 
+func r(a: int, b: int) -> int:
+	return gen.randi_range(a, b)
 
 func generateStarterGold() -> int:
 	return gen.randi_range(STARTER_GOLD_MIN, STARTER_GOLD_MAX)
