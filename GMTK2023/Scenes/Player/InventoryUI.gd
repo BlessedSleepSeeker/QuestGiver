@@ -1,6 +1,6 @@
 extends GridContainer
 
-var rows := 10
+var rows := 5
 var slots := columns * rows
 
 @export var itemButton := preload("res://Scenes/Items/ItemIcon.tscn")
@@ -38,10 +38,9 @@ func getItem(itemName: String) -> ItemIcon:
 func _itemButtonPressed(itemName):
 	itemButtonPressed.emit(itemName)
 
-func _state_changed(state: int):
-	if state == 0:
-		await get_tree().create_timer(1).timeout
+func _state_changed(_state: int):
+	await get_tree().create_timer(1).timeout
+	if _state != 1:
 		hide()
-	if state == 1:
-		await get_tree().create_timer(1).timeout
+	else:
 		show()

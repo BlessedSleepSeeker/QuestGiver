@@ -28,9 +28,8 @@ func printSelf():
 func lookForQuest(_quest: Quest) -> void:
 	if quest:
 		return
-	if quest.taken:
+	if _quest.taken or _quest.getDifficulty() == 0 or _quest.getValue() == 0:
 		return
-	print("iam %s looking at %s" % [alias, _quest.questName])
 	if _quest.getDifficulty() > skill * 1.5:
 		return
 	if RngHandler.r(0, skill * 4) > _quest.getDifficulty():
@@ -44,3 +43,6 @@ func progressQuest() -> void:
 	if !quest:
 		return
 	quest.tryNextObjective(skill)
+
+func getStatus() -> bool:
+	return true if quest else false

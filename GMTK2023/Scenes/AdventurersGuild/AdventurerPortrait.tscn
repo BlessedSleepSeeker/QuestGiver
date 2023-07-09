@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2pt2suethxob"]
+
+[ext_resource type="Script" path="res://Scenes/AdventurersGuild/AdventurerPortrait.gd" id="1_ysr8u"]
+
+[node name="AdventurerPortrait" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+script = ExtResource("1_ysr8u")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 2

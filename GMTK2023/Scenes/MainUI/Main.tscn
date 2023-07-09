@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://db0skdg02pmrc"]
+[gd_scene load_steps=12 format=3 uid="uid://db0skdg02pmrc"]
 
 [ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_mn1id"]
 [ext_resource type="Script" path="res://Scenes/MainUI/Main.gd" id="2_4j3wm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vx35umynft1h" path="res://Scenes/Player/InventoryUI.tscn" id="3_jry7a"]
 [ext_resource type="PackedScene" uid="uid://hho5td7cvej2" path="res://Scenes/Quests/UI/QuestUI.tscn" id="5_f7ybb"]
 [ext_resource type="PackedScene" uid="uid://bf4an2wlenaek" path="res://Scenes/Quests/UI/QuestList.tscn" id="5_w5s21"]
+[ext_resource type="PackedScene" uid="uid://bpdqofw7vj2ba" path="res://Scenes/AdventurersGuild/TavernUI.tscn" id="7_lempw"]
 
 [sub_resource type="Animation" id="Animation_g6g37"]
 resource_name = "FadeOut"
@@ -80,9 +81,10 @@ layout_mode = 2
 
 [node name="MainSpaceColumns" type="HBoxContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 theme = ExtResource("1_mn1id")
-alignment = 2
+alignment = 1
 
 [node name="InventoryUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("3_jry7a")]
 layout_mode = 2
@@ -93,6 +95,9 @@ size_flags_horizontal = 3
 [node name="QuestsList" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("5_w5s21")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="TavernUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("7_lempw")]
+layout_mode = 2
 
 [node name="MovementButtons" type="HBoxContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2

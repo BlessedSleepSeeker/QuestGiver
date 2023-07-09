@@ -29,7 +29,7 @@ func connectToObjective():
 		objective.updated.connect(_objective_updated)
 
 func connectToButton(btn: ObjectiveSelectButton):
-	btn.open_window.connect(_open_window)
+	btn.open_window.connect(_open_window, true)
 	btn.objective_selected.connect(_objective_selected)
 	btn.loadType()
 
@@ -48,6 +48,12 @@ func generate() -> void:
 		if objective.reward:
 			buttonReward.updateIcon(buttonReward.buttonType, objective.reward.Name)
 
+func setInteraction(_interactible: bool):
+	_interactible = !_interactible
+	buttonType.disabled = _interactible
+	buttonCharacter.disabled = _interactible
+	buttonWantedItem.disabled = _interactible
+	buttonReward.disabled = _interactible
 
 func generateIcon() -> void:
 	var _status = objective.getStatus()
@@ -61,13 +67,18 @@ func generateIcon() -> void:
 		textureCheckIcon.texture = okIcon
 
 #don't question it
-func _open_window():
-	buttonType.closeWindow()
-	buttonCharacter.closeWindow()
-	buttonWantedItem.closeWindow()
-	buttonReward.closeWindow()
+func _open_window(_type):
+	if _type != buttonType.buttonType:
+		buttonType.closeWindow()
+	if _type != buttonCharacter.buttonType:
+		buttonCharacter.closeWindow()
+	if _type != buttonWantedItem.buttonType:
+		buttonWantedItem.closeWindow()
+	if _type != buttonReward.buttonType:
+		buttonReward.closeWindow()
 
 func _objective_selected(_type: String, objName: String):
+	print("AYO")
 	if _type == "QUEST_TYPE":
 		objective.setType(objName)
 	elif _type == "CHAR":

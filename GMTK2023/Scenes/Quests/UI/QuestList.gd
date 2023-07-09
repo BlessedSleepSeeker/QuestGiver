@@ -7,7 +7,7 @@ class_name QuestList
 @onready var addQuestButton := $AddQuestButton
 @onready var mainLogic = get_node("/root/GameLogic")
 
-signal open_quest_tab(questId: int)
+signal open_quest_tab(quest: Quest, _interactible: bool)
 signal updated_quest(quest: Quest)
 
 # Called when the node enters the scene tree for the first time.
@@ -29,13 +29,14 @@ func _addQuest():
 
 func _open_quest_tab(quest: Quest):
 	if quest != null:
-		open_quest_tab.emit(quest)
+		open_quest_tab.emit(quest, true)
 
 func _updated_quest(quest: Quest):
 	updated_quest.emit(quest)
 
 func _state_changed(_state: int):
 	await get_tree().create_timer(1).timeout
-	match _state:
-		0: show()
-		1: hide()
+	if _state != 0:
+		hide()
+	else:
+		show()

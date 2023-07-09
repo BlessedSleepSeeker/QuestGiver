@@ -43,6 +43,7 @@ layout_mode = 2
 
 [node name="addObjectiveButton" type="TextureButton" parent="Margin/QuestUIColumn/ObjectivesContainer"]
 layout_mode = 2
+tooltip_text = "Add objective"
 texture_normal = ExtResource("2_37vmd")
 texture_pressed = ExtResource("3_we6fi")
 texture_hover = ExtResource("4_igchn")
@@ -64,11 +65,15 @@ size_flags_vertical = 3
 
 [node name="ExpirationDate" type="Label" parent="Margin/QuestUIColumn"]
 layout_mode = 2
+tooltip_text = "Gold you will lose"
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_nempm")
 text = "a"
 
 [node name="DifficultyRating" type="Label" parent="Margin/QuestUIColumn"]
 layout_mode = 2
+tooltip_text = "Difficulty"
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_nempm")
 text = "a"
 

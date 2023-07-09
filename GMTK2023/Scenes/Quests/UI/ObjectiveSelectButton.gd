@@ -6,7 +6,7 @@ class_name ObjectiveSelectButton
 @onready var texture = $Texture
 @onready var pickWindow: SelectObjectiveWindow = $SelectObjectiveWindow
 
-signal open_window
+signal open_window(type: String)
 signal objective_selected(type: String, obj: String)
 
 const QuestTypePath: String = "res://Sprites/UI/Quest/Objective/%s.png"
@@ -62,7 +62,7 @@ func buildPath(ItemName: String):
 
 func _on_pressed():
 	loadType()
-	open_window.emit()
+	open_window.emit(buttonType)
 	pickWindow.show()
 
 func closeWindow():

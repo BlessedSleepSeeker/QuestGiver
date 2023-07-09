@@ -1,38 +1,47 @@
 {
     "Wolfs": {
         "Name": "3 Wolf",
+        "FlavorText": "It's 3 wolfs",
         "Difficulty": 5
     },
     "RivalMerchant": {
         "Name": "Aganir, my merchant rival",
+        "FlavorText": "Note to self : \"I hate this guy\"",
         "Difficulty": 8
     },
     "StarterDungeon": {
         "Name": "The Evil Tower of Rinaga",
+        "FlavorText": "Every adventurer's first dungeon",
         "Difficulty": 12
     },
     "Troll": {
         "Name": "The Troll of Dimaks",
+        "FlavorText": "A legendary troll",
         "Difficulty": 20
     },
     "WanderingWarrior": {
         "Name": "The Blade of Asmax",
+        "FlavorText": "The guy got skill",
         "Difficulty": 25
     },
     "Caravane": {
         "Name": "Raphael's Caravan",
+        "FlavorText": "Raphael's Caravan",
         "Difficulty": 3
     },
     "BillionSlime": {
         "Name": "A billion slimes",
+        "FlavorText": "It's 3 wolfs",
         "Difficulty": 1000
     },
     "Dragon": {
         "Name": "A Big White Dragon",
+        "FlavorText": "It's 3 wolfs",
         "Difficulty": 80
     },
     "Dragon2": {
         "Name": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
+        "FlavorText": "It's 3 wolfs",
         "Difficulty": 10
     }
 }

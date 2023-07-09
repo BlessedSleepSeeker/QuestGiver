@@ -20,7 +20,7 @@ const QUEST_TYPE_JSON_PATH = "res://Json/QuestTypes.json"
 var selectedItem: Node
 signal sold_item(itemName: String)
 
-enum STATE {Guild, Shop, Sleep}
+enum STATE {Guild, Shop, Tavern, Sleep}
 var state = STATE.Shop
 signal state_changed(state)
 
@@ -29,6 +29,7 @@ func _ready():
 	inventory.item_selected.connect(_item_selected)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton").guild_transition.connect(_guild_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
+	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/TavernButton").tavern_transition.connect(_tavern_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
 	parseItemList()
 	parseCharacterList()
@@ -96,6 +97,10 @@ func _guild_transition() -> void:
 
 func _shop_transition() -> void:
 	state = STATE.Shop
+	state_changed.emit(state)
+
+func _tavern_transition() -> void:
+	state = STATE.Tavern
 	state_changed.emit(state)
 
 func _sleep_transition() -> void:

@@ -99,6 +99,12 @@ func getDifficulty() -> int:
 	calcDifficulty()
 	return difficulty
 
+func getValue() -> int:
+	var val = 0
+	for _i in self.get_children():
+		val += _i.getValue()
+	return val
+
 func isFinished() -> bool:
 	for _i in self.get_children():
 		if _i.completed != true:

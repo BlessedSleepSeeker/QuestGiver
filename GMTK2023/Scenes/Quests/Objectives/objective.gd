@@ -50,6 +50,11 @@ func setReward(_reward: Item):
 	reward = _reward
 	updated.emit()
 
+func getValue() -> int:
+	if reward:
+		return reward.getValue()
+	return 0
+
 func calcDifficulty():
 	var a = 0
 	var b = 0

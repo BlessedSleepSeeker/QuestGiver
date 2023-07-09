@@ -19,6 +19,7 @@ script = ExtResource("1_64qnj")
 
 [node name="AddQuestButton" type="TextureButton" parent="."]
 layout_mode = 2
+tooltip_text = "Submit a quest !"
 texture_normal = ExtResource("2_8wgqs")
 texture_pressed = ExtResource("3_nnbu2")
 texture_hover = ExtResource("4_lj7lf")

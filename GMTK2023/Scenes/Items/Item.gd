@@ -33,6 +33,9 @@ func ItemByDict(ItemDict: Dictionary) -> void:
 func getDifficulty():
 	return SellValue
 
+func getValue():
+	return RewardValue
+
 func printSelf():
 	print(Name)
 	print(str(SellValue))

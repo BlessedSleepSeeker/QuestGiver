@@ -17,9 +17,10 @@ const ICON_FILENAME := "icon"
 func _ready():
 	pass
 
-func new(_type: String, _itemName: String):
+func new(_type: String, _itemName: String, _flavorText: String):
 	ItemName = _itemName
 	setType(_type)
+	tooltip_text = _flavorText
 	buildPath()
 	loadIconTexture()
 
@@ -32,6 +33,7 @@ func buildPath():
 			IconPath = (QuestTypePath % ItemName.to_camel_case())
 		"CHAR":
 			IconPath = (CharacterPath % ItemName.to_camel_case())
+			print(IconPath)
 		"ITEMS", "PLAYER_ITEMS":
 			IconPath = (ItemsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
 

@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+tooltip_text = "Your gold !"
 theme = ExtResource("1_bgnh1")
 script = ExtResource("2_p5537")
 

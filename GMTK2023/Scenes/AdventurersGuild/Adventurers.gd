@@ -29,7 +29,7 @@ func _ready():
 func generateHeros() -> void:
 	while getHerosNbr() < maxHeros:
 		generateHero()
-	printAllHeros()
+	#printAllHeros()
 
 func getHerosNbr() -> int:
 	var i := 0

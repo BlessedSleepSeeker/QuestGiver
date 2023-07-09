@@ -14,6 +14,7 @@ signal objective_selected( type: String, itemName: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("window ready")
 	hide()
 
 func setWindowType(_type: String):
@@ -33,7 +34,10 @@ func generate() -> void:
 		var instance = objectiveButton.instantiate()
 		instance.itemButtonPressed.connect(_objective_selected)
 		grid.add_child(instance)
-		instance.new(windowType, options[_i].Name)
+		if windowType != "QUEST_TYPE":
+			instance.new(windowType, options[_i].Name, options[_i].Name)
+		else:
+			instance.new(windowType, options[_i].Name, options[_i].Name)
 
 func setOption(dict: Dictionary) -> void:
 	options = dict
