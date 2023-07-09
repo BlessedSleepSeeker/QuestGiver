@@ -1,38 +1,38 @@
 {
     "Wolfs": {
-        "characterName": "3 Wolf",
-        "difficulty": 5
+        "Name": "3 Wolf",
+        "Difficulty": 5
     },
     "RivalMerchant": {
-        "characterName": "Aganir, my merchant rival",
-        "difficulty": 8
+        "Name": "Aganir, my merchant rival",
+        "Difficulty": 8
     },
     "StarterDungeon": {
-        "characterName": "The Evil Tower of Rinaga",
-        "difficulty": 12
+        "Name": "The Evil Tower of Rinaga",
+        "Difficulty": 12
     },
     "Troll": {
-        "characterName": "The Troll of Dimaks",
-        "difficulty": 20
+        "Name": "The Troll of Dimaks",
+        "Difficulty": 20
     },
     "WanderingWarrior": {
-        "characterName": "The Blade of Asmax",
-        "difficulty": 25
+        "Name": "The Blade of Asmax",
+        "Difficulty": 25
     },
     "Caravane": {
-        "characterName": "Raphael's Caravan",
-        "difficulty": 3
+        "Name": "Raphael's Caravan",
+        "Difficulty": 3
     },
     "BillionSlime": {
-        "characterName": "A billion slimes",
-        "difficulty": 1000
+        "Name": "A billion slimes",
+        "Difficulty": 1000
     },
     "Dragon": {
-        "characterName": "A Big White Dragon",
-        "difficulty": 80
+        "Name": "A Big White Dragon",
+        "Difficulty": 80
     },
     "Dragon2": {
-        "characterName": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
-        "difficulty": 10
+        "Name": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
+        "Difficulty": 10
     }
 }

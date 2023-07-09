@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djngorhpidajy"
-path="res://.godot/imported/Cancel.png-bf3728307909952a0bcc0d6ba1b3c52b.ctex"
+uid="uid://dio5jte5vgk30"
+path="res://.godot/imported/cancelcon.png-4c3cc5a9b27f5d880672576127df9551.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Movement/Cancel.png"
-dest_files=["res://.godot/imported/Cancel.png-bf3728307909952a0bcc0d6ba1b3c52b.ctex"]
+source_file="res://Sprites/UI/Movement/cancelcon.png"
+dest_files=["res://.godot/imported/cancelcon.png-4c3cc5a9b27f5d880672576127df9551.ctex"]
 
 [params]
 

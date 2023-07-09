@@ -1,16 +1,18 @@
-extends VBoxContainer
+extends Window
 class_name QuestUI
 
 @onready var quests = get_node("/root/GameLogic/Quests")
 @onready var questsList = get_parent().get_node("QuestsList")
-@onready var objectiveList = $ObjectivesContainer/Objectives
-@onready var objectiveAddButton = $ObjectivesContainer/addObjectiveButton
-@onready var expirationDateLabel = $ExpirationDate
-@onready var difficultyRatingLabel = $DifficultyRating
+@onready var objectiveList = $Margin/QuestUIColumn/ObjectivesContainer/Objectives
+@onready var objectiveAddButton = $Margin/QuestUIColumn/ObjectivesContainer/addObjectiveButton
+@onready var expirationDateLabel = $Margin/QuestUIColumn/ExpirationDate
+@onready var difficultyRatingLabel = $Margin/QuestUIColumn/DifficultyRating
+@onready var nameLabel = $Margin/QuestUIColumn/QuestName
 
 @export var objectiveDefaultScene = preload("res://Scenes/Quests/UI/ObjectiveUI.tscn")
 
 var quest: Quest = null
+var objectives: Array = []
 
 signal modified(quest: Quest)
 
@@ -30,7 +32,6 @@ func setQuest(_quest: Quest):
 		quest.objective_added.connect(_objective_added)
 
 func generate() -> void:
-	print("generating !")
 	if quest == null:
 		return
 	generateName()
@@ -39,15 +40,14 @@ func generate() -> void:
 	generateDifficultyRating()
 
 func generateName():
-	$QuestName.text = quest.questName
+	title = quest.questName
 
 func generateObjectives():
 	flushObjectives()
 	for objct in quest.getAllObjectives():
 		var instance = objectiveDefaultScene.instantiate()
-		instance.objective = objct
 		objectiveList.add_child(instance)
-		instance.generate()
+		instance.setObjective(objct)
 		instance.modified.connect(_objective_modified)
 
 func generateExpirationDate():
@@ -68,3 +68,6 @@ func _objective_modified(_obj: Objective):
 func flushObjectives() -> void:
 	for _i in objectiveList.get_children():
 		_i.queue_free()
+
+func _on_close_requested():
+	hide()

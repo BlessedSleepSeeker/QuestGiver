@@ -4,8 +4,7 @@ class_name Character
 @export var characterName: String = "DefaultCharacter"
 @export var difficulty: int = 0
 
-
-func New(_charName: String, _difficulty: int):
+func new(_charName: String, _difficulty: int):
 	setName(_charName)
 	setDifficulty(_difficulty)
 

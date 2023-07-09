@@ -53,10 +53,25 @@ func getAllItemsName() -> Array:
 func getItem(itemKey: String) -> Item:
 	for _i in self.get_children():
 		if (_i.Name == itemKey):
-			#print("found %s!" % itemKey)
 			return _i
 	return null
 
 func _itemSelected(itemName):
 	if itemName != "DefaultItem":
 		item_selected.emit(getItem(itemName))
+
+func getItemsAsDict() -> Dictionary:
+	return convertItemsToDict()
+
+func convertItemsToDict() -> Dictionary:
+	var itemDict := {}
+	var i: int = 0
+	for _i in self.get_children():
+		itemDict[i] = {"Name": _i.Name,
+		"FlavorText": _i.FlavorText,
+		"SellValue": _i.SellValue,
+		"RewardValue": _i.RewardValue,
+		"Stackable": _i.Stackable,
+		"Amount": _i.Amount}
+		i += 1
+	return itemDict

@@ -30,9 +30,9 @@ func addObjective():
 		instance.objective_finished.connect(_objective_finished)
 		instance.objective_failed.connect(_objective_failed)
 		instance.objective_modified.connect(_objective_modified)
-		objective_added.emit(instance)
 		add_child(instance)
 		calcExpirationDate()
+		objective_added.emit(instance)
 	else:
 		maximum_objective_reached.emit(maxObjectives)
 

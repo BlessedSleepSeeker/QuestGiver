@@ -1,28 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://hho5td7cvej2"]
+[gd_scene load_steps=10 format=3 uid="uid://hho5td7cvej2"]
 
+[ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_13e7d"]
 [ext_resource type="Script" path="res://Scenes/Quests/UI/QuestUI.gd" id="1_laitl"]
 [ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/Items/DefaultItem/normalDefaultItem.png" id="2_37vmd"]
+[ext_resource type="FontFile" uid="uid://dhyfxk0vwk42e" path="res://Fonts/infinity.ttf" id="2_nempm"]
 [ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/Items/DefaultItem/pressedDefaultItem.png" id="3_we6fi"]
 [ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/Items/DefaultItem/hoverDefaultItem.png" id="4_igchn"]
 [ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/Items/DefaultItem/disabledDefaultItem.png" id="5_7jr44"]
 [ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/Items/DefaultSizeClickMask.png" id="6_l0j0j"]
 [ext_resource type="Texture2D" uid="uid://c3d6vllxou1j3" path="res://Sprites/UI/Movement/Plus/iconPlus.png" id="7_ebiq3"]
 
-[node name="QuestUI" type="VBoxContainer"]
-offset_right = 20.0
-offset_bottom = 85.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="QuestUI" type="Window"]
+canvas_item_default_texture_filter = 0
+position = Vector2i(0, 36)
+size = Vector2i(200, 200)
+wrap_controls = true
+min_size = Vector2i(100, 100)
+theme = ExtResource("1_13e7d")
+theme_override_fonts/title_font = ExtResource("2_nempm")
 script = ExtResource("1_laitl")
 
-[node name="QuestName" type="LineEdit" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestUIColumn" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestName" type="LineEdit" parent="Margin/QuestUIColumn"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nempm")
 placeholder_text = "Quest Name"
+caret_blink = true
 
-[node name="ObjectivesContainer" type="VBoxContainer" parent="."]
+[node name="ObjectivesContainer" type="VBoxContainer" parent="Margin/QuestUIColumn"]
 layout_mode = 2
 
-[node name="addObjectiveButton" type="TextureButton" parent="ObjectivesContainer"]
+[node name="addObjectiveButton" type="TextureButton" parent="Margin/QuestUIColumn/ObjectivesContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_37vmd")
 texture_pressed = ExtResource("3_we6fi")
@@ -30,7 +49,7 @@ texture_hover = ExtResource("4_igchn")
 texture_disabled = ExtResource("5_7jr44")
 texture_click_mask = ExtResource("6_l0j0j")
 
-[node name="TextureRect" type="TextureRect" parent="ObjectivesContainer/addObjectiveButton"]
+[node name="TextureRect" type="TextureRect" parent="Margin/QuestUIColumn/ObjectivesContainer/addObjectiveButton"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
@@ -39,14 +58,18 @@ offset_bottom = 43.0
 texture = ExtResource("7_ebiq3")
 stretch_mode = 2
 
-[node name="Objectives" type="VBoxContainer" parent="ObjectivesContainer"]
+[node name="Objectives" type="VBoxContainer" parent="Margin/QuestUIColumn/ObjectivesContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ExpirationDate" type="Label" parent="."]
+[node name="ExpirationDate" type="Label" parent="Margin/QuestUIColumn"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nempm")
 text = "a"
 
-[node name="DifficultyRating" type="Label" parent="."]
+[node name="DifficultyRating" type="Label" parent="Margin/QuestUIColumn"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nempm")
 text = "a"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

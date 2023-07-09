@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chss5ma52btf5" path="res://Sprites/UI/Theme/Label.png" id="5_wpat6"]
 [ext_resource type="Texture2D" uid="uid://cdq30owpdhmlt" path="res://Sprites/UI/Theme/LineEditDisabled.png" id="7_s1neb"]
 [ext_resource type="Texture2D" uid="uid://dj83vx1io67x4" path="res://Sprites/UI/Theme/Window.png" id="9_76du8"]
-[ext_resource type="Texture2D" uid="uid://dexgkq7meqcab" path="res://Sprites/UI/Movement/Cancel.png" id="9_ci2y3"]
+[ext_resource type="Texture2D" uid="uid://djngorhpidajy" path="res://Sprites/UI/Movement/Cancel.png" id="9_ci2y3"]
 [ext_resource type="Texture2D" uid="uid://bxa1ihw1xo32a" path="res://Sprites/UI/Movement/CancelPressed.png" id="10_siswv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s72mq"]
@@ -99,5 +99,6 @@ Tree/constants/scrollbar_margin_bottom = 0
 Tree/constants/scrollbar_margin_left = 0
 Tree/constants/scrollbar_margin_right = 0
 Tree/constants/scrollbar_margin_top = 0
+Window/constants/title_height = 20
 Window/icons/close = ExtResource("9_ci2y3")
 Window/icons/close_pressed = ExtResource("10_siswv")

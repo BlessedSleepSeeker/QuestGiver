@@ -14,10 +14,10 @@ func _ready():
 	addQuestButton.pressed.connect(_addQuest)
 	quests.quest_added.connect(_create_questButton)
 
-func _create_questButton(quest: Quest):
+func _create_questButton(_quest: Quest):
 	var instance = baseQuestButton.instantiate()
-	instance.get_node("Label").text = str(quest.id)
-	instance.questId = quest.id
+	instance.get_node("Label").text = str(_quest.id)
+	instance.quest = _quest
 	instance.open_quest_tab.connect(_open_quest_tab)
 	add_child(instance)
 
@@ -25,9 +25,9 @@ func _addQuest():
 	var quest = quests.addQuest()
 	_open_quest_tab(quest)
 
-func _open_quest_tab(questId: int):
-	if questId != -1:
-		open_quest_tab.emit(quests.getQuestById(questId))
+func _open_quest_tab(quest: Quest):
+	if quest != null:
+		open_quest_tab.emit(quest)
 
 func _updated_quest(quest: Quest):
 	updated_quest.emit(quest)

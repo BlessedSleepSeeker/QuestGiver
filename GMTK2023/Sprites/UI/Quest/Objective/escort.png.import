@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iixj3546bvei"
-path="res://.godot/imported/Ok.png-75cf92f8edf2de13c7c13101c3521d47.ctex"
+uid="uid://chfhwnhoeai2s"
+path="res://.godot/imported/escort.png-f3cdc93c1bc09f8bd592a11f38d170dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Movement/Ok.png"
-dest_files=["res://.godot/imported/Ok.png-75cf92f8edf2de13c7c13101c3521d47.ctex"]
+source_file="res://Sprites/UI/Quest/Objective/escort.png"
+dest_files=["res://.godot/imported/escort.png-f3cdc93c1bc09f8bd592a11f38d170dd.ctex"]
 
 [params]
 

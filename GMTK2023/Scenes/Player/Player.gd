@@ -17,3 +17,6 @@ func addGold(nbr: int):
 
 func removeGold(nbr: int):
 	inventory.removeGold(nbr)
+
+func getItemsAsDict() -> Dictionary:
+	return inventory.getItemsAsDict()

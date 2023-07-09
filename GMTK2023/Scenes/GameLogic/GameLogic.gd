@@ -3,14 +3,18 @@ class_name GameLogic
 
 @onready var player: Player = $Player
 @onready var inventory: Inventory = $Player/Inventory
-@onready var mainUi := $MainGameUI
 @onready var quests: Quests = $Quests
+@onready var characters: Characters = $Characters
+@onready var items: Items = $Items
+@onready var mainUi := $MainGameUI
 
-var items := {}
+
 const ITEMS_JSON_PATH = "res://Json/Items.json"
 
-var characters := {}
 const CHAR_JSON_PATH = "res://Json/Characters.json"
+
+var questTypes := {}
+const QUEST_TYPE_JSON_PATH = "res://Json/QuestTypes.json"
 
 var selectedItem: Node
 signal sold_item(itemName: String)
@@ -18,8 +22,6 @@ signal sold_item(itemName: String)
 enum STATE {Guild, Shop, Sleep}
 var state = STATE.Shop
 signal state_changed(state)
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,24 +31,21 @@ func _ready():
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
 	parseItemList()
 	parseCharacterList()
+	parseQuestTypeList()
 	generateStarterGold()
-	generateStarterItem()
+	items.generateStarterItem()
 	_shop_transition()
 
 func generateStarterGold() -> void:
 	player.addGold(RngHandler.generateStarterGold())
-
-func generateStarterItem() -> void:
-	for item in items:
-		if RngHandler.gen.randi_range(0, 100) > getItemByKey(item)["SellValue"]:
-			addItemToPlayer(item)
 
 func parseCharacterList() -> void:
 	var file = FileAccess.open(CHAR_JSON_PATH, FileAccess.READ)
 	var json_parsing = JSON.new()
 	var error = json_parsing.parse(file.get_as_text())
 	if error == OK:
-		characters = json_parsing.data
+		characters.setCharacterList(json_parsing.data)
+		characters.loadFromCharacterList()
 		#print(characters)
 	else:
 		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
@@ -56,20 +55,29 @@ func parseItemList() -> void:
 	var json_parsing = JSON.new()
 	var error = json_parsing.parse(file.get_as_text())
 	if error == OK:
-		items = json_parsing.data
-		#print(items)
+		items.setItemList(json_parsing.data)
+		items.loadFromItemList()
 	else:
 		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
 
-func getItemByKey(key: String):
-	if items and items.has(key):
-		return items[key].duplicate(true)
+func parseQuestTypeList() -> void:
+	var file = FileAccess.open(QUEST_TYPE_JSON_PATH, FileAccess.READ)
+	var json_parsing = JSON.new()
+	var error = json_parsing.parse(file.get_as_text())
+	if error == OK:
+		questTypes = json_parsing.data
+		#print(questTypes)
+	else:
+		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
 
-func addItemToPlayer(itemKey: String) -> void:
-	inventory.addItemByDict(getItemByKey(itemKey))
+func getCharacterByName(_name: String) -> Character:
+	return characters.getCharacterByName(_name)
 
-func getItemFromPlayer(itemKey: String) -> Item:
-	return inventory.getItem(itemKey)
+func getItemFromPlayer(_name: String) -> Item:
+	return inventory.getItem(_name)
+
+func getWantedItem(_name: String) -> Item:
+	return items.getItemByName(_name)
 
 func _item_selected(item: Item) -> void:
 	selectedItem = item
@@ -94,3 +102,15 @@ func _sleep_transition() -> void:
 	state = STATE.Sleep
 	state_changed.emit(state)
 	Calendar.addDay()
+
+func getQuestTypes() -> Dictionary:
+	return questTypes
+
+func getCharacters() -> Dictionary:
+	return characters.getAllAsDictionary()
+
+func getAllItems() -> Dictionary:
+	return items.getAllItems()
+
+func getPlayerItems() -> Dictionary:
+	return player.getItemsAsDict()

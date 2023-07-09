@@ -20,7 +20,7 @@ func printQuestsId():
 	for _i in self.get_children():
 		print(_i.id)
 
-func addQuest() -> int:
+func addQuest() -> Quest:
 	if canHaveMoreQuest():
 		var instance = defaultQuestScene.instantiate()
 		instance.setId(findFreeId())
@@ -30,10 +30,10 @@ func addQuest() -> int:
 		instance.took.connect(_quest_took)
 		quest_added.emit(instance)
 		add_child(instance)
-		return instance.id
+		return instance
 	else:
 		maximum_quest_reached.emit(maxQuests)
-	return -1
+	return null
 
 func findFreeId():
 	var ids: Array = []

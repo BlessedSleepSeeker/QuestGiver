@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://41gbuld51ne7"
-path="res://.godot/imported/Ok10000.png-fafc60de3f7017e85c09ac525d9ac821.ctex"
+uid="uid://6lq34d7p4phj"
+path="res://.godot/imported/kill.png-f03989914aa9069f181fb625e800e6aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Movement/Ok10000.png"
-dest_files=["res://.godot/imported/Ok10000.png-fafc60de3f7017e85c09ac525d9ac821.ctex"]
+source_file="res://Sprites/UI/Quest/Objective/kill.png"
+dest_files=["res://.godot/imported/kill.png-f03989914aa9069f181fb625e800e6aa.ctex"]
 
 [params]
 

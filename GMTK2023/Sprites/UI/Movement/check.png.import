@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7j7hhmmrn4x1"
-path="res://.godot/imported/Interogation.png-98cc6e98ecdf79d1066d5f068f495a8e.ctex"
+uid="uid://ya26myenw3dg"
+path="res://.godot/imported/check.png-bdffa458b2127869134465a5ad79f8de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Movement/Interogation.png"
-dest_files=["res://.godot/imported/Interogation.png-98cc6e98ecdf79d1066d5f068f495a8e.ctex"]
+source_file="res://Sprites/UI/Movement/check.png"
+dest_files=["res://.godot/imported/check.png-bdffa458b2127869134465a5ad79f8de.ctex"]
 
 [params]
 

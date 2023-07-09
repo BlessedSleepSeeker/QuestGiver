@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://t3si3e07f00l"]
+
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/Items/DefaultItem/normalDefaultItem.png" id="1_hggmv"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/Items/DefaultItem/pressedDefaultItem.png" id="2_8bsvw"]
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/Items/DefaultItem/hoverDefaultItem.png" id="3_4nvpm"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/Items/DefaultItem/disabledDefaultItem.png" id="4_gj1he"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/Items/DefaultSizeClickMask.png" id="5_q00ix"]
+[ext_resource type="Script" path="res://Scenes/Quests/UI/ObjectiveButton.gd" id="6_m7a7a"]
+
+[node name="ObjectiveButton" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.059
+offset_right = -15.84
+offset_bottom = -15.93
+texture_normal = ExtResource("1_hggmv")
+texture_pressed = ExtResource("2_8bsvw")
+texture_hover = ExtResource("3_4nvpm")
+texture_disabled = ExtResource("4_gj1he")
+texture_click_mask = ExtResource("5_q00ix")
+script = ExtResource("6_m7a7a")
+ItemName = "Shame"
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

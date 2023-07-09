@@ -1,15 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://4f0xeelw8egt"]
+[gd_scene load_steps=4 format=3 uid="uid://4f0xeelw8egt"]
 
 [ext_resource type="Script" path="res://Scenes/Quests/UI/ObjectiveUI.gd" id="1_5tmtg"]
+[ext_resource type="Texture2D" uid="uid://ya26myenw3dg" path="res://Sprites/UI/Movement/check.png" id="2_nifbo"]
+[ext_resource type="PackedScene" uid="uid://hvq5v641ggmg" path="res://Scenes/Quests/UI/ObjectiveSelectButton.tscn" id="3_cbu4t"]
 
 [node name="ObjectiveUI" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 26.0
+offset_bottom = 16.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 script = ExtResource("1_5tmtg")
 
-[node name="Label" type="Label" parent="."]
+[node name="Status" type="TextureRect" parent="."]
 layout_mode = 2
-text = "OBJECTIVE"
-autowrap_mode = 2
+texture = ExtResource("2_nifbo")
+stretch_mode = 2
+
+[node name="StatusIcon" type="TextureRect" parent="Status"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="ButtonType" parent="." instance=ExtResource("3_cbu4t")]
+layout_mode = 2
+
+[node name="ButtonChar" parent="." instance=ExtResource("3_cbu4t")]
+layout_mode = 2
+buttonType = "CHAR"
+
+[node name="ButtonWantedItem" parent="." instance=ExtResource("3_cbu4t")]
+layout_mode = 2
+buttonType = "ITEMS"
+
+[node name="ButtonReward" parent="." instance=ExtResource("3_cbu4t")]
+layout_mode = 2
+buttonType = "PLAYER_ITEMS"

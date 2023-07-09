@@ -89,7 +89,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="QuestUI" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("5_f7ybb")]
-layout_mode = 2
+position = Vector2i(0, 36)
 
 [node name="QuestsList" parent="Margin/VBoxContainer/MainSpaceColumns" instance=ExtResource("5_w5s21")]
 layout_mode = 2
