@@ -8,7 +8,7 @@ class_name GameLogic
 @onready var adventurers: Adventurers = $Adventurers
 @onready var items: Items = $Items
 @onready var mainUi := $MainGameUI
-
+@onready var inventoryUi := $MainGameUI/Margin/VBoxContainer/Center/HBox/InventoryUI
 
 const ITEMS_JSON_PATH = "res://Json/Items.json"
 
@@ -17,7 +17,7 @@ const CHAR_JSON_PATH = "res://Json/Characters.json"
 var questTypes := {}
 const QUEST_TYPE_JSON_PATH = "res://Json/QuestTypes.json"
 
-var selectedItem: Node
+var selectedItem: Item
 signal sold_item(itemName: String)
 
 enum STATE {Guild, Shop, Tavern, Sleep}
@@ -26,17 +26,22 @@ signal state_changed(state)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	inventoryUi.item_button_pressed.connect(_item_selected_ui)
 	inventory.item_selected.connect(_item_selected)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton").guild_transition.connect(_guild_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/TavernButton").tavern_transition.connect(_tavern_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
+	
 	parseItemList()
 	parseCharacterList()
 	parseQuestTypeList()
+	generateGameState()
+	_shop_transition()
+
+func generateGameState() -> void:
 	generateStarterGold()
 	items.generateStarterItem()
-	_shop_transition()
 
 func generateStarterGold() -> void:
 	player.addGold(RngHandler.generateStarterGold())
@@ -77,6 +82,9 @@ func getCharacterByName(_name: String) -> Character:
 
 func getItemFromPlayer(_name: String) -> Item:
 	return inventory.getItem(_name)
+
+func _item_selected_ui(_itemName: String):
+	inventory.itemSelected(_itemName)
 
 func getWantedItem(_name: String) -> Item:
 	return items.getItemByName(_name)

@@ -8,7 +8,7 @@ var slots := columns * rows
 @onready var inventory := get_node("/root/GameLogic/Player/Inventory")
 @onready var mainLogic := get_node("/root/GameLogic")
 
-signal itemButtonPressed(itemName)
+signal item_button_pressed(itemName)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +36,7 @@ func getItem(itemName: String) -> ItemIcon:
 	return null
 
 func _itemButtonPressed(itemName):
-	itemButtonPressed.emit(itemName)
+	item_button_pressed.emit(itemName)
 
 func _state_changed(_state: int):
 	await get_tree().create_timer(1).timeout

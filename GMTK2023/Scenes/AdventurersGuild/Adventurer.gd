@@ -47,5 +47,20 @@ func progressQuest() -> void:
 		return
 	quest.tryNextObjective(skill)
 
+func getAlias() -> String:
+	return alias
+
 func getStatus() -> bool:
 	return true if quest else false
+
+func getStatusAsString() -> String:
+	return "is on a quest !" if getStatus() else "is drinking their sorrows away..."
+
+func getProfession() -> String:
+	return profession
+
+func getSkill() -> int:
+	return skill
+
+func getSkillAsString() -> String:
+	return str(skill)

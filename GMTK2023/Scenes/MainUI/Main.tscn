@@ -79,28 +79,25 @@ layout_mode = 2
 [node name="BasicHUD" parent="Margin/VBoxContainer" instance=ExtResource("3_gfukk")]
 layout_mode = 2
 
-[node name="MainSpaceColumns" type="HBoxContainer" parent="Margin/VBoxContainer"]
+[node name="Center" type="CenterContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
-theme = ExtResource("1_mn1id")
-alignment = 1
 
-[node name="Center" type="CenterContainer" parent="Margin/VBoxContainer/MainSpaceColumns"]
+[node name="HBox" type="HBoxContainer" parent="Margin/VBoxContainer/Center"]
 layout_mode = 2
 
-[node name="InventoryUI" parent="Margin/VBoxContainer/MainSpaceColumns/Center" instance=ExtResource("3_jry7a")]
+[node name="InventoryUI" parent="Margin/VBoxContainer/Center/HBox" instance=ExtResource("3_jry7a")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="QuestsList" parent="Margin/VBoxContainer/MainSpaceColumns/Center" instance=ExtResource("5_w5s21")]
+[node name="QuestsList" parent="Margin/VBoxContainer/Center" instance=ExtResource("5_w5s21")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TavernUI" parent="Margin/VBoxContainer/MainSpaceColumns/Center" instance=ExtResource("7_lempw")]
+[node name="TavernUI" parent="Margin/VBoxContainer/Center" instance=ExtResource("7_lempw")]
 layout_mode = 2
 
-[node name="QuestUI" parent="Margin/VBoxContainer/MainSpaceColumns/Center" instance=ExtResource("5_f7ybb")]
+[node name="QuestUI" parent="Margin/VBoxContainer/Center" instance=ExtResource("5_f7ybb")]
 visible = false
 
 [node name="MovementButtons" type="HBoxContainer" parent="Margin/VBoxContainer"]

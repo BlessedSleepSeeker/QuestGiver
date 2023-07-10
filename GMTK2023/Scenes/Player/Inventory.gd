@@ -11,13 +11,12 @@ signal gold_added(nbr)
 signal gold_removed(nbr)
 
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
-@onready var inventoryUi = get_node("/root/GameLogic/MainGameUI/Margin/VBoxContainer/MainSpaceColumns/Center/InventoryUI")
 
 signal item_selected(Item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inventoryUi.itemButtonPressed.connect(_itemSelected)
+	pass
 
 func addGold(nbr: int):
 	gold += nbr
@@ -56,7 +55,7 @@ func getItem(itemKey: String) -> Item:
 			return _i
 	return null
 
-func _itemSelected(itemName):
+func itemSelected(itemName: String) -> void:
 	if itemName != "DefaultItem":
 		item_selected.emit(getItem(itemName))
 
