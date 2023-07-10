@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://kby8rdt2ia2i"
+path="res://.godot/imported/DefaultSizeClickMask.png-22a77ef5789a2faa21b3d4eca9199ae2.res"
+
+[deps]
+
+source_file="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png"
+dest_files=["res://.godot/imported/DefaultSizeClickMask.png-22a77ef5789a2faa21b3d4eca9199ae2.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

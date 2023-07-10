@@ -2,6 +2,7 @@ extends TextureButton
 
 @export var questId := 0
 @export var quest: Quest = null
+@onready var lbl = $Label
 
 signal open_quest_tab(quest: Quest)
 
@@ -11,3 +12,10 @@ func _ready():
 
 func _on_click() -> void:
 	open_quest_tab.emit(quest)
+
+func setQuest(_quest: Quest):
+	quest = _quest
+	quest.updated.connect(_update)
+
+func _update():
+	lbl.text = quest.questName

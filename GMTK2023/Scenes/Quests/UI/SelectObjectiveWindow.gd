@@ -10,11 +10,10 @@ signal selected(dict: Dictionary)
 var options = {}
 @onready var grid = $Grid
 
-signal objective_selected( type: String, itemName: String)
+signal objective_selected(type: String, itemName: String, _iconPath: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("window ready")
 	hide()
 
 func setWindowType(_type: String):
@@ -34,17 +33,20 @@ func generate() -> void:
 		var instance = objectiveButton.instantiate()
 		instance.itemButtonPressed.connect(_objective_selected)
 		grid.add_child(instance)
+		#print(options[_i])
 		if windowType != "QUEST_TYPE":
 			instance.new(windowType, options[_i].Name, options[_i].Name)
+		if windowType == "CHAR":
+			instance.new(windowType, options[_i].Name, options[_i].Name, options[_i].IconFileName)
 		else:
 			instance.new(windowType, options[_i].Name, options[_i].Name)
 
 func setOption(dict: Dictionary) -> void:
 	options = dict
 
-func _objective_selected(itemName: String) -> void:
+func _objective_selected(itemName: String, _iconName: String) -> void:
 	hide()
-	objective_selected.emit(windowType, itemName)
+	objective_selected.emit(windowType, itemName, _iconName)
 
 func _on_close_requested():
 	hide()

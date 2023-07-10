@@ -15,6 +15,7 @@ signal finished(quest: Quest)
 signal failed(quest: Quest)
 signal expired(quest: Quest)
 signal took(quest: Quest)
+signal updated
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +27,7 @@ func setId(_id: int):
 
 func setName(_name: String) -> void:
 	questName = _name
+	updated.emit()
 
 func addObjective():
 	if canHaveMoreObjective():

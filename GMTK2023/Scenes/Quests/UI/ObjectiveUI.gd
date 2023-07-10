@@ -78,7 +78,6 @@ func _open_window(_type):
 		buttonReward.closeWindow()
 
 func _objective_selected(_type: String, objName: String):
-	print("AYO")
 	if _type == "QUEST_TYPE":
 		objective.setType(objName)
 	elif _type == "CHAR":

@@ -14,8 +14,8 @@ func _ready():
 	tavernButton.tavern_transition.connect(self.goToTavern)
 	$Margin.hide()
 	await get_tree().create_timer(1.7).timeout
-	$Margin.show()
 	fader.play_backwards("FadeOut")
+	$Margin.show()
 
 func sleep():
 	fader.play("FadeOut")

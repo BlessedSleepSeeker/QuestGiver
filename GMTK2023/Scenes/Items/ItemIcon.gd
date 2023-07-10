@@ -7,22 +7,23 @@ class_name ItemIcon
 
 signal itemButtonPressed(itemName)
 
-var MainIconsPath: String = "res://Sprites/Items/%s/%s%s.png"
+var IconsPath: String = "res://Sprites/UI/Items/%s%s.png"
 var IconPath: String
 const ICON_FILENAME := "icon"
-var NormalIconPath: String
-const NORMAL_ICON_FILENAME := "normal"
-var PressedIconPath: String
-const PRESSED_ICON_FILENAME := "pressed"
-var HoverIconPath: String
-const HOVER_ICON_FILENAME := "hover"
-var DisabledIconPath: String
-const DISABLED_ICON_FILENAME := "disabled"
-var FocusedIconPath: String
-const FOCUSED_ICON_FILENAME := "focused"
-var ClickMaskPath: String
-const CLICK_MASK_PATH := "res://Sprites/Items/DefaultSizeClickMask.png"
 
+var DefaultButtonPath: String = "res://Sprites/UI/DefaultButton/%s%s.png"
+var NormalButtonPath: String
+const NORMAL_BUTTON_FILENAME := "normal"
+var PressedButtonPath: String
+const PRESSED_BUTTON_FILENAME := "pressed"
+var HoverButtonPath: String
+const HOVER_BUTTON_FILENAME := "hover"
+var DisabledButtonPath: String
+const DISABLED_BUTTON_FILENAME := "disabled"
+var FocusedButtonPath: String
+const FOCUSED_BUTTON_FILENAME := "focused"
+var ClickMaskPath: String
+const CLICK_MASK_PATH := "res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,12 +36,12 @@ func setName(_itemName: String):
 	loadIconTexture()
 
 func buildPaths():
-	NormalIconPath = MainIconsPath % [DefaultItemName, NORMAL_ICON_FILENAME, DefaultItemName]
-	PressedIconPath = MainIconsPath % [DefaultItemName, PRESSED_ICON_FILENAME, DefaultItemName]
-	HoverIconPath = MainIconsPath % [DefaultItemName, HOVER_ICON_FILENAME, DefaultItemName]
-	DisabledIconPath = MainIconsPath % [DefaultItemName, DISABLED_ICON_FILENAME, DefaultItemName]
-	FocusedIconPath = MainIconsPath % [DefaultItemName, FOCUSED_ICON_FILENAME, DefaultItemName]
-	IconPath = (MainIconsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
+	NormalButtonPath = DefaultButtonPath % [NORMAL_BUTTON_FILENAME, DefaultItemName]
+	PressedButtonPath = DefaultButtonPath % [PRESSED_BUTTON_FILENAME, DefaultItemName]
+	HoverButtonPath = DefaultButtonPath % [HOVER_BUTTON_FILENAME, DefaultItemName]
+	DisabledButtonPath = DefaultButtonPath % [DISABLED_BUTTON_FILENAME, DefaultItemName]
+	#FocusedButtonPath = DefaultButtonPath % [FOCUSED_BUTTON_FILENAME, DefaultItemName]
+	IconPath = (IconsPath % [ICON_FILENAME, ItemName]).to_camel_case()
 	ClickMaskPath = CLICK_MASK_PATH
 
 func reset():
@@ -56,10 +57,10 @@ func loadIconTexture():
 		icon.set_texture(load(IconPath))
 
 func loadBaseTextures():
-	texture_normal = load(NormalIconPath)
-	texture_pressed = load(PressedIconPath)
-	texture_hover = load(HoverIconPath)
-	texture_disabled = load(DisabledIconPath)
+	texture_normal = load(NormalButtonPath)
+	texture_pressed = load(PressedButtonPath)
+	texture_hover = load(HoverButtonPath)
+	texture_disabled = load(DisabledButtonPath)
 	texture_click_mask = load(ClickMaskPath)
 
 func _on_pressed():

@@ -11,7 +11,7 @@ signal gold_added(nbr)
 signal gold_removed(nbr)
 
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
-@onready var inventoryUi = get_node("/root/GameLogic/MainGameUI/Margin/VBoxContainer/MainSpaceColumns/InventoryUI")
+@onready var inventoryUi = get_node("/root/GameLogic/MainGameUI/Margin/VBoxContainer/MainSpaceColumns/Center/InventoryUI")
 
 signal item_selected(Item)
 

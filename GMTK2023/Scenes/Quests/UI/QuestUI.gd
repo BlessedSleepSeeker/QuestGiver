@@ -4,7 +4,7 @@ class_name QuestUI
 @onready var quests = get_node("/root/GameLogic/Quests")
 @onready var questsList = get_parent().get_node("QuestsList")
 @onready var objectiveList = $Margin/QuestUIColumn/ObjectivesContainer/Objectives
-@onready var objectiveAddButton = $Margin/QuestUIColumn/ObjectivesContainer/addObjectiveButton
+@onready var objectiveAddButton = $Margin/QuestUIColumn/addObjectiveButton
 @onready var expirationDateLabel = $Margin/QuestUIColumn/ExpirationDate
 @onready var difficultyRatingLabel = $Margin/QuestUIColumn/DifficultyRating
 @onready var nameLabel = $Margin/QuestUIColumn/QuestName

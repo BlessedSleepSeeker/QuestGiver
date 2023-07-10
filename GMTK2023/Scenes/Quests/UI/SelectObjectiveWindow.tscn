@@ -7,9 +7,8 @@
 [node name="SelectObjectiveWindow" type="Window"]
 canvas_item_default_texture_filter = 0
 initial_position = 1
-size = Vector2i(200, 100)
+size = Vector2i(50, 50)
 wrap_controls = true
-min_size = Vector2i(100, 100)
 content_scale_aspect = 1
 theme = ExtResource("1_4w08f")
 theme_override_fonts/title_font = ExtResource("2_odlhv")

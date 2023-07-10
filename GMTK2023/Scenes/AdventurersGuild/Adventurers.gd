@@ -6,24 +6,27 @@ class_name Adventurers
 @export var maxHeros = 3
 @export var defaultHero = preload("res://Scenes/AdventurersGuild/Adventurer.tscn")
 
-var heroNames: Array = ["megreth", "hokore", "ulidali", "izor", "nirass", "umashann", "errovys", "igorin", "ivys", "ikonn"]
+@export var HERO_NAME_JSON_PATH = "res://Json/HeroName.json"
+var bulkHeroNames: Dictionary = {}
+var heroClassList: Array
 
 signal no_quest_to_take
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#parseHeroName()
+	parseHeroName()
 	generateHeros()
 
-# func parseHeroName() -> void:
-# 	var file = FileAccess.open(QUEST_TYPE_JSON_PATH, FileAccess.READ)
-# 	var json_parsing = JSON.new()
-# 	var error = json_parsing.parse(file.get_as_text())
-# 	if error == OK:
-# 		questTypes = json_parsing.data
-# 		#print(questTypes)
-# 	else:
-# 		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
+func parseHeroName() -> void:
+	var file = FileAccess.open(HERO_NAME_JSON_PATH, FileAccess.READ)
+	var json_parsing = JSON.new()
+	var error = json_parsing.parse(file.get_as_text())
+	if error == OK:
+		bulkHeroNames = json_parsing.data
+		for _className in bulkHeroNames:
+			heroClassList.append(_className)
+	else:
+		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", HERO_NAME_JSON_PATH, " at line ", json_parsing.get_error_line())
 
 
 func generateHeros() -> void:
@@ -43,15 +46,21 @@ func printAllHeros():
 
 func generateHero() -> void:
 	var instance = defaultHero.instantiate()
+	var _class = generateHeroProfession()
 	instance.new(
-		generateHeroName(),
+		_class,
+		generateHeroName(_class),
 		generateHeroSkill(),
 		generateHeroTraits()
 	)
+	#instance.printSelf()
 	add_child(instance)
 
-func generateHeroName() -> String:
-	return heroNames[RngHandler.gen.randi_range(0, heroNames.size() - 1)]
+func generateHeroProfession() -> String:
+	return heroClassList[RngHandler.gen.randi_range(0, heroClassList.size() - 1)]
+
+func generateHeroName(_class) -> String:
+	return bulkHeroNames[_class][RngHandler.gen.randi_range(0, bulkHeroNames[_class].size() - 1)]
 
 func generateHeroSkill() -> int:
 	return RngHandler.gen.randi_range(10, 20)
@@ -65,7 +74,7 @@ func everyoneLookForQuest():
 		no_quest_to_take.emit()
 	var curHeros = get_children()
 	curHeros.shuffle()
-	print(quests)
+	#print(quests)
 	for _i in curHeros:
 		for _j in quests:
 			_i.lookForQuest(_j)

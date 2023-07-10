@@ -4,6 +4,7 @@ class_name Adventurer
 @onready var mainLogic = get_node("/root/GameLogic")
 
 @export var alias: String = "Tintalabus"
+@export var profession: String = "Sorcerer"
 @export var skill: int = 10
 @export var traits: Array
 
@@ -15,13 +16,15 @@ signal quest_taken(quest: Quest)
 func _ready():
 	pass # Replace with function body.
 
-func new(_alias: String, _skill: int, _traits: Array):
+func new(_class: String, _alias: String, _skill: int, _traits: Array):
+	profession = _class
 	alias = _alias
 	skill = _skill
 	traits = _traits
 
 func printSelf():
 	print(alias)
+	print(profession)
 	print(str(skill))
 	print(traits)
 

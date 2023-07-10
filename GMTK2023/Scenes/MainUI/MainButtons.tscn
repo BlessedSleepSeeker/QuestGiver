@@ -55,14 +55,13 @@ texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("3_5r4tf")
 
 [node name="Active" type="TextureRect" parent="MarginContainer/VBoxContainer/MainButtonsLine/ShopButton"]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 8.0
+offset_top = -18.0
+offset_right = -8.0
+offset_bottom = -34.0
 texture = ExtResource("8_56fi8")
 stretch_mode = 2
 
@@ -77,12 +76,13 @@ texture_click_mask = ExtResource("3_hpof4")
 script = ExtResource("2_36wqx")
 
 [node name="Active" type="TextureRect" parent="MarginContainer/VBoxContainer/MainButtonsLine/GuildButton"]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = 16.0
+offset_left = 8.0
+offset_top = -18.0
+offset_right = -8.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_56fi8")
@@ -103,8 +103,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = 16.0
+offset_left = 8.0
+offset_top = -18.0
+offset_right = -8.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_56fi8")

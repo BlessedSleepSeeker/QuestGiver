@@ -9,9 +9,9 @@ class_name ObjectiveSelectButton
 signal open_window(type: String)
 signal objective_selected(type: String, obj: String)
 
-const QuestTypePath: String = "res://Sprites/UI/Quest/Objective/%s.png"
-const CharacterPath: String = "res://Sprites/UI/Character/%s.png"
-const ItemsPath: String = "res://Sprites/Items/%s/%s%s.png"
+const QuestTypePath: String = "res://Sprites/UI/Quests/Objective/%s.png"
+const CharacterPath: String = "res://Sprites/UI/Characters/%s.png"
+const ItemsPath: String = "res://Sprites/UI/Items/%s%s.png"
 var IconPath: String
 const ICON_FILENAME := "icon"
 
@@ -47,18 +47,24 @@ func loadPlayerItems() -> void:
 func setTexture(_texture: Texture2D):
 	texture.texture = _texture
 
-func updateIcon(_type: String, objName: String):
-	buildPath(objName)
-	setTexture(load(IconPath))
+func updateIcon(_type: String, objName: String, _iconPath: String = ""):
+	buildPath(objName, _iconPath)
+	if IconPath != "":
+		setTexture(load(IconPath))
+	else:
+		setTexture(null)
 
-func buildPath(ItemName: String):
+func buildPath(ItemName: String, _iconPath: String = ""):
 	match (buttonType):
 		"QUEST_TYPE":
 			IconPath = (QuestTypePath % ItemName.to_camel_case())
 		"CHAR":
-			IconPath = (CharacterPath % ItemName.to_camel_case())
+			if _iconPath != "":
+				IconPath = (CharacterPath % _iconPath)
+			else:
+				IconPath = ""
 		"ITEMS", "PLAYER_ITEMS":
-			IconPath = (ItemsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
+			IconPath = (ItemsPath % [ICON_FILENAME, ItemName]).to_camel_case()
 
 func _on_pressed():
 	loadType()
@@ -68,6 +74,6 @@ func _on_pressed():
 func closeWindow():
 	pickWindow.hide()
 
-func _objective_selected(type: String, objName: String):
+func _objective_selected(type: String, objName: String, _iconPath: String):
 	objective_selected.emit(type, objName)
-	updateIcon(type, objName)
+	updateIcon(type, objName, _iconPath)

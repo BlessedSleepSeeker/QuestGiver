@@ -6,8 +6,9 @@
 [node name="ConfirmationDialog" type="ConfirmationDialog"]
 title = "?"
 initial_position = 1
-size = Vector2i(200, 124)
+size = Vector2i(400, 82)
 visible = true
+min_size = Vector2i(200, 41)
 theme = ExtResource("1_wxn0h")
 ok_button_text = "Y"
 cancel_button_text = "N"

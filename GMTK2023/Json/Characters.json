@@ -1,47 +1,191 @@
 {
     "Wolfs": {
-        "Name": "3 Wolf",
+        "Name": "3 Wolfs",
+        "IconFileName": "3wolfs",
         "FlavorText": "It's 3 wolfs",
+        "Type": [0],
         "Difficulty": 5
     },
     "RivalMerchant": {
         "Name": "Aganir, my merchant rival",
+        "IconFileName": "aganir",
         "FlavorText": "Note to self : \"I hate this guy\"",
+        "Type" : [2, 4, 5],
         "Difficulty": 8
     },
     "StarterDungeon": {
         "Name": "The Evil Tower of Rinaga",
+        "IconFileName": "rinagaDungeon",
         "FlavorText": "Every adventurer's first dungeon",
         "Difficulty": 12
     },
     "Troll": {
         "Name": "The Troll of Dimaks",
+        "IconFileName": "dimakTroll",
         "FlavorText": "A legendary troll",
         "Difficulty": 20
     },
     "WanderingWarrior": {
         "Name": "The Blade of Asmax",
+        "IconFileName": "asmaxBlade",
         "FlavorText": "The guy got skill",
         "Difficulty": 25
     },
     "Caravane": {
         "Name": "Raphael's Caravan",
+        "IconFileName": "caravan",
         "FlavorText": "Raphael's Caravan",
         "Difficulty": 3
     },
     "BillionSlime": {
         "Name": "A billion slimes",
+        "IconFileName": "billionSlime",
         "FlavorText": "It's 3 wolfs",
         "Difficulty": 1000
     },
     "Dragon": {
         "Name": "A Big White Dragon",
+        "IconFileName": "whiteDragon",
         "FlavorText": "It's 3 wolfs",
         "Difficulty": 80
     },
     "Dragon2": {
         "Name": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
+        "IconFileName": "fancyBlackDragon",
         "FlavorText": "It's 3 wolfs",
-        "Difficulty": 10
+        "Difficulty": 100
+    },
+    "Wastoid": {
+        "Name": "Wastoid",
+        "IconFileName": "wastoid",
+        "FlavorText": "Little Gremlin Guy",
+        "Type": [0, 1, 2, 4],
+        "Difficulty": 3
+    },
+    "Tintalabus": {
+        "Name": "Tintalabus",
+        "IconFileName": "tintalabus",
+        "FlavorText": "Local Ice Mage",
+        "Type": [1, 2, 4, 5],
+        "Difficulty": 1
+    },
+    "Hope": {
+        "Name": "Hope",
+        "IconFileName": "hope",
+        "FlavorText": "Might bite your arm off",
+        "Type": [0, 2, 4, 5],
+        "Difficulty": 90
+    },
+    "JerryJazzman": {
+        "Name": "Jerry Jazzman",
+        "IconFileName": "jerryjazzman",
+        "FlavorText": "The local bard !",
+        "Type": [2, 4, 5],
+        "Difficulty": 85
+    },
+    "Kieran": {
+        "Name": "Kieran",
+        "IconFileName": "kieran",
+        "FlavorText": "He was a lot cheaper when he was known as KKSweet",
+        "Type": [5],
+        "Difficulty": 99
+    },
+    "Aria": {
+        "Name": "Aria",
+        "IconFileName": "aria",
+        "FlavorText": "Owner of the Aerie Sauna !",
+        "Type": [2, 4, 5],
+        "Difficulty": 70
+    },
+    "Doif": {
+        "Name": "Doif",
+        "IconFileName": "doif",
+        "FlavorText": "A powerful lumberjack",
+        "Type": [1, 5],
+        "Difficulty": 98
+    },
+    "Bigolas": {
+        "Name": "Bigolas Dickolas Wolfwood",
+        "IconFileName": "bigolas",
+        "FlavorText": "The local bard !",
+        "Type": [2, 5],
+        "Difficulty": 70
+    },
+    "YamLeMagnifique": {
+        "Name": "Yam Le Magnifique",
+        "IconFileName": "yam",
+        "FlavorText": "Half-Cockroach ??? Sorcerer ???",
+        "Type": [1, 2, 4, 5],
+        "Difficulty": 30
+    },
+    "Astunavulcar": {
+        "Name": "Astunavulcar",
+        "IconFileName": "astunavulcar",
+        "FlavorText": "Magus studying strange pandemic throught dubious experimentations.",
+        "Type": [1, 2, 4, 5],
+        "Difficulty": 90
+    },
+    "Tongers": {
+        "Name": "Tongers",
+        "IconFileName": "tongers",
+        "FlavorText": "So called adventurer wandering in town.",
+        "Type": [4],
+        "Difficulty": 5
+    },
+    "Mortag": {
+        "Name": "Mortag",
+        "IconFileName": "mortag",
+        "FlavorText": "Your local blacksmith.",
+        "Type": [2, 5],
+        "Difficulty": 60
+    },
+    "Touf": {
+        "Name": "Touf",
+        "IconFileName": "touf",
+        "FlavorText": "Wandering artist, stealing joy from the richs to give it to the poors",
+        "Type": [2],
+        "Difficulty": 23
+    },
+    "LynnqueSisnine": {
+        "Name": "Lynnque Sisnine",
+        "IconFileName": "lynnque",
+        "FlavorText": "Looking for the sacred eggplant and peach to attain eternal life",
+        "Type": [1, 2, 5],
+        "Difficulty": 48
+    },
+    "Zorgzor": {
+        "Name": "Zorgzor",
+        "IconFileName": "zorgzor",
+        "FlavorText": "A troll looking for tasty rocks",
+        "Type": [1, 2, 4],
+        "Difficulty": 26
+    },
+    "MuddyCavern": {
+        "Name": "Muddy's Cavern",
+        "IconFileName": "muddyCavern",
+        "FlavorText": "\"Mud is dangerous... It could kill you !\"",
+        "Type": [3],
+        "Difficulty": 79
+    },
+    "GreenKirby": {
+        "Name": "Dr. Kør B. Vert",
+        "IconFileName": "greenkirby",
+        "FlavorText": "Stay away from the cellar. He has a big cat tho.",
+        "Type": [3],
+        "Difficulty": 39
+    },
+    "sahd": {
+        "Name": "Sahd",
+        "IconFileName": "greenkirby",
+        "FlavorText": "Stay away from the cellar. He has a big cat tho.",
+        "Type": [1, 5],
+        "Difficulty": 39
+    },
+    "frarl": {
+        "Name": "Frarl",
+        "IconFileName": "frarl",
+        "FlavorText": "We're not really sure why he is here, but he always has nice gossips.",
+        "Type": [5],
+        "Difficulty": 23
     }
 }

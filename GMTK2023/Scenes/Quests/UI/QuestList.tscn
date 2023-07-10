@@ -28,9 +28,9 @@ texture_click_mask = ExtResource("6_3dwmb")
 
 [node name="Icon" type="TextureRect" parent="AddQuestButton"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 43.0
-offset_bottom = 43.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 26.0
+offset_bottom = 26.0
 texture = ExtResource("6_bpo12")
 stretch_mode = 2

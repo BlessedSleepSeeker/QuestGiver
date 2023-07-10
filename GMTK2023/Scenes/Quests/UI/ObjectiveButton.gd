@@ -6,19 +6,21 @@ extends TextureButton
 @export_enum("QUEST_TYPE", "CHAR", "ITEMS", "PLAYER_ITEMS") var type: String = "QUEST_TYPE"
 @onready var icon: TextureRect = $"Icon"
 
-signal itemButtonPressed(itemName: String)
+signal itemButtonPressed(itemName: String, _iconName: String)
 
-const QuestTypePath: String = "res://Sprites/UI/Quest/Objective/%s.png"
-const CharacterPath: String = "res://Sprites/UI/Character/%s.png"
-const ItemsPath: String = "res://Sprites/Items/%s/%s%s.png"
+const QuestTypePath: String = "res://Sprites/UI/Quests/Objective/%s.png"
+const CharacterPath: String = "res://Sprites/UI/Characters/%s.png"
+const ItemsPath: String = "res://Sprites/UI/Items/%s%s.png"
+var IconPathSmall: String
 var IconPath: String
 const ICON_FILENAME := "icon"
 
 func _ready():
 	pass
 
-func new(_type: String, _itemName: String, _flavorText: String):
+func new(_type: String, _itemName: String, _flavorText: String, _iconPath: String = "Default"):
 	ItemName = _itemName
+	IconPathSmall = _iconPath
 	setType(_type)
 	tooltip_text = _flavorText
 	buildPath()
@@ -32,10 +34,10 @@ func buildPath():
 		"QUEST_TYPE":
 			IconPath = (QuestTypePath % ItemName.to_camel_case())
 		"CHAR":
-			IconPath = (CharacterPath % ItemName.to_camel_case())
-			print(IconPath)
+			IconPath = (CharacterPath % IconPathSmall)
+			#print(IconPath)
 		"ITEMS", "PLAYER_ITEMS":
-			IconPath = (ItemsPath % [ItemName, ICON_FILENAME, ItemName]).to_camel_case()
+			IconPath = (ItemsPath % [ICON_FILENAME, ItemName]).to_camel_case()
 
 func reset():
 	ItemName = DefaultItemName
@@ -50,4 +52,4 @@ func loadIconTexture():
 		icon.set_texture(load(IconPath))
 
 func _on_pressed():
-	itemButtonPressed.emit(ItemName)
+	itemButtonPressed.emit(ItemName, IconPathSmall)

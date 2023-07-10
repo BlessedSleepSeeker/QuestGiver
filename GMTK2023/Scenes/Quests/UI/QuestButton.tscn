@@ -13,6 +13,8 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -832.0
+offset_bottom = -508.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2m0vr")
@@ -24,19 +26,24 @@ texture_click_mask = ExtResource("5_120yy")
 script = ExtResource("7_nyu5p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 13.0
-offset_bottom = 13.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -102.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("6_gx1ny")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = -3.0
-offset_right = 66.0
-offset_bottom = 27.0
+offset_left = 26.0
+offset_top = 7.0
+offset_right = 125.0
+offset_bottom = 37.0
 theme_override_font_sizes/font_size = 20
-text = "quest"
+text = "New Quest"

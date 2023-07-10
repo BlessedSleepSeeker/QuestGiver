@@ -1,0 +1,18 @@
+{
+        "Sorcerer":
+        [
+            "Hokore", "Ulidali", "Izor", "Nirass", "Umashann", "Errovys", "Igorin", "Ivys", "Ikonn"
+        ],
+        "Barbarian":
+        [
+            "Vraghdakk Brisechair","Len","Bull","Mul","Drausleirr","Hafgrun","Uldrilk","Jurmomm","Meskin","Rhausskolfef","Stornserkmemm","Grae","Toth","Henn","Chito","Foftheas","Thrugmul","Thignos","Megnhisla"
+        ],
+        "Thief":
+        [
+            "Karzale","Bev","Harley","River","Jess","Mel","Steff","Avery","Jo","Bailey"
+        ],
+        "Artificer":
+        [
+            "Gérard Tillery", "Naldeleh", "Oshiepyx", "Kydania", "Sestri", "Fhall","Nindoz","Binduj","Isoples","Synafhath","Pikt","Euthu","Oragor"
+        ]
+}

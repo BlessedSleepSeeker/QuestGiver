@@ -18,8 +18,7 @@ func _ready():
 
 func _create_questButton(_quest: Quest):
 	var instance = baseQuestButton.instantiate()
-	instance.get_node("Label").text = str(_quest.id)
-	instance.quest = _quest
+	instance.setQuest(_quest)
 	instance.open_quest_tab.connect(_open_quest_tab)
 	add_child(instance)
 
