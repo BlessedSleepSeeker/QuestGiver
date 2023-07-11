@@ -3,16 +3,16 @@ class_name Inventory
 
 var gold: int = 0
 
-signal item_added(itemName)
-signal item_sold(itemName)
-signal item_reward(itemName)
+signal item_added(item: Item)
+signal item_removed(item: Item)
+signal item_given_reward(item: Item)
 
-signal gold_added(nbr)
-signal gold_removed(nbr)
+signal gold_added(amount: int)
+signal gold_removed(amount: int)
 
 @export var defaultItemScene = preload("res://Scenes/Items/Item.tscn")
 
-signal item_selected(Item)
+signal item_selected(item: Item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,12 +30,25 @@ func addItemByParam(itemName: String, sellValue: int, rewardValue: int, flavorTe
 	var instance = defaultItemScene.instantiate()
 	instance.ItemByParam(itemName, sellValue, rewardValue, flavorText, stackable, icon)
 	add_child(instance)
+	item_added.emit(instance)
 
 func addItemByDict(itemDict: Dictionary):
 	var instance = defaultItemScene.instantiate()
 	instance.ItemByDict(itemDict)
 	add_child(instance)
-	item_added.emit(instance.Name)
+	item_added.emit(instance)
+
+func addItem(_item: Item):
+	var instance = defaultItemScene.instantiate()
+	instance.ItemByCopy(_item)
+	add_child(instance)
+	item_added.emit(instance)
+
+func getItemsCount() -> int:
+	var count: int = 0
+	for item in self.get_children():
+		count += 1
+	return count
 
 func getAllItems() -> Array:
 	var items := []
@@ -51,13 +64,21 @@ func getAllItemsName() -> Array:
 
 func getItem(itemKey: String) -> Item:
 	for _i in self.get_children():
-		if (_i.Name == itemKey):
+		if (_i.name == itemKey):
 			return _i
 	return null
 
-func itemSelected(itemName: String) -> void:
-	if itemName != "DefaultItem":
-		item_selected.emit(getItem(itemName))
+func itemSelected(_item: Item) -> void:
+	#print(_item)
+	if _item:
+		item_selected.emit(_item)
+
+func removeItem(_item: Item) -> void:
+	for _i in get_children():
+		if _i == _item:
+			item_removed.emit(_item)
+			_i.queue_free()
+
 
 func getItemsAsDict() -> Dictionary:
 	return convertItemsToDict()
@@ -66,11 +87,6 @@ func convertItemsToDict() -> Dictionary:
 	var itemDict := {}
 	var i: int = 0
 	for _i in self.get_children():
-		itemDict[i] = {"Name": _i.Name,
-		"FlavorText": _i.FlavorText,
-		"SellValue": _i.SellValue,
-		"RewardValue": _i.RewardValue,
-		"Stackable": _i.Stackable,
-		"Amount": _i.Amount}
+		itemDict[i] = _i.toDict()
 		i += 1
 	return itemDict

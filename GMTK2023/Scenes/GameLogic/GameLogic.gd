@@ -17,17 +17,14 @@ const CHAR_JSON_PATH = "res://Json/Characters.json"
 var questTypes := {}
 const QUEST_TYPE_JSON_PATH = "res://Json/QuestTypes.json"
 
-var selectedItem: Item
-signal sold_item(itemName: String)
-
 enum STATE {Guild, Shop, Tavern, Sleep}
 var state = STATE.Shop
 signal state_changed(state)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inventoryUi.item_button_pressed.connect(_item_selected_ui)
 	inventory.item_selected.connect(_item_selected)
+	inventoryUi.item_button_pressed.connect(_item_selected_ui)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/GuildButton").guild_transition.connect(_guild_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/TavernButton").tavern_transition.connect(_tavern_transition)
@@ -83,21 +80,21 @@ func getCharacterByName(_name: String) -> Character:
 func getItemFromPlayer(_name: String) -> Item:
 	return inventory.getItem(_name)
 
-func _item_selected_ui(_itemName: String):
-	inventory.itemSelected(_itemName)
 
-func getWantedItem(_name: String) -> Item:
+func getItem(_name: String) -> Item:
 	return items.getItemByName(_name)
 
+
+func _item_selected_ui(_item: Item):
+	inventory.itemSelected(_item)
+
 func _item_selected(item: Item) -> void:
-	selectedItem = item
 	if state == STATE.Shop:
 		sellItem(item)
 
 func sellItem(item: Item):
-	sold_item.emit(item.Name)
-	player.addGold(item.SellValue)
-	item.queue_free()
+	player.addGold(item.sellValue)
+	inventory.removeItem(item)
 
 func _guild_transition() -> void:
 	state = STATE.Guild

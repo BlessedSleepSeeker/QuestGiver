@@ -187,5 +187,19 @@
         "FlavorText": "We're not really sure why he is here, but he always has nice gossips.",
         "Type": [5],
         "Difficulty": 23
+    },
+    "MiloFosc": {
+        "Name": "Milo Fosc",
+        "IconFileName": "milofosc",
+        "FlavorText": "Master of the overly complicated card game of \"Crapotin\", and he only plays it for money !",
+        "Type": [4, 5],
+        "Difficulty": 54
+    },
+    "CatiCatou": {
+        "Name": "Cati Catou",
+        "IconFileName": "caticatou",
+        "FlavorText": "Cati is specialized in moving people around in his pure white coach.",
+        "Type": [2, 4, 5],
+        "Difficulty": 22
     }
 }

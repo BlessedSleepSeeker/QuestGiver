@@ -1,11 +1,11 @@
 extends TextureButton
 class_name ItemIcon
 
-@export var DefaultItemName: String = "DefaultItem"
-@export var ItemName: String = "DefaultItem"
+@export var defaultItemName: String = "DefaultItem"
+@export var item: Item = null
 @onready var icon: TextureRect = $"Icon"
 
-signal itemButtonPressed(itemName)
+signal item_button_pressed(item: Item)
 
 var IconsPath: String = "res://Sprites/UI/Items/%s%s.png"
 var IconPath: String
@@ -27,36 +27,40 @@ const CLICK_MASK_PATH := "res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-func setName(_itemName: String):
-	ItemName = _itemName
-	buildPaths()
+	buildBasePaths()
 	loadBaseTextures()
+
+func setItem(_item: Item) -> void:
+	item = _item
+	item.tree_exiting.connect(reset)
+	buildIconPath()
 	loadIconTexture()
 
-func buildPaths():
-	NormalButtonPath = DefaultButtonPath % [NORMAL_BUTTON_FILENAME, DefaultItemName]
-	PressedButtonPath = DefaultButtonPath % [PRESSED_BUTTON_FILENAME, DefaultItemName]
-	HoverButtonPath = DefaultButtonPath % [HOVER_BUTTON_FILENAME, DefaultItemName]
-	DisabledButtonPath = DefaultButtonPath % [DISABLED_BUTTON_FILENAME, DefaultItemName]
-	#FocusedButtonPath = DefaultButtonPath % [FOCUSED_BUTTON_FILENAME, DefaultItemName]
-	IconPath = (IconsPath % [ICON_FILENAME, ItemName]).to_camel_case()
+func buildBasePaths() -> void:
+	NormalButtonPath = DefaultButtonPath % [NORMAL_BUTTON_FILENAME, defaultItemName]
+	PressedButtonPath = DefaultButtonPath % [PRESSED_BUTTON_FILENAME, defaultItemName]
+	HoverButtonPath = DefaultButtonPath % [HOVER_BUTTON_FILENAME, defaultItemName]
+	DisabledButtonPath = DefaultButtonPath % [DISABLED_BUTTON_FILENAME, defaultItemName]
+	#FocusedButtonPath = DefaultButtonPath % [FOCUSED_BUTTON_FILENAME, defaultItemName]
 	ClickMaskPath = CLICK_MASK_PATH
 
-func reset():
-	ItemName = DefaultItemName
-	buildPaths()
+func buildIconPath() -> void:
+	if item:
+		IconPath = (IconsPath % [ICON_FILENAME, item.itemName]).to_camel_case()
+
+func reset() -> void:
+	item = null
+	buildIconPath()
 	resetTexture()
 
-func resetTexture():
+func resetTexture() -> void:
 	icon.set_texture(null)
 
-func loadIconTexture():
+func loadIconTexture() -> void:
 	if ResourceLoader.exists(IconPath):
 		icon.set_texture(load(IconPath))
 
-func loadBaseTextures():
+func loadBaseTextures() -> void:
 	texture_normal = load(NormalButtonPath)
 	texture_pressed = load(PressedButtonPath)
 	texture_hover = load(HoverButtonPath)
@@ -64,4 +68,5 @@ func loadBaseTextures():
 	texture_click_mask = load(ClickMaskPath)
 
 func _on_pressed():
-	itemButtonPressed.emit(ItemName)
+	if item:
+		item_button_pressed.emit(item)

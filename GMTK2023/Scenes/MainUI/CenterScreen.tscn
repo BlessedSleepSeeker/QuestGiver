@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://gc616xo0xkkh"]
+
+[ext_resource type="PackedScene" uid="uid://vx35umynft1h" path="res://Scenes/Player/InventoryUI.tscn" id="1_lwld8"]
+[ext_resource type="PackedScene" uid="uid://bf4an2wlenaek" path="res://Scenes/Quests/UI/QuestList.tscn" id="2_cl6bi"]
+[ext_resource type="PackedScene" uid="uid://bpdqofw7vj2ba" path="res://Scenes/AdventurersGuild/TavernUI.tscn" id="3_agvdw"]
+[ext_resource type="PackedScene" uid="uid://hho5td7cvej2" path="res://Scenes/Quests/UI/QuestUI.tscn" id="4_mjb2y"]
+
+[node name="Center" type="CenterContainer"]
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="InventoryUI" parent="HBox" instance=ExtResource("1_lwld8")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestsList" parent="." instance=ExtResource("2_cl6bi")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TavernUI" parent="." instance=ExtResource("3_agvdw")]
+layout_mode = 2
+
+[node name="QuestUI" parent="." instance=ExtResource("4_mjb2y")]
+visible = false

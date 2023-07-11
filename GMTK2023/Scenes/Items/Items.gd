@@ -1,41 +1,49 @@
 extends Node
 class_name Items
 
-@export var items := {}
+@export var itemList: Dictionary = {}
 @export var defaultItem = preload("res://Scenes/Items/Item.tscn")
-@onready var player = get_node("/root/GameLogic/Player")
-@onready var playerInventory = get_node("/root/GameLogic/Player/Inventory")
+@onready var player: Player = get_node("/root/GameLogic/Player")
+@onready var playerInventory: Inventory = get_node("/root/GameLogic/Player/Inventory")
+
+@export var MAX_STARTER_ITEM = 2
 
 func setItemList(dict: Dictionary):
-	items = dict
+	itemList = dict
 
 func loadFromItemList():
-	for _i in items:
+	for _i in itemList:
 		var instance = defaultItem.instantiate()
-		instance.ItemByDict(items[_i])
+		instance.ItemByDict(itemList[_i])
 		add_child(instance)
 		#instance.printSelf()
 
 func generateStarterItem() -> void:
+	var count: int = 0
+	var items = self.get_children()
+	items.shuffle()
 	for item in items:
-		if RngHandler.gen.randi_range(0, 100) > getItemByKey(item)["SellValue"]:
+		if RngHandler.gen.randi_range(0, 100) > item.sellValue:
 			addItemToPlayer(item)
+			count += 1
+		if count > MAX_STARTER_ITEM:
+			return
+
+func addItemToPlayer(item: Item) -> void:
+	playerInventory.addItem(item)
 
 func getItemByKey(key: String):
-	if items and items.has(key):
-		return items[key].duplicate(true)
+	if itemList and itemList.has(key):
+		return itemList[key].duplicate(true)
 
-func addItemToPlayer(itemKey: String) -> void:
-	playerInventory.addItemByDict(getItemByKey(itemKey))
-
-func getAllItemsAsArray() -> Array:
-	var _items := []
+func getLoadedItemsAsArray() -> Array:
+	var _itemList := []
 	for _i in self.get_children():
-		_items.append(_i)
-	return _items
+		_itemList.append(_i)
+	return _itemList
 
-func getAllItems() -> Dictionary:
-	return items
+func getAllItemList() -> Dictionary:
+	return itemList
 
 func getItemByName(_name: String) -> Item:
 	for _i in self.get_children():
