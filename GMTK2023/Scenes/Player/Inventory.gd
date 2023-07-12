@@ -51,10 +51,7 @@ func getItemsCount() -> int:
 	return count
 
 func getAllItems() -> Array:
-	var items := []
-	for _i in self.get_children():
-		items.append(_i)
-	return items
+	return self.get_children()
 
 func getAllItemsName() -> Array:
 	var items := []

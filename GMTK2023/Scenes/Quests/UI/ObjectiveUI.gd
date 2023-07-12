@@ -9,19 +9,16 @@ signal modified(obj: Objective)
 
 @onready var buttonType: ObjectiveSelectButton = $ButtonType
 @onready var buttonCharacter: ObjectiveSelectButton = $ButtonChar
-@onready var buttonWantedItem: ObjectiveSelectButton = $ButtonWantedItem
+@onready var buttonWanted: ObjectiveSelectButton = $ButtonWanted
 @onready var buttonReward: ObjectiveSelectButton = $ButtonReward
 
-@export var okIcon: Texture2D = preload("res://Sprites/UI/Movement/okIcon.png")
-@export var cancelIcon: Texture2D = preload("res://Sprites/UI/Movement/cancelcon.png")
-@export var exclamationIcon: Texture2D = preload("res://Sprites/UI/Movement/exclamationIcon.png")
 var status: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connectToButton(buttonType)
 	connectToButton(buttonCharacter)
-	connectToButton(buttonWantedItem)
+	connectToButton(buttonWanted)
 	connectToButton(buttonReward)
 
 func connectToObjective():
@@ -38,33 +35,30 @@ func setObjective(obj: Objective) -> void:
 	generate()
 
 func generate() -> void:
-	generateIcon()
+	generateStatusIcon()
 	if objective:
-		buttonType.updateIcon(buttonType.buttonType, objective.type)
+		if objective.type:
+			buttonType.updateIcon(buttonType.buttonType, objective.type)
 		if objective.character:
-			buttonCharacter.updateIcon(buttonCharacter.buttonType, objective.character.characterName)
-		if objective.wantedItem:
-			buttonWantedItem.updateIcon(buttonWantedItem.buttonType, objective.wantedItem.Name)
+			buttonCharacter.updateIcon(buttonCharacter.buttonType, objective.character)
+		if objective.wanted:
+			buttonWanted.updateIcon(buttonWanted.buttonType, objective.wantedItem)
 		if objective.reward:
-			buttonReward.updateIcon(buttonReward.buttonType, objective.reward.Name)
+			buttonReward.updateIcon(buttonReward.buttonType, objective.reward)
 
 func setInteraction(_interactible: bool):
 	_interactible = !_interactible
 	buttonType.disabled = _interactible
 	buttonCharacter.disabled = _interactible
-	buttonWantedItem.disabled = _interactible
+	buttonWanted.disabled = _interactible
 	buttonReward.disabled = _interactible
 
-func generateIcon() -> void:
-	var _status = objective.getStatus()
-	if _status == 0:
-		textureCheckIcon.texture = null
-	elif _status == 1:
-		textureCheckIcon.texture = exclamationIcon
-	elif _status == 2:
-		textureCheckIcon.texture = cancelIcon
-	elif _status == 3:
-		textureCheckIcon.texture = okIcon
+func generateStatusIcon() -> void:
+	match objective.getStatus():
+		0: textureCheckIcon.texture = null
+		1: textureCheckIcon.texture = objective.exclamationIcon
+		2: textureCheckIcon.texture = objective.cancelIcon
+		3: textureCheckIcon.texture = objective.okIcon
 
 #don't question it
 func _open_window(_type):
@@ -72,20 +66,17 @@ func _open_window(_type):
 		buttonType.closeWindow()
 	if _type != buttonCharacter.buttonType:
 		buttonCharacter.closeWindow()
-	if _type != buttonWantedItem.buttonType:
-		buttonWantedItem.closeWindow()
+	if _type != buttonWanted.buttonType:
+		buttonWanted.closeWindow()
 	if _type != buttonReward.buttonType:
 		buttonReward.closeWindow()
 
-func _objective_selected(_type: String, objName: String):
-	if _type == "QUEST_TYPE":
-		objective.setType(objName)
-	elif _type == "CHAR":
-		objective.setCharacterByName(objName)
-	elif _type == "ITEMS":
-		objective.setItemByName(objName, false)
-	elif _type == "PLAYER_ITEMS":
-		objective.setItemByName(objName, true)
+func _objective_selected(_type: String, obj: Node):
+	match _type:
+		"QUEST_TYPE": objective.setType(obj)
+		"CHAR": objective.setCharacter(obj)
+		"ITEMS": objective.setWanted(obj)
+		"PLAYER_ITEMS": objective.setReward(obj)
 
 #callback if needed
 func _objective_updated():

@@ -1,0 +1,37 @@
+extends Node
+class_name QuestType
+
+@export_group("Mechanics")
+@export var typeName: String = ""
+@export var difficulty: int = 0
+@export var reputationRequired: int = 0
+
+@export_group("Textures")
+@export var icon: Texture2D = null
+@export var iconPath: String = ""
+@export var typeIconPath: String = "res://Sprites/UI/Quests/Objective/%s.png"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func new(_typeName: String, _difficulty: int, _reputationRequired: int) -> void:
+	typeName = _typeName
+	difficulty = _difficulty
+	reputationRequired = _reputationRequired
+	buildIconPath()
+	loadIcon()
+
+func buildIconPath() -> void:
+	iconPath = typeIconPath % typeName.to_camel_case()
+
+func loadIcon() -> void:
+	print(iconPath)
+	if ResourceLoader.exists(iconPath):
+		icon = load(iconPath)
+
+func getIcon() -> Texture2D:
+	return icon
+
+func getTootip() -> String:
+	return typeName

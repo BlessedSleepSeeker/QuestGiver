@@ -2,37 +2,36 @@
     "0": {
         "Name": "Kill",
         "Difficulty": 10,
-        "ReputationLevelRequired": 2,
-        "IconPath": "res://Sprites/UI/Quest/Objective/kill.png"
+        "ReputationLevelRequired": 2
     },
     "1": {
         "Name": "Fetch",
         "Difficulty": 6,
-        "ReputationLevelRequired": 1,
-        "IconPath": "res://Sprites/UI/Quest/Objective/fetch.png"
+        "ReputationLevelRequired": 1
     },
     "2": {
         "Name": "Escort",
         "Difficulty": 5,
-        "ReputationLevelRequired": 1,
-        "IconPath": "res://Sprites/UI/Quest/Objective/escort.png"
+        "ReputationLevelRequired": 1
     },
     "3": {
         "Name": "Explore",
         "Difficulty": 15,
-        "ReputationLevelRequired": 1,
-        "IconPath": "res://Sprites/UI/Quest/Objective/explore.png"
+        "ReputationLevelRequired": 1
     },
     "4": {
         "Name": "Shame",
         "Difficulty": 25,
-        "ReputationLevelRequired": 4,
-        "IconPath": "res://Sprites/UI/Quest/Objective/shame.png"
+        "ReputationLevelRequired": 4
     },
     "5": {
         "Name": "Seduce",
         "Difficulty": 12,
-        "ReputationLevelRequired": 2,
-        "IconPath": "res://Sprites/UI/Quest/Objective/seduce.png"
+        "ReputationLevelRequired": 2
+    },
+    "6": {
+        "Name": "Steal",
+        "Difficulty": 10,
+        "ReputationLevelRequired": 3
     }
 }

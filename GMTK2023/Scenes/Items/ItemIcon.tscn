@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dee7vk3f6ogkq"]
+[gd_scene load_steps=7 format=3 uid="uid://dee7vk3f6ogkq"]
 
 [ext_resource type="Script" path="res://Scenes/Items/ItemIcon.gd" id="1_1ccqi"]
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="1_3q5ps"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/UI/DefaultButton/pressedDefaultItem.png" id="2_gkloc"]
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/UI/DefaultButton/hoverDefaultItem.png" id="3_tygdt"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/UI/DefaultButton/disabledDefaultItem.png" id="4_ehii8"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="5_de0v1"]
 
 [node name="ItemIcon" type="TextureButton"]
 offset_left = 320.0
 offset_top = 180.0
 offset_right = 320.0
 offset_bottom = 180.0
+texture_normal = ExtResource("1_3q5ps")
+texture_pressed = ExtResource("2_gkloc")
+texture_hover = ExtResource("3_tygdt")
+texture_disabled = ExtResource("4_ehii8")
+texture_click_mask = ExtResource("5_de0v1")
 script = ExtResource("1_1ccqi")
 
 [node name="Icon" type="TextureRect" parent="."]

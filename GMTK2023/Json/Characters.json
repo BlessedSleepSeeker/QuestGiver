@@ -17,42 +17,49 @@
         "Name": "The Evil Tower of Rinaga",
         "IconFileName": "rinagaDungeon",
         "FlavorText": "Every adventurer's first dungeon",
+        "Type": [3],
         "Difficulty": 12
     },
     "Troll": {
         "Name": "The Troll of Dimaks",
         "IconFileName": "dimakTroll",
         "FlavorText": "A legendary troll",
+        "Type": [0],
         "Difficulty": 20
     },
     "WanderingWarrior": {
         "Name": "The Blade of Asmax",
         "IconFileName": "asmaxBlade",
         "FlavorText": "The guy got skill",
+        "Type": [1, 2, 4, 5],
         "Difficulty": 25
     },
     "Caravane": {
         "Name": "Raphael's Caravan",
         "IconFileName": "caravan",
         "FlavorText": "Raphael's Caravan",
+        "Type": [2, 3, 6],
         "Difficulty": 3
     },
     "BillionSlime": {
         "Name": "A billion slimes",
         "IconFileName": "billionSlime",
         "FlavorText": "It's 3 wolfs",
+        "Type": [0],
         "Difficulty": 1000
     },
     "Dragon": {
         "Name": "A Big White Dragon",
         "IconFileName": "whiteDragon",
         "FlavorText": "It's 3 wolfs",
+        "Type": [0],
         "Difficulty": 80
     },
     "Dragon2": {
         "Name": "The Great Black Dragon with Red Eyes, Purple Nail Polish, Iridescent Scales and who distribute the gift of eyeliner",
         "IconFileName": "fancyBlackDragon",
         "FlavorText": "It's 3 wolfs",
+        "Type": [5],
         "Difficulty": 100
     },
     "Wastoid": {

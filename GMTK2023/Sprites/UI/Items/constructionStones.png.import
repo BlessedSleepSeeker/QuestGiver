@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wagljgyeekq1"
-path="res://.godot/imported/iconWoodenShield.png-de0f7926069a1dacbd3fcd3e2c088269.ctex"
+uid="uid://badpkbqhr7q5g"
+path="res://.godot/imported/constructionStones.png-79f634f04b095c0fda1efd61b7991690.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Items/iconWoodenShield.png"
-dest_files=["res://.godot/imported/iconWoodenShield.png-de0f7926069a1dacbd3fcd3e2c088269.ctex"]
+source_file="res://Sprites/UI/Items/constructionStones.png"
+dest_files=["res://.godot/imported/constructionStones.png-79f634f04b095c0fda1efd61b7991690.ctex"]
 
 [params]
 

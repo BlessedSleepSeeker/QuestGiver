@@ -7,7 +7,7 @@ signal selected(dict: Dictionary)
 @export var objectiveButton = preload("res://Scenes/Quests/UI/ObjectiveButton.tscn")
 @onready var parent = get_parent()
 @export_enum("QUEST_TYPE", "CHAR", "ITEMS", "PLAYER_ITEMS") var windowType: String = "QUEST_TYPE"
-var options = {}
+var options := []
 @onready var grid = $Grid
 
 signal objective_selected(type: String, itemName: String, _iconPath: String)
@@ -18,35 +18,32 @@ func _ready():
 
 func setWindowType(_type: String):
 	windowType = _type
-	if windowType == "QUEST_TYPE":
-		title = "Type"
-	elif windowType == "CHAR":
-		title = "Target"
-	elif windowType == "ITEMS":
-		title = "Desire"
-	elif windowType == "PLAYER_ITEMS":
-		title = "Reward"
+	match windowType:
+		"QUEST_TYPE":title = "Type"
+		"CHAR": title = "Target"
+		"ITEMS": title = "Desire"
+		"PLAYER_ITEMS": title = "Reward"
 
 func generate() -> void:
 	flush()
-	for _i in options:
+	for _i in range(options.size() - 1):
 		var instance = objectiveButton.instantiate()
-		instance.itemButtonPressed.connect(_objective_selected)
+		instance.item_button_pressed.connect(_objective_selected)
 		grid.add_child(instance)
-		#print(options[_i])
-		if windowType != "QUEST_TYPE":
-			instance.new(windowType, options[_i].Name, options[_i].Name)
-		if windowType == "CHAR":
-			instance.new(windowType, options[_i].Name, options[_i].Name, options[_i].IconFileName)
-		else:
-			instance.new(windowType, options[_i].Name, options[_i].Name)
+		instance.new(windowType, options[_i])
+		# if windowType != "QUEST_TYPE":
+		# 	instance.new(windowType, options[_i])
+		# if windowType == "CHAR":
+		# 	instance.new(windowType, options[_i])
+		# else:
+		# 	instance.new(windowType, options[_i])
 
-func setOption(dict: Dictionary) -> void:
-	options = dict
+func setOption(arr: Array) -> void:
+	options = arr
 
-func _objective_selected(itemName: String, _iconName: String) -> void:
+func _objective_selected(item: Node) -> void:
 	hide()
-	objective_selected.emit(windowType, itemName, _iconName)
+	objective_selected.emit(windowType, item)
 
 func _on_close_requested():
 	hide()

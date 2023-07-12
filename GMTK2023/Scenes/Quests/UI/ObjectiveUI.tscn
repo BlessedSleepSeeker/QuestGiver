@@ -33,13 +33,13 @@ stretch_mode = 2
 [node name="ButtonType" parent="." instance=ExtResource("3_cbu4t")]
 layout_mode = 2
 
+[node name="ButtonWanted" parent="." instance=ExtResource("3_cbu4t")]
+layout_mode = 2
+buttonType = "ITEMS"
+
 [node name="ButtonChar" parent="." instance=ExtResource("3_cbu4t")]
 layout_mode = 2
 buttonType = "CHAR"
-
-[node name="ButtonWantedItem" parent="." instance=ExtResource("3_cbu4t")]
-layout_mode = 2
-buttonType = "ITEMS"
 
 [node name="ButtonReward" parent="." instance=ExtResource("3_cbu4t")]
 layout_mode = 2

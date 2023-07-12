@@ -7,15 +7,9 @@ class_name GameLogic
 @onready var characters: Characters = $Characters
 @onready var adventurers: Adventurers = $Adventurers
 @onready var items: Items = $Items
+@onready var questTypes: QuestTypes = $QuestTypes
 @onready var mainUi := $MainGameUI
 @onready var inventoryUi := $MainGameUI/Margin/VBoxContainer/Center/HBox/InventoryUI
-
-const ITEMS_JSON_PATH = "res://Json/Items.json"
-
-const CHAR_JSON_PATH = "res://Json/Characters.json"
-
-var questTypes := {}
-const QUEST_TYPE_JSON_PATH = "res://Json/QuestTypes.json"
 
 enum STATE {Guild, Shop, Tavern, Sleep}
 var state = STATE.Shop
@@ -29,50 +23,17 @@ func _ready():
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/ShopButton").shop_transition.connect(_shop_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/TavernButton").tavern_transition.connect(_tavern_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
-	
-	parseItemList()
-	parseCharacterList()
-	parseQuestTypeList()
+	get_node("MainGameUI/Margin/VBoxContainer/Center/EndOfDayReport").report_finished.connect(_report_finished)
+
+	characters.parseListFromJSON()
+	questTypes.parseListFromJSON()
+	items.parseListFromJSON()
 	generateGameState()
 	_shop_transition()
 
 func generateGameState() -> void:
-	generateStarterGold()
+	player.generateStarterGold()
 	items.generateStarterItem()
-
-func generateStarterGold() -> void:
-	player.addGold(RngHandler.generateStarterGold())
-
-func parseCharacterList() -> void:
-	var file = FileAccess.open(CHAR_JSON_PATH, FileAccess.READ)
-	var json_parsing = JSON.new()
-	var error = json_parsing.parse(file.get_as_text())
-	if error == OK:
-		characters.setCharacterList(json_parsing.data)
-		characters.loadFromCharacterList()
-		#print(characters)
-	else:
-		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
-
-func parseItemList() -> void:
-	var file = FileAccess.open(ITEMS_JSON_PATH, FileAccess.READ)
-	var json_parsing = JSON.new()
-	var error = json_parsing.parse(file.get_as_text())
-	if error == OK:
-		items.setItemList(json_parsing.data)
-		items.loadFromItemList()
-	else:
-		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
-
-func parseQuestTypeList() -> void:
-	var file = FileAccess.open(QUEST_TYPE_JSON_PATH, FileAccess.READ)
-	var json_parsing = JSON.new()
-	var error = json_parsing.parse(file.get_as_text())
-	if error == OK:
-		questTypes = json_parsing.data
-		#print(questTypes)
-	else:
-		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", ITEMS_JSON_PATH, " at line ", json_parsing.get_error_line())
 
 func getCharacterByName(_name: String) -> Character:
 	return characters.getCharacterByName(_name)
@@ -80,10 +41,8 @@ func getCharacterByName(_name: String) -> Character:
 func getItemFromPlayer(_name: String) -> Item:
 	return inventory.getItem(_name)
 
-
 func getItem(_name: String) -> Item:
 	return items.getItemByName(_name)
-
 
 func _item_selected_ui(_item: Item):
 	inventory.itemSelected(_item)
@@ -110,21 +69,24 @@ func _tavern_transition() -> void:
 
 func _sleep_transition() -> void:
 	state = STATE.Sleep
-	state_changed.emit(state)
 	Calendar.addDay()
 	simulate()
+	state_changed.emit(state)
 
-func getQuestTypes() -> Dictionary:
-	return questTypes
+func _report_finished():
+	_shop_transition()
 
-func getCharacters() -> Dictionary:
-	return characters.getAllAsDictionary()
+func getQuestTypes() -> Array:
+	return questTypes.getAll()
 
-func getAllItems() -> Dictionary:
+func getCharacters() -> Array:
+	return characters.getAll()
+
+func getAllItems() -> Array:
 	return items.getAllItems()
 
-func getPlayerItems() -> Dictionary:
-	return player.getItemsAsDict()
+func getPlayerItems() -> Array:
+	return player.getItems()
 
 func getQuests() -> Array:
 	return quests.get_children()

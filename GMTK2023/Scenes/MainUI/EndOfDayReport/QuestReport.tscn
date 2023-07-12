@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dodken2wan360"]
+
+[ext_resource type="Script" path="res://Scenes/MainUI/EndOfDayReport/QuestReport.gd" id="1_go7l0"]
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="2_wcp4m"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/UI/DefaultButton/pressedDefaultItem.png" id="3_uwj4i"]
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/UI/DefaultButton/hoverDefaultItem.png" id="4_ppihn"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/UI/DefaultButton/disabledDefaultItem.png" id="5_h45c8"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="6_0y3i2"]
+
+[node name="QuestReport" type="Container"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_go7l0")
+
+[node name="Report" type="Label" parent="."]
+layout_mode = 2
+
+[node name="NextButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_wcp4m")
+texture_pressed = ExtResource("3_uwj4i")
+texture_hover = ExtResource("4_ppihn")
+texture_disabled = ExtResource("5_h45c8")
+texture_click_mask = ExtResource("6_0y3i2")

@@ -7,16 +7,22 @@ var reputationName := {0: "Not Affiliated", 1: "On-Trial Questmaker", 2: "Offici
 var reputationXp := 0
 var reputationXpPerLevel := {0: 0, 1: 10, 2: 10, 3: 70, 4: 300, 5: 1000}
 
-@onready var inventory = $"Inventory"
+@onready var inventory: Inventory = $"Inventory"
 
 func _ready():
 	pass # Replace with function body.
+
+func generateStarterGold() -> void:
+	addGold(RngHandler.generateStarterGold())
 
 func addGold(nbr: int):
 	inventory.addGold(nbr)
 
 func removeGold(nbr: int):
 	inventory.removeGold(nbr)
+
+func getItems() -> Array:
+	return inventory.getAllItems()
 
 func getItemsAsDict() -> Dictionary:
 	return inventory.getItemsAsDict()

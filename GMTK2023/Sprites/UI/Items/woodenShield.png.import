@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgqtxct2skmba"
-path="res://.godot/imported/iconWoodenSword.png-491199b13f135c16a4e37b4875ac57fa.ctex"
+uid="uid://b4ohdaitb1hyc"
+path="res://.godot/imported/woodenShield.png-6603a13bdfcc0e20d37272662246fb14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Items/iconWoodenSword.png"
-dest_files=["res://.godot/imported/iconWoodenSword.png-491199b13f135c16a4e37b4875ac57fa.ctex"]
+source_file="res://Sprites/UI/Items/woodenShield.png"
+dest_files=["res://.godot/imported/woodenShield.png-6603a13bdfcc0e20d37272662246fb14.ctex"]
 
 [params]
 

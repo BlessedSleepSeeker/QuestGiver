@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2nuo0jsqt32x"]
+
+[ext_resource type="Script" path="res://Scenes/Quests/QuestTypes/QuestType.gd" id="1_cimdv"]
+
+[node name="QuestType" type="Node"]
+script = ExtResource("1_cimdv")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck0j4mqu3gc0d"
-path="res://.godot/imported/iconDiamond.png-f095f531e26ed73f836c572cfed53a37.ctex"
+uid="uid://c8rrto5nkpcj"
+path="res://.godot/imported/woodenSword.png-91dc0b9f6510be5a1845bc3e9f3e9db8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Items/iconDiamond.png"
-dest_files=["res://.godot/imported/iconDiamond.png-f095f531e26ed73f836c572cfed53a37.ctex"]
+source_file="res://Sprites/UI/Items/woodenSword.png"
+dest_files=["res://.godot/imported/woodenSword.png-91dc0b9f6510be5a1845bc3e9f3e9db8.ctex"]
 
 [params]
 

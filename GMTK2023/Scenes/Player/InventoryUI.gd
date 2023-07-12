@@ -24,6 +24,12 @@ func _item_added(item: Item):
 	var inventory_spot = getEmptySpot() # search for empty spot
 	inventory_spot.setItem(item)
 
+func getEmptySpot() -> ItemIcon:
+	for _i in self.get_children():
+		if _i.item == null:
+			return _i
+	return null
+
 func _item_removed(_item: Item):
 	pass
 	# var itemSpot: ItemIcon
@@ -32,11 +38,7 @@ func _item_removed(_item: Item):
 	# if itemSpot:
 	# 	itemSpot.reset()
 
-func getEmptySpot() -> ItemIcon:
-	for _i in self.get_children():
-		if _i.item == null:
-			return _i
-	return null
+
 
 func getItemSpot(_item: Item) -> ItemIcon:
 	for _i in self.get_children():
