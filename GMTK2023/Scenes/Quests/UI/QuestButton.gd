@@ -1,4 +1,5 @@
 extends TextureButton
+class_name QuestButton
 
 @export var questId := 0
 @export var quest: Quest = null

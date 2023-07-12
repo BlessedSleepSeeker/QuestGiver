@@ -26,12 +26,11 @@ func buildIconPath() -> void:
 	iconPath = typeIconPath % typeName.to_camel_case()
 
 func loadIcon() -> void:
-	print(iconPath)
 	if ResourceLoader.exists(iconPath):
 		icon = load(iconPath)
 
 func getIcon() -> Texture2D:
 	return icon
 
-func getTootip() -> String:
+func getTooltip() -> String:
 	return typeName

@@ -11,7 +11,6 @@ signal quest_failed(quest: Quest)
 signal quest_expired(quest: Quest)
 signal quest_took(quest: Quest)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -46,7 +45,7 @@ func findFreeId():
 func sortById(obj_a, obj_b) -> bool:
 	return true if obj_a.id > obj_b.id else false
 
-func getAllQuests() -> Array:
+func getAll() -> Array:
 	var arr = get_children()
 	arr.sort_custom(sortById)
 	return arr

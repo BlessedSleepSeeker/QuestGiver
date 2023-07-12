@@ -49,3 +49,6 @@ func getDifficulty():
 
 func getIcon() -> Texture2D:
 	return icon
+
+func getTooltip() -> String:
+	return characterName

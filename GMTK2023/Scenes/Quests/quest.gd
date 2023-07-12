@@ -61,7 +61,7 @@ func tryNextObjective(heroSkill: int) -> void:
 
 func findNextObjective() -> Objective:
 	for _i in self.get_children():
-		print(_i)
+		#print(_i)
 		if _i.completed != true:
 			return _i
 	return null

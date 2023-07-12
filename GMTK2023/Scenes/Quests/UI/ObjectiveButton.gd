@@ -11,20 +11,25 @@ signal item_button_pressed(itemOrChar: Node)
 func _ready():
 	pass
 
-func new(_type: String, _item: Node):
+func new(_type: String, _item: Node) -> void:
 	itemOrChar = _item
 	setType(_type)
 	icon.set_texture(itemOrChar.getIcon())
+	icon.tooltip_text = itemOrChar.getTooltip()
 
-func setType(_type: String):
+func setType(_type: String) -> void:
 	type = _type
 
-func reset():
+func reset() -> void:
 	itemOrChar = null
 	resetTexture()
+	resetTooltip()
 
-func resetTexture():
+func resetTexture() -> void:
 	icon.set_texture(null)
 
-func _on_pressed():
+func resetTooltip() -> void:
+	icon.tooltip_text = ""
+
+func _on_pressed() -> void:
 	item_button_pressed.emit(itemOrChar)

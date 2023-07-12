@@ -18,28 +18,25 @@ func _ready():
 
 func setWindowType(_type: String):
 	windowType = _type
+
+func updateTitle():
 	match windowType:
-		"QUEST_TYPE":title = "Type"
+		"QUEST_TYPE": title = "Type"
 		"CHAR": title = "Target"
 		"ITEMS": title = "Desire"
 		"PLAYER_ITEMS": title = "Reward"
 
 func generate() -> void:
 	flush()
-	for _i in range(options.size() - 1):
+	for _i in range(options.size()):
 		var instance = objectiveButton.instantiate()
 		instance.item_button_pressed.connect(_objective_selected)
 		grid.add_child(instance)
 		instance.new(windowType, options[_i])
-		# if windowType != "QUEST_TYPE":
-		# 	instance.new(windowType, options[_i])
-		# if windowType == "CHAR":
-		# 	instance.new(windowType, options[_i])
-		# else:
-		# 	instance.new(windowType, options[_i])
 
 func setOption(arr: Array) -> void:
 	options = arr
+	print_debug(options)
 
 func _objective_selected(item: Node) -> void:
 	hide()

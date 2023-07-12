@@ -18,11 +18,11 @@ func parseListFromJSON() -> void:
 	var error = json_parsing.parse(file.get_as_text())
 	if error == OK:
 		setQuestTypeList(json_parsing.data)
-		loadFromquestTypeList()
+		loadFromQuestTypeList()
 	else:
 		print("JSON Parse Error:", json_parsing.get_error_message(), " in ", QUEST_TYPE_JSON_PATH, " at line ", json_parsing.get_error_line())
 
-func loadFromquestTypeList():
+func loadFromQuestTypeList():
 	for _i in questTypeList:
 		var instance = defaultTypeScene.instantiate()
 		instance.new(questTypeList[_i].Name, questTypeList[_i].Difficulty, questTypeList[_i].ReputationLevelRequired)
