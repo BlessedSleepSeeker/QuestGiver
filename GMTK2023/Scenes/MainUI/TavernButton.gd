@@ -2,6 +2,7 @@ extends TextureButton
 
 @onready var guildBtn = get_node("../GuildButton")
 @onready var shopBtn = get_node("../ShopButton")
+@onready var sleepBtn = get_node("../SleepButton/ConfirmationDialog")
 @onready var active = $Active
 
 signal tavern_transition
@@ -9,6 +10,10 @@ signal tavern_transition
 func _ready():
 	guildBtn.guild_transition.connect(_leave)
 	shopBtn.shop_transition.connect(_leave)
+	sleepBtn.sleep_time.connect(_sleep)
+	active.hide()
+
+func _sleep():
 	active.hide()
 
 func _on_pressed():

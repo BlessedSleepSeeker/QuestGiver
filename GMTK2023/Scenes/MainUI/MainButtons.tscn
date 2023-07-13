@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/MainUI/ShopButton.gd" id="3_5r4tf"]
 [ext_resource type="PackedScene" uid="uid://cj7kjfem82ngp" path="res://Scenes/MainUI/SleepPopup.tscn" id="3_43dab"]
 [ext_resource type="Texture2D" uid="uid://cmisap45rbfkv" path="res://Sprites/UI/Movement/Guild/pressedGuild.png" id="3_hjiq0"]
-[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/Items/DefaultSizeClickMask.png" id="3_hpof4"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="3_hpof4"]
 [ext_resource type="Texture2D" uid="uid://4c0akyucphp0" path="res://Sprites/UI/Movement/Guild/hoverGuild.png" id="4_f8a6i"]
 [ext_resource type="Texture2D" uid="uid://botniophj6ac8" path="res://Sprites/UI/Movement/Guild/disabledGuild.png" id="5_5tpxb"]
 [ext_resource type="Texture2D" uid="uid://bs2npt8clc56n" path="res://Sprites/UI/Movement/iconActive.png" id="8_56fi8"]
