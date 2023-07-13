@@ -36,7 +36,6 @@ func generate() -> void:
 
 func setOption(arr: Array) -> void:
 	options = arr
-	print_debug(options)
 
 func _objective_selected(item: Node) -> void:
 	hide()

@@ -9,19 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/UI/DefaultButton/disabledDefaultItem.png" id="7_d5sp6"]
 [ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="8_2w83h"]
 
-[node name="EndOfDayReport" type="Container"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="EndOfDayReport" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
 theme = ExtResource("1_7biq1")
 script = ExtResource("2_cwhjq")
 
+[node name="NoUpdate" type="Label" parent="."]
+layout_mode = 2
+text = "There was no update today."
+
 [node name="QuestReport" parent="." instance=ExtResource("3_8okyd")]
-visible = false
 layout_mode = 2
 
 [node name="LeaveButton" type="TextureButton" parent="."]
@@ -37,6 +35,4 @@ layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 
-[node name="NoUpdate" type="Label" parent="."]
-layout_mode = 2
-text = "There was no update today."
+[connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]

@@ -91,7 +91,7 @@ func _quest_name_updated(questName: String):
 	quest.setName(questName)
 	title = quest.questName
 
-func _state_changed(_state: int):
+func _state_changed(_state: String, _playAnim: bool = true):
 	await get_tree().create_timer(1).timeout
 	hide()
 

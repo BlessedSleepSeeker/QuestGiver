@@ -1,11 +1,12 @@
 extends HBoxContainer
+class_name ObjectiveReport
 
 @onready var textureCheck: TextureRect = $Status
 @onready var textureCheckIcon: TextureRect = textureCheck.get_node("StatusIcon")
 
 @onready var buttonType: ObjectiveSelectButton = $ButtonType
 @onready var buttonCharacter: ObjectiveSelectButton = $ButtonChar
-@onready var buttonWantedItem: ObjectiveSelectButton = $ButtonWantedItem
+@onready var buttonWanted: ObjectiveSelectButton = $ButtonWanted
 @onready var buttonReward: ObjectiveSelectButton = $ButtonReward
 
 @export var objective: Objective = null
@@ -16,6 +17,7 @@ func _ready():
 
 func setObjective(obj: Objective):
 	objective = obj
+	generate()
 
 func generate():
 	if objective:
@@ -26,16 +28,22 @@ func generate():
 		generateRewardIcon()
 
 func generateStatusIcon():
-	textureCheckIcon.texture = objective.getStatusIcon()
+	textureCheckIcon.get_node("IconStatus").texture = objective.getStatusIcon()
+	textureCheckIcon.tooltip_text = objective.getStatusAsString()
 
 func generateTypeIcon():
-	pass
+	if objective.type:
+		buttonType.get_node("IconType").texture = objective.type.getIcon()
+		buttonType.tooltip_text = objective.type.getTooltip()
 
 func generateCharIcon():
-	pass
+	buttonCharacter.get_node("IconChar").texture = objective.character.getIcon()
+	buttonType.tooltip_text = objective.character.getTooltip()
 
 func generateWantedIcon():
-	pass
+	buttonWanted.get_node("IconWanted").texture = objective.wanted.getIcon()
+	buttonType.tooltip_text = objective.wanted.getTooltip()
 
 func generateRewardIcon():
-	pass
+	buttonReward.get_node("IconReward").texture = objective.reward.getIcon()
+	buttonType.tooltip_text = objective.reward.getTooltip()

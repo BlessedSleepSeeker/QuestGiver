@@ -38,13 +38,13 @@ func generate() -> void:
 	generateStatusIcon()
 	if objective:
 		if objective.type:
-			buttonType.updateIcon(buttonType.buttonType, objective.type)
+			buttonType.updateUI(objective.type)
 		if objective.character:
-			buttonCharacter.updateIcon(buttonCharacter.buttonType, objective.character)
+			buttonCharacter.updateUI(objective.character)
 		if objective.wanted:
-			buttonWanted.updateIcon(buttonWanted.buttonType, objective.wantedItem)
+			buttonWanted.updateUI(objective.wanted)
 		if objective.reward:
-			buttonReward.updateIcon(buttonReward.buttonType, objective.reward)
+			buttonReward.updateUI(objective.reward)
 
 func setInteraction(_interactible: bool):
 	_interactible = !_interactible

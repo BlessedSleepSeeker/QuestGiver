@@ -2,7 +2,7 @@ extends Node
 class_name Character
 
 @export_group("Mechanics")
-@export var characterName: String = "DefaultCharacter"
+@export var characterName: String = ""
 @export var flavorText: String = "DefaultFlavorText"
 @export var allowedQuestType: Array = []
 @export var difficulty: int = 0
@@ -12,6 +12,11 @@ class_name Character
 @export var iconPath: String = ""
 @export var characterIconName: String = ""
 @export var charactersIconPath: String = "res://Sprites/UI/Characters/%s.png"
+
+func _ready():
+	if characterName != "":
+		buildIconPath()
+		loadIcon()
 
 func new(_charName: String, _flavorText: String, _allowedQuestType: Array, _difficulty: int, _characterIconName: String):
 	setName(_charName)

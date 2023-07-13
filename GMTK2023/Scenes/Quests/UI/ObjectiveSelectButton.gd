@@ -38,7 +38,14 @@ func loadPlayerItems() -> void:
 func setTexture(_texture: Texture2D):
 	texture.set_texture(_texture)
 
-func updateIcon(_type: String, obj: Node):
+func updateUI(obj: Node):
+	updateIcon(obj)
+	updateTooltip(obj.getTooltip())
+
+func updateTooltip(tooltip: String):
+	tooltip_text = tooltip
+
+func updateIcon(obj: Node):
 	setTexture(obj.getIcon())
 
 func _on_pressed():
@@ -51,4 +58,5 @@ func closeWindow():
 
 func _objective_selected(type: String, obj: Node):
 	objective_selected.emit(type, obj)
-	updateIcon(type, obj)
+	updateIcon(obj)
+	updateTooltip(obj.getTooltip())

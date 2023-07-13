@@ -16,7 +16,9 @@ class_name Item
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if itemName != "":
+		buildIconPath()
+		loadIcon()
 
 func ItemByParam(_itemName: String, _sellValue: int, _rewardValue: int, _flavorText: String, _stackable: bool, _amount: int) -> void:
 	itemName = _itemName

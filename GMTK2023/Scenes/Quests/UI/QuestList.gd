@@ -18,9 +18,9 @@ func _ready():
 
 func create_questButton(_quest: Quest):
 	var instance = baseQuestButton.instantiate()
+	add_child(instance)
 	instance.setQuest(_quest)
 	instance.open_quest_tab.connect(_open_quest_tab)
-	add_child(instance)
 
 func _addQuest():
 	var quest = quests.addQuest()
@@ -33,9 +33,9 @@ func _open_quest_tab(quest: Quest):
 func _updated_quest(quest: Quest):
 	updated_quest.emit(quest)
 
-func _state_changed(_state: int):
+func _state_changed(_state: String, _playAnim: bool = true):
 	await get_tree().create_timer(1).timeout
-	if _state != 0:
+	if _state != "Guild":
 		flushQuestButtons()
 		hide()
 	else:

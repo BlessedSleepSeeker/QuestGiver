@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/UI/DefaultButton/disabledDefaultItem.png" id="5_h45c8"]
 [ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="6_0y3i2"]
 
-[node name="QuestReport" type="Container"]
+[node name="QuestReport" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +16,9 @@ grow_vertical = 2
 script = ExtResource("1_go7l0")
 
 [node name="Report" type="Label" parent="."]
+layout_mode = 2
+
+[node name="ObjectivesHolder" type="VBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="NextButton" type="TextureButton" parent="."]

@@ -13,7 +13,9 @@ class_name QuestType
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if typeName != "":
+		buildIconPath()
+		loadIcon()
 
 func new(_typeName: String, _difficulty: int, _reputationRequired: int) -> void:
 	typeName = _typeName

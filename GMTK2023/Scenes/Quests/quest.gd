@@ -15,6 +15,8 @@ signal finished(quest: Quest)
 signal failed(quest: Quest)
 signal expired(quest: Quest)
 signal took(quest: Quest)
+# fired when something game related happen : quest picked up, objective tried by a hero...
+signal something_happened(quest: Quest)
 signal updated
 
 # Called when the node enters the scene tree for the first time.
@@ -58,10 +60,10 @@ func getAllObjectives() -> Array:
 func tryNextObjective(heroSkill: int) -> void:
 	var nxt = findNextObjective()
 	nxt.tryObjective(heroSkill)
+	something_happened.emit(self)
 
 func findNextObjective() -> Objective:
 	for _i in self.get_children():
-		#print(_i)
 		if _i.completed != true:
 			return _i
 	return null
@@ -79,7 +81,6 @@ func _objective_finished(_id: int) -> void:
 
 func _objective_failed(_id: int) -> void:
 	taken = false
-	resetProgress()
 	failed.emit(self)
 
 func _objective_modified(_id: int) -> void:

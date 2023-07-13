@@ -55,9 +55,9 @@ func getItemSpotByName(itemName: String) -> ItemIcon:
 func _item_button_pressed(item: Item):
 	item_button_pressed.emit(item)
 
-func _state_changed(_state: int):
+func _state_changed(_state: String, _playAnim: bool = true):
 	await get_tree().create_timer(1).timeout
-	if _state != 1:
+	if _state != "Shop":
 		hide()
 	else:
 		show()

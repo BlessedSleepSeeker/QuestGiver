@@ -11,9 +11,8 @@ class_name GameLogic
 @onready var mainUi := $MainGameUI
 @onready var inventoryUi := $MainGameUI/Margin/VBoxContainer/Center/HBox/InventoryUI
 
-enum STATE {Guild, Shop, Tavern, Sleep}
-var state = STATE.Shop
-signal state_changed(state)
+@export_enum("Wakey", "Guild", "Shop", "Tavern", "Sleep") var state = "Wakey"
+signal state_changed(state: String, playAnim: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +28,8 @@ func _ready():
 	questTypes.parseListFromJSON()
 	items.parseListFromJSON()
 	generateGameState()
-	_shop_transition()
+
+	_wakey_transition()
 
 func generateGameState() -> void:
 	player.generateStarterGold()
@@ -48,30 +48,36 @@ func _item_selected_ui(_item: Item):
 	inventory.itemSelected(_item)
 
 func _item_selected(item: Item) -> void:
-	if state == STATE.Shop:
+	if state == "Shop":
 		sellItem(item)
 
 func sellItem(item: Item):
 	player.addGold(item.sellValue)
 	inventory.removeItem(item)
 
+func _wakey_transition() -> void:
+	state = "Wakey"
+	state_changed.emit(state)
+	#await get_tree().create_timer(0.5).timeout
+	_shop_transition(false)
+
 func _guild_transition() -> void:
-	state = STATE.Guild
+	state = "Guild"
 	state_changed.emit(state)
 
-func _shop_transition() -> void:
-	state = STATE.Shop
-	state_changed.emit(state)
+func _shop_transition(playAnim: bool = true) -> void:
+	state = "Shop"
+	state_changed.emit(state, playAnim)
 
 func _tavern_transition() -> void:
-	state = STATE.Tavern
+	state = "Tavern"
 	state_changed.emit(state)
 
 func _sleep_transition() -> void:
-	state = STATE.Sleep
-	Calendar.addDay()
+	state = "Sleep"
 	simulate()
 	state_changed.emit(state)
+	Calendar.addDay()
 
 func _report_finished():
 	_shop_transition()

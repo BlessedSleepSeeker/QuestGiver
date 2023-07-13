@@ -1,27 +1,100 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4jgcw3kvafqo"]
+[gd_scene load_steps=10 format=3 uid="uid://d4jgcw3kvafqo"]
 
 [ext_resource type="Script" path="res://Scenes/Quests/quests.gd" id="1_75iir"]
 [ext_resource type="PackedScene" uid="uid://ccrmokho1nark" path="res://Scenes/Quests/quest.tscn" id="2_pqyyl"]
 [ext_resource type="PackedScene" uid="uid://c5wrsrw16csov" path="res://Scenes/Quests/Objectives/objective.tscn" id="3_wakcf"]
 [ext_resource type="PackedScene" uid="uid://c2nuo0jsqt32x" path="res://Scenes/Quests/QuestTypes/QuestType.tscn" id="4_0kf0y"]
 [ext_resource type="PackedScene" uid="uid://bgvn1b11ybbdl" path="res://Scenes/Characters/Character.tscn" id="5_j8rcf"]
+[ext_resource type="Texture2D" uid="uid://6lq34d7p4phj" path="res://Sprites/UI/Quests/Objective/kill.png" id="5_jehr5"]
 [ext_resource type="PackedScene" uid="uid://dcxqb0vov858u" path="res://Scenes/Items/Item.tscn" id="6_yg1gp"]
+[ext_resource type="Texture2D" uid="uid://6rxdt1yhywtu" path="res://Sprites/UI/Characters/billionSlime.png" id="7_ykfw1"]
+[ext_resource type="Texture2D" uid="uid://ile6lgp5d35t" path="res://Sprites/UI/Characters/aganir.png" id="9_lqwwb"]
 
 [node name="Quests" type="Node"]
 script = ExtResource("1_75iir")
 
 [node name="Quest" parent="." instance=ExtResource("2_pqyyl")]
+questName = "BabyFirst"
 
-[node name="Objective" parent="Quest" instance=ExtResource("3_wakcf")]
+[node name="Objective" parent="Quest" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
+type = NodePath("QuestType")
+character = NodePath("Character")
+wanted = NodePath("Item")
+reward = NodePath("Item2")
+attempted = true
 
 [node name="QuestType" parent="Quest/Objective" instance=ExtResource("4_0kf0y")]
 typeName = "Kill"
+icon = ExtResource("5_jehr5")
 
 [node name="Character" parent="Quest/Objective" instance=ExtResource("5_j8rcf")]
 characterName = "billionSlime"
+icon = ExtResource("7_ykfw1")
 
 [node name="Item" parent="Quest/Objective" instance=ExtResource("6_yg1gp")]
 itemName = "Diamond"
 
 [node name="Item2" parent="Quest/Objective" instance=ExtResource("6_yg1gp")]
-itemName = "Apples"
+itemName = "Apple"
+
+[node name="Objective2" parent="Quest" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
+type = NodePath("QuestType")
+character = NodePath("Character")
+wanted = NodePath("Item")
+reward = NodePath("Item2")
+
+[node name="QuestType" parent="Quest/Objective2" instance=ExtResource("4_0kf0y")]
+typeName = "Fetch"
+
+[node name="Character" parent="Quest/Objective2" instance=ExtResource("5_j8rcf")]
+characterName = "aganir"
+icon = ExtResource("9_lqwwb")
+
+[node name="Item" parent="Quest/Objective2" instance=ExtResource("6_yg1gp")]
+itemName = "Diamond"
+
+[node name="Item2" parent="Quest/Objective2" instance=ExtResource("6_yg1gp")]
+itemName = "Apple"
+
+[node name="Quest2" parent="." instance=ExtResource("2_pqyyl")]
+questName = "Starter"
+
+[node name="Objective" parent="Quest2" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
+type = NodePath("../../Quest/Objective/QuestType")
+character = NodePath("../../Quest/Objective/Character")
+wanted = NodePath("../../Quest/Objective/Item")
+reward = NodePath("../../Quest/Objective/Item2")
+attempted = true
+
+[node name="QuestType" parent="Quest2/Objective" instance=ExtResource("4_0kf0y")]
+typeName = "Kill"
+icon = ExtResource("5_jehr5")
+
+[node name="Character" parent="Quest2/Objective" instance=ExtResource("5_j8rcf")]
+characterName = "billionSlime"
+icon = ExtResource("7_ykfw1")
+
+[node name="Item" parent="Quest2/Objective" instance=ExtResource("6_yg1gp")]
+itemName = "Diamond"
+
+[node name="Item2" parent="Quest2/Objective" instance=ExtResource("6_yg1gp")]
+itemName = "Apple"
+
+[node name="Objective2" parent="Quest2" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
+type = NodePath("../../Quest/Objective2/QuestType")
+character = NodePath("../../Quest/Objective2/Character")
+wanted = NodePath("../../Quest/Objective2/Item")
+reward = NodePath("../../Quest/Objective2/Item2")
+
+[node name="QuestType" parent="Quest2/Objective2" instance=ExtResource("4_0kf0y")]
+typeName = "Fetch"
+
+[node name="Character" parent="Quest2/Objective2" instance=ExtResource("5_j8rcf")]
+characterName = "aganir"
+icon = ExtResource("9_lqwwb")
+
+[node name="Item" parent="Quest2/Objective2" instance=ExtResource("6_yg1gp")]
+itemName = "Diamond"
+
+[node name="Item2" parent="Quest2/Objective2" instance=ExtResource("6_yg1gp")]
+itemName = "Apple"

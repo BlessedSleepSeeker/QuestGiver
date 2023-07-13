@@ -16,6 +16,7 @@ func _on_click() -> void:
 
 func setQuest(_quest: Quest):
 	quest = _quest
+	_update()
 	quest.updated.connect(_update)
 
 func _update():

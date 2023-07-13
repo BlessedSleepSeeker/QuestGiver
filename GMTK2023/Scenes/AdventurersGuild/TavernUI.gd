@@ -9,11 +9,11 @@ func _ready():
 	hide()
 	mainLogic.state_changed.connect(_state_changed)
 
-func _state_changed(_state: int):
+func _state_changed(_state: String, _playAnim: bool = true):
 	await get_tree().create_timer(1).timeout
 	hide()
 	flush()
-	if _state == 2:
+	if _state == "Tavern":
 		loadAdventurers()
 		show()
 

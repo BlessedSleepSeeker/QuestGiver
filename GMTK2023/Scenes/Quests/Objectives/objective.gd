@@ -100,7 +100,7 @@ func setItemByName(_name: String, isReward: bool):
 		wanted = mainLogic.getwanted(_name)
 	updated.emit()
 
-func getStatus():
+func getStatus() -> int:
 	if completed:
 		return 3
 	elif failed:
@@ -109,12 +109,21 @@ func getStatus():
 		return 1
 	return 0
 
-func getStatusIcon():
+func getStatusAsString() -> String:
+	match getStatus():
+		0: return "Not assigned up yet..."
+		1: return "%s rise to the challenge" % "A hero"
+		2: return "%s failed" % "A hero"
+		3: return "%s did it !" % "A hero"
+	return "error: unknown status"
+
+func getStatusIcon() -> Texture2D:
 	match getStatus():
 		0: return null
 		1: return exclamationIcon
 		2: return cancelIcon
 		3: return okIcon
+	return null
 
 func getIconFor(_step: String) -> Texture2D:
 	match (_step):

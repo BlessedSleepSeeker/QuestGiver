@@ -11,7 +11,7 @@ script = ExtResource("1_1kvbk")
 layout_mode = 2
 texture = ExtResource("2_nwuri")
 
-[node name="StatusIcon" type="TextureRect" parent="Status"]
+[node name="IconStatus" type="TextureRect" parent="Status"]
 layout_mode = 2
 offset_left = 4.0
 offset_right = 4.0
