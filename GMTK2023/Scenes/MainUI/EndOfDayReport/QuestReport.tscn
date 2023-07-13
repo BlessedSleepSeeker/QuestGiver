@@ -28,3 +28,5 @@ texture_pressed = ExtResource("3_uwj4i")
 texture_hover = ExtResource("4_ppihn")
 texture_disabled = ExtResource("5_h45c8")
 texture_click_mask = ExtResource("6_0y3i2")
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

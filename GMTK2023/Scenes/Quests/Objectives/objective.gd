@@ -111,8 +111,8 @@ func getStatus() -> int:
 
 func getStatusAsString() -> String:
 	match getStatus():
-		0: return "Not assigned up yet..."
-		1: return "%s rise to the challenge" % "A hero"
+		0: return "Not undertaken up yet"
+		1: return "%s will rise to the challenge" % "A hero"
 		2: return "%s failed" % "A hero"
 		3: return "%s did it !" % "A hero"
 	return "error: unknown status"

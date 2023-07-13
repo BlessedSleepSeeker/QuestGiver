@@ -18,20 +18,25 @@ func _ready():
 
 func fill(_quest: Quest, _index: int):
 	quest = _quest
+	index = _index
 	generate()
 
 func generate():
+	generateLabel()
 	for obj in quest.getAllObjectives():
 		generateObjective(obj)
 
+func generateLabel():
+	label.text = quest.getName()
+
 func generateObjective(obj: Objective):
-	var instance = objectivesHolder.instance()
-	instance.setObjective(obj)
+	var instance = objectiveReportScene.instantiate()
 	objectivesHolder.add_child(instance)
+	instance.setObjective(obj)
 
 func flushObjectives():
 	for child in objectivesHolder.get_children():
 		child.queue_free()
 
 func _on_next_button_pressed():
-	pass
+	go_next.emit(index)

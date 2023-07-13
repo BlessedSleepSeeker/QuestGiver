@@ -13,8 +13,13 @@ texture = ExtResource("2_nwuri")
 
 [node name="IconStatus" type="TextureRect" parent="Status"]
 layout_mode = 2
+anchor_right = 0.829
+anchor_bottom = 0.887
 offset_left = 4.0
-offset_right = 4.0
+offset_top = 4.0
+offset_right = 1.472
+offset_bottom = -0.384001
+stretch_mode = 2
 
 [node name="TextureType" type="TextureRect" parent="."]
 layout_mode = 2
@@ -22,8 +27,9 @@ texture = ExtResource("3_5v4sv")
 
 [node name="IconType" type="TextureRect" parent="TextureType"]
 layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 2
 
 [node name="TextureChar" type="TextureRect" parent="."]
 layout_mode = 2
@@ -31,8 +37,9 @@ texture = ExtResource("3_5v4sv")
 
 [node name="IconChar" type="TextureRect" parent="TextureChar"]
 layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 2
 
 [node name="TextureWanted" type="TextureRect" parent="."]
 layout_mode = 2
@@ -40,8 +47,9 @@ texture = ExtResource("3_5v4sv")
 
 [node name="IconWanted" type="TextureRect" parent="TextureWanted"]
 layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 2
 
 [node name="TextureReward" type="TextureRect" parent="."]
 layout_mode = 2
@@ -49,5 +57,6 @@ texture = ExtResource("3_5v4sv")
 
 [node name="IconReward" type="TextureRect" parent="TextureReward"]
 layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 2

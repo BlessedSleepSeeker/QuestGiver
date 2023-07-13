@@ -36,10 +36,14 @@ func generateReport(questIndex: int) -> void:
 	report.fill(updatedQuests[questIndex], questIndex)
 
 func _go_next(previousQuestIndex: int):
-	if updatedQuests[previousQuestIndex + 1]:
+	if previousQuestIndex + 1 < updatedQuests.size():
+		flushReport()
 		generateReport(previousQuestIndex + 1)
 	else:
 		exitReport()
+
+func flushReport() -> void:
+	report.flushObjectives()
 
 func exitReport() -> void:
 	flushUpdatedQuests()
@@ -48,7 +52,7 @@ func exitReport() -> void:
 	hide()
 
 func fillUpdatedQuests() -> void:
-	updatedQuests = mainLogic.quests.getUpdatedQuests()
+	updatedQuests = mainLogic.quests.getAll()
 	#print_debug(updatedQuests)
 
 func flushUpdatedQuests() -> void:

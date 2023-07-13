@@ -132,3 +132,6 @@ func findFreeId():
 	for _j in range(maxObjectives):
 		if !ids.has(_j):
 			return _j
+
+func getName():
+	return questName
