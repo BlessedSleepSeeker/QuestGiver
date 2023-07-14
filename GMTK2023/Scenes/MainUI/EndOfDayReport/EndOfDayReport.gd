@@ -21,8 +21,8 @@ func _ready():
 
 func _state_changed(_state: String, _playAnim: bool = true):
 	if _state == "Sleep":
-		fillUpdatedQuests()
 		await get_tree().create_timer(0.5).timeout
+		fillUpdatedQuests()
 		generateReport()
 		show()
 

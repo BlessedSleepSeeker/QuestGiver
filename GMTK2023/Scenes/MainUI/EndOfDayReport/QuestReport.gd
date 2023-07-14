@@ -3,7 +3,8 @@ class_name QuestReport
 
 #@onready var nextButton: TextureButton = $Center/HBoxContainer/NextButton
 #@onready var prevButton: TextureButton = $Center/HBoxContainer/PrevButton
-@onready var label: Label = $MarginContainer/QuestColumn/Report
+@onready var questName: Label = $MarginContainer/QuestColumn/QuestName
+@onready var takenBy: Label = $MarginContainer/QuestColumn/TakenBy
 @onready var objectivesHolder: VBoxContainer = $MarginContainer/QuestColumn/ObjectivesHolder
 
 @export var objectiveReportScene = preload("res://Scenes/MainUI/EndOfDayReport/ObjectiveReport.tscn")
@@ -24,7 +25,9 @@ func generate():
 		generateObjective(obj)
 
 func generateLabel():
-	label.text = quest.getName()
+	questName.text = quest.getName()
+	takenBy.text = "Took by %s" % quest.getAdventurer().alias
+
 
 func generateObjective(obj: Objective):
 	var instance = objectiveReportScene.instantiate()

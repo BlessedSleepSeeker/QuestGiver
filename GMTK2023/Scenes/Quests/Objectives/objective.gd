@@ -17,6 +17,8 @@ class_name Objective
 @export var attempted: bool = false
 @export var difficulty: int = 0
 
+@export var heroName: String = ""
+
 signal updated
 signal objective_finished(objective: Objective)
 signal objective_failed(objective: Objective)
@@ -112,9 +114,9 @@ func getStatus() -> int:
 func getStatusAsString() -> String:
 	match getStatus():
 		0: return "Not undertaken up yet"
-		1: return "%s will rise to the challenge" % "A hero"
-		2: return "%s failed" % "A hero"
-		3: return "%s did it !" % "A hero"
+		1: return "%s will rise to the challenge" % heroName
+		2: return "%s failed..." % heroName
+		3: return "%s did it !" % heroName
 	return "error: unknown status"
 
 func getStatusIcon() -> Texture2D:

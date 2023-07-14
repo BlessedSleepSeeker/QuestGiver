@@ -26,9 +26,13 @@ theme = ExtResource("2_05b60")
 layout_mode = 2
 alignment = 1
 
-[node name="Report" type="Label" parent="MarginContainer/QuestColumn"]
+[node name="QuestName" type="Label" parent="MarginContainer/QuestColumn"]
 layout_mode = 2
 text = "test"
+
+[node name="TakenBy" type="Label" parent="MarginContainer/QuestColumn"]
+layout_mode = 2
+text = "HeroName"
 
 [node name="ObjectivesHolder" type="VBoxContainer" parent="MarginContainer/QuestColumn"]
 layout_mode = 2

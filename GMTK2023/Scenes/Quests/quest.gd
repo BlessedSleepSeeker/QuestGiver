@@ -9,6 +9,8 @@ class_name Quest
 @export var maxObjectives := 2
 @export var taken := false
 
+@export var adventurer: Adventurer
+
 signal maximum_objective_reached(max)
 signal objective_added(objective: Objective)
 signal finished(quest: Quest)
@@ -64,7 +66,7 @@ func tryNextObjective(heroSkill: int) -> void:
 
 func findNextObjective() -> Objective:
 	for _i in self.get_children():
-		if _i.completed != true:
+		if _i.completed != true && _i.failed != true:
 			return _i
 	return null
 
@@ -119,9 +121,13 @@ func _new_day(_nbr: int):
 	if expirationDate == 0:
 		expired.emit(self)
 
-func take() -> bool:
+func take(_adventurer: Adventurer) -> bool:
 	if !taken:
 		took.emit(self)
+		taken = true
+		findNextObjective().attempted = true
+		findNextObjective().heroName =_adventurer.alias
+		adventurer = _adventurer
 		return true
 	return false
 
@@ -135,3 +141,6 @@ func findFreeId():
 
 func getName():
 	return questName
+
+func getAdventurer():
+	return adventurer 

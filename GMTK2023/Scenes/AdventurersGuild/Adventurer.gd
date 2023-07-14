@@ -27,15 +27,16 @@ func printSelf():
 	print(traits)
 
 func lookForQuest(_quest: Quest) -> void:
-	if quest:
+	if quest: #already has a quest
 		return
-	if _quest.taken or _quest.getDifficulty() == 0 or _quest.getValue() == 0:
+	if _quest.taken or _quest.getDifficulty() == 0 or _quest.getValue() == 0: #if the quest is already taken, has no difficulty or no reward
 		return
 	if _quest.getDifficulty() > skill * 1.5:
 		return
 	if RngHandler.r(0, skill * 4) > _quest.getDifficulty():
 		quest = _quest
-		quest.take()
+		quest.take(self)
+		print("%s took quest %s" % [alias, _quest.getName()])
 		return
 	return
 

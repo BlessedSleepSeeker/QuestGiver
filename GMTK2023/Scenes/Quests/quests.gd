@@ -80,7 +80,8 @@ func getQuestById(id: int) -> Quest:
 	return null
 
 func addToUpdatedQuests(_quest: Quest):
-	updatedQuests.append(_quest)
+	if updatedQuests.has(_quest) == false:
+		updatedQuests.append(_quest)
 
 func getUpdatedQuests() -> Array[Quest]:
 	return updatedQuests
