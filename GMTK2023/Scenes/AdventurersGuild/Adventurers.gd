@@ -74,7 +74,6 @@ func everyoneLookForQuest():
 		no_quest_to_take.emit()
 	var curHeros = get_children()
 	curHeros.shuffle()
-	#print(quests)
 	for _i in curHeros:
 		for _j in quests:
 			_i.lookForQuest(_j)

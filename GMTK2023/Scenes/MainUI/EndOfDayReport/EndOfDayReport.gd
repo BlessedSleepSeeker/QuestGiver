@@ -68,8 +68,7 @@ func exitReport() -> void:
 	hide()
 
 func fillUpdatedQuests() -> void:
-	pass
-	#updatedQuests = mainLogic.quests.getAll()
+	updatedQuests = mainLogic.quests.getUpdatedQuests()
 	#print_debug(updatedQuests)
 
 func flushUpdatedQuests() -> void:

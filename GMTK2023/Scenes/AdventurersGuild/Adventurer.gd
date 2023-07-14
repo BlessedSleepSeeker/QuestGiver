@@ -10,8 +10,6 @@ class_name Adventurer
 
 @export var quest: Quest
 
-signal quest_taken(quest: Quest)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -37,8 +35,7 @@ func lookForQuest(_quest: Quest) -> void:
 		return
 	if RngHandler.r(0, skill * 4) > _quest.getDifficulty():
 		quest = _quest
-		quest.taken = true
-		quest_taken.emit(quest)
+		quest.take()
 		return
 	return
 

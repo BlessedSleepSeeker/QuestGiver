@@ -12,6 +12,7 @@ class_name Item
 @export_group("Textures")
 @export var icon: Texture2D = null
 @export var iconPath: String = ""
+@export var defaultIconPath: String = "res://Sprites/UI/Items/default.png"
 @export var itemsIconPath: String = "res://Sprites/UI/Items/%s.png"
 
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +57,8 @@ func buildIconPath() -> void:
 func loadIcon() -> void:
 	if ResourceLoader.exists(iconPath):
 		icon = load(iconPath)
+	else:
+		icon = load(defaultIconPath)
 
 func getIcon() -> Texture2D:
 	return icon

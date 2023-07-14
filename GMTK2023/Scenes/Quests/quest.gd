@@ -75,7 +75,7 @@ func resetProgress() -> void:
 func canHaveMoreObjective() -> bool:
 	return true if get_child_count() < maxObjectives else false
 
-func _objective_finished(_id: int) -> void:
+func _objective_finished(_objective: Objective) -> void:
 	if isFinished():
 		finished.emit(self)
 

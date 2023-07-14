@@ -10,6 +10,7 @@ class_name Character
 @export_group("Textures")
 @export var icon: Texture2D
 @export var iconPath: String = ""
+@export var defaultIconPath: String = "res://Sprites/UI/Items/default.png"
 @export var characterIconName: String = ""
 @export var charactersIconPath: String = "res://Sprites/UI/Characters/%s.png"
 
@@ -48,6 +49,8 @@ func buildIconPath():
 func loadIcon():
 	if ResourceLoader.exists(iconPath):
 		icon = load(iconPath)
+	else:
+		icon = load(defaultIconPath)
 
 func getDifficulty():
 	return difficulty

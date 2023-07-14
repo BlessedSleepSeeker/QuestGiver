@@ -16,6 +16,10 @@ signal objective_selected(type: String, itemName: String, _iconPath: String)
 func _ready():
 	hide()
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		_on_close_requested()
+
 func setWindowType(_type: String):
 	windowType = _type
 

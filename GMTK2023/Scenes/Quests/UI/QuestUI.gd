@@ -24,6 +24,10 @@ func _ready():
 	objectiveAddButton.pressed.connect(_add_objective)
 	nameLabel.text_changed.connect(_quest_name_updated)
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		_on_close_requested()
+
 func _open(_quest: Quest, _interactible: bool):
 	setQuest(_quest)
 	generate(_interactible)
