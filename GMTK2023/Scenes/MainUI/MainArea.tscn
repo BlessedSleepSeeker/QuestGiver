@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp6ke73x34fyl"]
+
+[ext_resource type="PackedScene" uid="uid://6ihw4p36h7oq" path="res://Scenes/MainUI/EndOfDayReport/EndOfDayReport.tscn" id="1_yf8w3"]
+[ext_resource type="PackedScene" uid="uid://vx35umynft1h" path="res://Scenes/Player/InventoryUI.tscn" id="2_je8vr"]
+[ext_resource type="PackedScene" uid="uid://bf4an2wlenaek" path="res://Scenes/Quests/UI/QuestList.tscn" id="3_6xkwn"]
+[ext_resource type="PackedScene" uid="uid://bpdqofw7vj2ba" path="res://Scenes/AdventurersGuild/TavernUI.tscn" id="4_peq8e"]
+[ext_resource type="PackedScene" uid="uid://hho5td7cvej2" path="res://Scenes/Quests/UI/QuestUI.tscn" id="5_pv4v4"]
+
+[node name="Center" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EndOfDayReport" parent="." instance=ExtResource("1_yf8w3")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="InventoryUI" parent="." instance=ExtResource("2_je8vr")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 480.0
+offset_top = 270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="QuestsList" parent="." instance=ExtResource("3_6xkwn")]
+visible = false
+layout_mode = 2
+offset_top = 254.0
+offset_right = 496.0
+offset_bottom = 286.0
+
+[node name="TavernUI" parent="." instance=ExtResource("4_peq8e")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 480.0
+offset_top = 270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="QuestUI" parent="." instance=ExtResource("5_pv4v4")]
+visible = false

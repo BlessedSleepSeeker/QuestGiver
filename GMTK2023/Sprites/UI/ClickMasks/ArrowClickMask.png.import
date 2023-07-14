@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://blaqdvavjfv41"
+path="res://.godot/imported/ArrowClickMask.png-16c76116773387b505cf0107d8aa5f73.res"
+
+[deps]
+
+source_file="res://Sprites/UI/ClickMasks/ArrowClickMask.png"
+dest_files=["res://.godot/imported/ArrowClickMask.png-16c76116773387b505cf0107d8aa5f73.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

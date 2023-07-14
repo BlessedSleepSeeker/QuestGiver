@@ -1,24 +1,21 @@
-extends Container
+extends TextureRect
 class_name QuestReport
 
-@onready var label: Label = $Report
-@onready var nextButton: TextureButton = $NextButton
-@onready var objectivesHolder: VBoxContainer = $ObjectivesHolder
+#@onready var nextButton: TextureButton = $Center/HBoxContainer/NextButton
+#@onready var prevButton: TextureButton = $Center/HBoxContainer/PrevButton
+@onready var label: Label = $MarginContainer/QuestColumn/Report
+@onready var objectivesHolder: VBoxContainer = $MarginContainer/QuestColumn/ObjectivesHolder
 
 @export var objectiveReportScene = preload("res://Scenes/MainUI/EndOfDayReport/ObjectiveReport.tscn")
 
 var quest: Quest
-var index: int = 0
-
-signal go_next(nbr: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-func fill(_quest: Quest, _index: int):
+func fill(_quest: Quest):
 	quest = _quest
-	index = _index
 	generate()
 
 func generate():
@@ -32,11 +29,8 @@ func generateLabel():
 func generateObjective(obj: Objective):
 	var instance = objectiveReportScene.instantiate()
 	objectivesHolder.add_child(instance)
-	instance.setObjective(obj)
+	instance.get_node("ObjectiveReport").setObjective(obj)
 
 func flushObjectives():
 	for child in objectivesHolder.get_children():
 		child.queue_free()
-
-func _on_next_button_pressed():
-	go_next.emit(index)

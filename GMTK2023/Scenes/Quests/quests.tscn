@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4jgcw3kvafqo"]
+[gd_scene load_steps=10 format=3 uid="uid://d4jgcw3kvafqo"]
 
 [ext_resource type="Script" path="res://Scenes/Quests/quests.gd" id="1_75iir"]
 [ext_resource type="PackedScene" uid="uid://ccrmokho1nark" path="res://Scenes/Quests/quest.tscn" id="2_pqyyl"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dcxqb0vov858u" path="res://Scenes/Items/Item.tscn" id="6_yg1gp"]
 [ext_resource type="Texture2D" uid="uid://6rxdt1yhywtu" path="res://Sprites/UI/Characters/billionSlime.png" id="7_ykfw1"]
 [ext_resource type="Texture2D" uid="uid://ile6lgp5d35t" path="res://Sprites/UI/Characters/aganir.png" id="9_lqwwb"]
-[ext_resource type="Texture2D" uid="uid://c8o0dgqxc264r" path="res://Sprites/UI/Quests/Objective/fetch.png" id="10_ld2ir"]
 
 [node name="Quests" type="Node"]
 script = ExtResource("1_75iir")
@@ -55,47 +54,4 @@ icon = ExtResource("9_lqwwb")
 itemName = "Diamond"
 
 [node name="Item2" parent="Quest/Objective2" instance=ExtResource("6_yg1gp")]
-itemName = "Apple"
-
-[node name="Quest2" parent="." instance=ExtResource("2_pqyyl")]
-questName = "Testing"
-
-[node name="Objective" parent="Quest2" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
-type = NodePath("../../Quest/Objective/QuestType")
-character = NodePath("../../Quest/Objective/Character")
-wanted = NodePath("../../Quest/Objective/Item")
-reward = NodePath("../../Quest/Objective/Item2")
-completed = true
-
-[node name="QuestType" parent="Quest2/Objective" instance=ExtResource("4_0kf0y")]
-typeName = "Kill"
-icon = ExtResource("10_ld2ir")
-
-[node name="Character" parent="Quest2/Objective" instance=ExtResource("5_j8rcf")]
-characterName = "billionSlime"
-icon = ExtResource("7_ykfw1")
-
-[node name="Item" parent="Quest2/Objective" instance=ExtResource("6_yg1gp")]
-itemName = "Diamond"
-
-[node name="Item2" parent="Quest2/Objective" instance=ExtResource("6_yg1gp")]
-itemName = "Apple"
-
-[node name="Objective2" parent="Quest2" node_paths=PackedStringArray("type", "character", "wanted", "reward") instance=ExtResource("3_wakcf")]
-type = NodePath("../../Quest/Objective2/QuestType")
-character = NodePath("../../Quest/Objective2/Character")
-wanted = NodePath("../../Quest/Objective2/Item")
-reward = NodePath("../../Quest/Objective2/Item2")
-
-[node name="QuestType" parent="Quest2/Objective2" instance=ExtResource("4_0kf0y")]
-typeName = "Fetch"
-
-[node name="Character" parent="Quest2/Objective2" instance=ExtResource("5_j8rcf")]
-characterName = "aganir"
-icon = ExtResource("9_lqwwb")
-
-[node name="Item" parent="Quest2/Objective2" instance=ExtResource("6_yg1gp")]
-itemName = "Diamond"
-
-[node name="Item2" parent="Quest2/Objective2" instance=ExtResource("6_yg1gp")]
 itemName = "Apple"

@@ -4,14 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://ya26myenw3dg" path="res://Sprites/UI/Movement/check.png" id="2_nwuri"]
 [ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="3_5v4sv"]
 
-[node name="ObjectiveReport" type="HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer"]
+offset_left = 180.0
+offset_right = 180.0
+offset_bottom = 32.0
+
+[node name="ObjectiveReport" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 script = ExtResource("1_1kvbk")
 
-[node name="Status" type="TextureRect" parent="."]
+[node name="Status" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("2_nwuri")
 
-[node name="IconStatus" type="TextureRect" parent="Status"]
+[node name="IconStatus" type="TextureRect" parent="ObjectiveReport/Status"]
 layout_mode = 2
 anchor_right = 0.829
 anchor_bottom = 0.887
@@ -21,41 +29,41 @@ offset_right = 1.472
 offset_bottom = -0.384001
 stretch_mode = 2
 
-[node name="TextureType" type="TextureRect" parent="."]
+[node name="TextureType" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("3_5v4sv")
 
-[node name="IconType" type="TextureRect" parent="TextureType"]
+[node name="IconType" type="TextureRect" parent="ObjectiveReport/TextureType"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch_mode = 2
 
-[node name="TextureChar" type="TextureRect" parent="."]
+[node name="TextureChar" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("3_5v4sv")
 
-[node name="IconChar" type="TextureRect" parent="TextureChar"]
+[node name="IconChar" type="TextureRect" parent="ObjectiveReport/TextureChar"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch_mode = 2
 
-[node name="TextureWanted" type="TextureRect" parent="."]
+[node name="TextureWanted" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("3_5v4sv")
 
-[node name="IconWanted" type="TextureRect" parent="TextureWanted"]
+[node name="IconWanted" type="TextureRect" parent="ObjectiveReport/TextureWanted"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch_mode = 2
 
-[node name="TextureReward" type="TextureRect" parent="."]
+[node name="TextureReward" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("3_5v4sv")
 
-[node name="IconReward" type="TextureRect" parent="TextureReward"]
+[node name="IconReward" type="TextureRect" parent="ObjectiveReport/TextureReward"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0

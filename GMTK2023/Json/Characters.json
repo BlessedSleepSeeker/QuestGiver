@@ -208,5 +208,12 @@
         "FlavorText": "Cati is specialized in moving people around in his pure white coach.",
         "Type": [2, 4, 5],
         "Difficulty": 22
-    }
+    },
+    "KhaShan": {
+        "Name": "Kha'Shan",
+        "IconFileName": "khashan",
+        "FlavorText": "He's a veteran adventurer who, although cold at first glance, will be happy to share a beer with you.",
+        "Type": [2, 4, 5],
+        "Difficulty": 44
+      }
 }

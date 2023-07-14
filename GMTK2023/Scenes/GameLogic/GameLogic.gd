@@ -9,7 +9,7 @@ class_name GameLogic
 @onready var items: Items = $Items
 @onready var questTypes: QuestTypes = $QuestTypes
 @onready var mainUi := $MainGameUI
-@onready var inventoryUi := $MainGameUI/Margin/VBoxContainer/Center/HBox/InventoryUI
+@onready var inventoryUi := $MainGameUI/Margin/VBoxContainer/Center/InventoryUI
 
 @export_enum("Wakey", "Guild", "Shop", "Tavern", "Sleep") var state = "Wakey"
 signal state_changed(state: String, playAnim: bool)

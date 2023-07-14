@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://41m33q06lcqo"
+path="res://.godot/imported/TripleSizeBitMask.png-cb0eaa9eb4d0989768e04ea80093f549.res"
+
+[deps]
+
+source_file="res://Sprites/UI/ClickMasks/TripleSizeBitMask.png"
+dest_files=["res://.godot/imported/TripleSizeBitMask.png-cb0eaa9eb4d0989768e04ea80093f549.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

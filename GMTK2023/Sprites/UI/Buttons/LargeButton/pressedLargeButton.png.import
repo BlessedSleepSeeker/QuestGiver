@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crugjgx5m306m"
-path="res://.godot/imported/credits.png-e6d9b6de130a4049a1f1a9d601bb5bed.ctex"
+uid="uid://beepn4cv7cxva"
+path="res://.godot/imported/pressedLargeButton.png-34a5e44483f5fa372b4962833b61bb47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/credits.png"
-dest_files=["res://.godot/imported/credits.png-e6d9b6de130a4049a1f1a9d601bb5bed.ctex"]
+source_file="res://Sprites/UI/Buttons/LargeButton/pressedLargeButton.png"
+dest_files=["res://.godot/imported/pressedLargeButton.png-34a5e44483f5fa372b4962833b61bb47.ctex"]
 
 [params]
 

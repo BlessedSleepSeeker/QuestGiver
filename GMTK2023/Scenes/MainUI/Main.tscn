@@ -50,6 +50,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_mn1id")
 script = ExtResource("2_4j3wm")
 
@@ -75,12 +77,15 @@ layout_mode = 2
 
 [node name="BasicHUD" parent="Margin/VBoxContainer" instance=ExtResource("3_gfukk")]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Center" parent="Margin/VBoxContainer" instance=ExtResource("4_ly0cm")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="MovementButtons" type="HBoxContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
 [node name="Center" parent="Margin/VBoxContainer/MovementButtons" instance=ExtResource("2_pp16e")]

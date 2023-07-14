@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://qd66s4dw8kfk"
+path="res://.godot/imported/LargeButtonClickMask.png-c25beffa690d81b87121aa2d9e31bd56.res"
+
+[deps]
+
+source_file="res://Sprites/UI/ClickMasks/LargeButtonClickMask.png"
+dest_files=["res://.godot/imported/LargeButtonClickMask.png-c25beffa690d81b87121aa2d9e31bd56.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

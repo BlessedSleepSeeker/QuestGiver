@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2smpddvn47d0"
-path="res://.godot/imported/titleScreen.png-c87cfc8279b902ef940b3359db0cb653.ctex"
+uid="uid://dljfnx4b51ggt"
+path="res://.godot/imported/hoverLargeButton.png-94b186596a03b73c2611ba0a7e9dd519.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/titleScreen.png"
-dest_files=["res://.godot/imported/titleScreen.png-c87cfc8279b902ef940b3359db0cb653.ctex"]
+source_file="res://Sprites/UI/Buttons/LargeButton/hoverLargeButton.png"
+dest_files=["res://.godot/imported/hoverLargeButton.png-94b186596a03b73c2611ba0a7e9dd519.ctex"]
 
 [params]
 
