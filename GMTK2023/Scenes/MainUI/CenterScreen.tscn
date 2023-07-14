@@ -13,11 +13,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EndOfDayReport" parent="." instance=ExtResource("5_f5lop")]
+[node name="InventoryUI" parent="." instance=ExtResource("1_lwld8")]
 layout_mode = 2
 
-[node name="InventoryUI" parent="." instance=ExtResource("1_lwld8")]
-visible = false
+[node name="EndOfDayReport" parent="." instance=ExtResource("5_f5lop")]
 layout_mode = 2
 
 [node name="QuestsList" parent="." instance=ExtResource("2_cl6bi")]

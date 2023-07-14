@@ -7,7 +7,7 @@
         "Difficulty": 5
     },
     "RivalMerchant": {
-        "Name": "Aganir, my merchant rival",
+        "Name": "Merchant Aganir",
         "IconFileName": "aganir",
         "FlavorText": "Note to self : \"I hate this guy\"",
         "Type" : [2, 4, 5],
@@ -23,16 +23,16 @@
     "Troll": {
         "Name": "The Troll of Dimaks",
         "IconFileName": "dimakTroll",
-        "FlavorText": "A legendary troll",
+        "FlavorText": "A legendary troll, known for owning the record of the home run contest at 279279 meters.",
         "Type": [0],
         "Difficulty": 20
     },
     "WanderingWarrior": {
         "Name": "The Blade of Asmax",
         "IconFileName": "asmaxBlade",
-        "FlavorText": "The guy got skill",
+        "FlavorText": "The guy sure got skill, adventurers should defy it at their own risks.",
         "Type": [1, 2, 4, 5],
-        "Difficulty": 25
+        "Difficulty": 66
     },
     "Caravane": {
         "Name": "Raphael's Caravan",
@@ -42,9 +42,9 @@
         "Difficulty": 3
     },
     "BillionSlime": {
-        "Name": "A billion slimes",
+        "Name": "Slimillion",
         "IconFileName": "billionSlime",
-        "FlavorText": "It's 3 wolfs",
+        "FlavorText": "It's a billion slimes packed into what look like one entity",
         "Type": [0],
         "Difficulty": 1000
     },
@@ -114,7 +114,7 @@
     "Bigolas": {
         "Name": "Bigolas Dickolas Wolfwood",
         "IconFileName": "bigolas",
-        "FlavorText": "The local bard !",
+        "FlavorText": "\"Bigolus Dickolis Babicus Ombris Ostam Sobverm !!!\"",
         "Type": [2, 5],
         "Difficulty": 70
     },

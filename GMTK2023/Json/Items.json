@@ -12,7 +12,7 @@
 		"FlavorText": "Baby's first shield !",
 		"Stackable": false,
 		"SellValue": 10,
-		"RewardValue": 5,
+		"RewardValue": 4,
 		"Amount": 1
 	},
 	"Apple": {
@@ -20,7 +20,7 @@
 		"FlavorText": "Mm apl",
 		"Stackable": true,
 		"SellValue": 3,
-		"RewardValue": 0.5,
+		"RewardValue": 1,
 		"Amount": 2
 	},
 	"ConstructionStone": {
@@ -28,15 +28,71 @@
 		"FlavorText": "\"We're Building Empire here ! Move !\"",
 		"Stackable": true,
 		"SellValue": 20,
-		"RewardValue": 0.5,
+		"RewardValue": 1,
 		"Amount": 1
 	},
 	"Diamond": {
 		"Name": "Diamond",
-		"FlavorText": "Shine bright",
+		"FlavorText": "Shine bright !",
 		"Stackable": false,
 		"SellValue": 200,
 		"RewardValue": 180,
+		"Amount": 1
+	},
+	"Iron Sword": {
+		"Name": "Iron Sword",
+		"FlavorText": "Your average sword.",
+		"SellValue": 20,
+		"RewardValue": 15,
+		"Stackable": false,
+		"Amount": 1
+	},
+	"Iron Shield": {
+		"Name": "Iron Shield",
+		"FlavorText": "Your average shield.",
+		"Stackable": false,
+		"SellValue": 18,
+		"RewardValue": 15,
+		"Amount": 1
+	},
+	"Mythril Sword": {
+		"Name": "Mythril Sword",
+		"FlavorText": "It is told that the Blade of Asmax own one.",
+		"SellValue": 100,
+		"RewardValue": 92,
+		"Stackable": false,
+		"Amount": 1
+	},
+	"Mythril Shield": {
+		"Name": "Mythril Shield",
+		"FlavorText": "Baby's first shield !",
+		"Stackable": false,
+		"SellValue": 100,
+		"RewardValue": 82,
+		"Amount": 1
+	},
+	"Iron Helmet": {
+		"Name": "Iron Helmet",
+		"FlavorText": "Dont fuss my roda.",
+		"Stackable": false,
+		"SellValue": 28,
+		"RewardValue": 32,
+		"Amount": 1
+	},
+	"Ostie de Calice": {
+		"Name": "Ostie de Calice",
+		"FlavorText": "Tabarnak",
+		"Stackable": true,
+		"SellValue": 10,
+		"RewardValue": 8,
+		"Amount": 1
+	},
+	"Sacrificial Dagger": {
+		"Name": "Ritual Dagger",
+		"FlavorText": "Used in the Yunpze religion rituals. Owned by most priests.",
+		"Stackable": true,
+		"SellValue": 54,
+		"RewardValue": 43,
 		"Amount": 1
 	}
 }
