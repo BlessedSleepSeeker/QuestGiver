@@ -3,7 +3,7 @@ class_name ObjectiveStepButton
 
 
 @export var itemOrChar: Node = null
-@export_enum("QUEST_TYPE", "CHAR", "ITEMS", "PLAYER_ITEMS") var type: String = "QUEST_TYPE"
+@export_enum("QUEST_TYPE", "CHAR", "PLAYER_ITEMS") var type: String = "QUEST_TYPE"
 @onready var icon: TextureRect = $"Icon"
 
 signal item_button_pressed(itemOrChar: Node)

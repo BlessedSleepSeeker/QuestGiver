@@ -1,7 +1,7 @@
 extends TextureButton
 class_name ObjectiveSelectButton
 
-@export_enum("QUEST_TYPE", "CHAR", "ITEMS", "PLAYER_ITEMS") var buttonType: String = "QUEST_TYPE"
+@export_enum("QUEST_TYPE", "CHAR", "PLAYER_ITEMS") var buttonType: String = "QUEST_TYPE"
 @onready var mainLogic = get_node("/root/GameLogic")
 @onready var texture: TextureRect = $Texture
 @onready var pickWindow: SelectObjectiveWindow = $SelectObjectiveWindow
@@ -18,7 +18,6 @@ func loadType():
 	match buttonType:
 		"QUEST_TYPE": loadQuestType()
 		"CHAR": loadCharacters()
-		"ITEMS": loadItems()
 		"PLAYER_ITEMS": loadPlayerItems()
 	pickWindow.setWindowType(buttonType)
 	pickWindow.generate()
@@ -28,9 +27,6 @@ func loadQuestType() -> void:
 
 func loadCharacters() -> void:
 	pickWindow.setOption(mainLogic.getCharacters())
-
-func loadItems() -> void:
-	pickWindow.setOption(mainLogic.getAllItems())
 
 func loadPlayerItems() -> void:
 	pickWindow.setOption(mainLogic.getPlayerItems())

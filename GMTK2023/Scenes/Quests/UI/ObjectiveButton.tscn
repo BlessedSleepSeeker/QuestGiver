@@ -19,7 +19,6 @@ texture_hover = ExtResource("3_eji01")
 texture_disabled = ExtResource("4_pu540")
 texture_click_mask = ExtResource("5_lv5sx")
 script = ExtResource("6_m7a7a")
-ItemName = "Shame"
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1

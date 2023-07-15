@@ -6,6 +6,7 @@
   - [Todolist](#todolist)
   - [Details](#details)
   - [Random dump of idea](#random-dump-of-idea)
+  - [Pivoting](#pivoting)
 
 ## Theme is Role Reversed
 
@@ -92,3 +93,9 @@ Gaining Reputation makes you earn more money and gives you more interesting/comp
 - ur actually the vilain (remember that one flash game where you play as bowser and placed enemy on mario's path ?? I do)
 - You are the quest giver
   - management game : some gauges goes down all the time (safety, resources...) and you must put up quests for adventurer to solve your problems.
+
+## Pivoting
+
+> jouet/plaything : base sans objectif pour chopper un "feel"
+> hero management agency who prepare quest/dungeon for adventurers of all level
+> improve & complexify system > different interractions will bring fun

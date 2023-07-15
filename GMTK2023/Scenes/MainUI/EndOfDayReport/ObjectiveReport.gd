@@ -6,7 +6,6 @@ class_name ObjectiveReport
 
 @onready var textureType: TextureRect = $TextureType
 @onready var textureChar: TextureRect = $TextureChar
-@onready var textureWanted: TextureRect = $TextureWanted
 @onready var textureReward: TextureRect = $TextureReward
 
 @export var objective: Objective = null
@@ -24,7 +23,6 @@ func generate():
 		generateStatusIcon()
 		generateTypeIcon()
 		generateCharIcon()
-		generateWantedIcon()
 		generateRewardIcon()
 
 func generateStatusIcon():
@@ -41,11 +39,6 @@ func generateCharIcon():
 		if objective.character.getIcon():
 			textureChar.get_node("IconChar").texture = objective.character.getIcon()
 		textureChar.tooltip_text = objective.character.getTooltip()
-
-func generateWantedIcon():
-	if objective.wanted:
-		textureWanted.get_node("IconWanted").texture = objective.wanted.getIcon()
-		textureWanted.tooltip_text = objective.wanted.getTooltip()
 
 func generateRewardIcon():
 	if objective.reward:

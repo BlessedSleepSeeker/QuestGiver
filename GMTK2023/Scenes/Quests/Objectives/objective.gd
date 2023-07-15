@@ -9,7 +9,6 @@ class_name Objective
 
 @export var type: QuestType = null
 @export var character: Character = null
-@export var wanted: Item = null
 @export var reward: Item = null
 
 @export var completed: bool = false
@@ -40,10 +39,9 @@ var IconPath: String
 func _ready():
 	pass
 
-func new(_id: int, _type: QuestType, _wanted: Item, _character: Character):
+func new(_id: int, _type: QuestType, _character: Character):
 	setId(_id)
 	setType(_type)
-	setWanted(_wanted)
 	setCharacter(_character)
 
 func setId(_id):
@@ -52,10 +50,6 @@ func setId(_id):
 
 func setType(_type: QuestType):
 	type = _type
-	updated.emit()
-
-func setWanted(_wanted: Item):
-	wanted = _wanted
 	updated.emit()
 
 func setCharacter(_character: Character):
@@ -74,8 +68,6 @@ func getValue() -> int:
 func calcDifficulty():
 	var a = 0
 	var b = 0
-	if wanted:
-		a = wanted.getDifficulty()
 	if character:
 		b = character.getDifficulty()
 	return (a + b)
@@ -95,11 +87,8 @@ func setCharacterByName(_name: String,):
 
 # false is item
 # true is reward
-func setItemByName(_name: String, isReward: bool):
-	if isReward:
-		reward = mainLogic.getItemFromPlayer(_name)
-	else:
-		wanted = mainLogic.getwanted(_name)
+func setItemByName(_name: String):
+	reward = mainLogic.getItemFromPlayer(_name)
 	updated.emit()
 
 func getStatus() -> int:
@@ -135,9 +124,6 @@ func getIconFor(_step: String) -> Texture2D:
 		"CHAR":
 			if character:
 				return character.getIcon()
-		"ITEMS":
-			if wanted:
-				return wanted.getIcon()
 		"PLAYER_ITEMS":
 			if reward:
 				return reward.getIcon()
@@ -149,8 +135,6 @@ func getFlavorTextFor(_step: String) -> String:
 			return type.typeName
 		"CHAR":
 			return character.getFlavorText()
-		"ITEMS":
-			return wanted.getFlavorText()
 		"PLAYER_ITEMS":
 			return reward.getFlavorText()
 	return "༼ つ ◕_◕ ༽つ Something went wrong. Here's an easter egg to cover for it. ༼ つ ◕_◕ ༽つ"

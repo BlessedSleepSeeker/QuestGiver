@@ -49,16 +49,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 stretch_mode = 2
 
-[node name="TextureWanted" type="TextureRect" parent="ObjectiveReport"]
-layout_mode = 2
-texture = ExtResource("3_5v4sv")
-
-[node name="IconWanted" type="TextureRect" parent="ObjectiveReport/TextureWanted"]
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-stretch_mode = 2
-
 [node name="TextureReward" type="TextureRect" parent="ObjectiveReport"]
 layout_mode = 2
 texture = ExtResource("3_5v4sv")
