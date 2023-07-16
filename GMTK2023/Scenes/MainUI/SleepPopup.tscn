@@ -4,10 +4,12 @@
 [ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_wxn0h"]
 
 [node name="ConfirmationDialog" type="ConfirmationDialog"]
+transparent_bg = true
 title = "?"
 initial_position = 1
-size = Vector2i(400, 82)
-visible = true
+size = Vector2i(400, 102)
+exclusive = false
+popup_window = true
 min_size = Vector2i(200, 41)
 theme = ExtResource("1_wxn0h")
 ok_button_text = "Y"

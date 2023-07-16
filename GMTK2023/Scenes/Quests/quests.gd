@@ -11,7 +11,9 @@ signal quest_failed(quest: Quest)
 signal quest_expired(quest: Quest)
 signal quest_took(quest: Quest)
 
-@export var updatedQuests: Array[Quest]
+@export var updatedQuests: Array[Quest] = []
+@export var discoveredLandmarks: Array[Landmark] = []
+@export var lootedLandmarks: Array[Landmark] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,3 +90,17 @@ func getUpdatedQuests() -> Array[Quest]:
 
 func flushUpdatedQuests() -> void:
 	updatedQuests = []
+
+func addToDiscoveredLandmarks(_landmark: Landmark):
+	if discoveredLandmarks.has(_landmark) == false:
+		discoveredLandmarks.append(_landmark)
+
+func getDiscoveredLandmarks() -> Array[Landmark]:
+	return discoveredLandmarks
+
+func addToLootedLandmarks(_landmark: Landmark):
+	if lootedLandmarks.has(_landmark) == false:
+		lootedLandmarks.append(_landmark)
+
+func getLootedLandmarks() -> Array[Landmark]:
+	return lootedLandmarks

@@ -4,7 +4,7 @@ class_name QuestList
 @export var baseQuestButton := preload("res://Scenes/Quests/UI/QuestButton.tscn")
 @export var baseQuestUI := preload("res://Scenes/Quests/UI/QuestUI.tscn")
 @onready var quests: Quests = get_node("/root/GameLogic/Quests")
-@onready var addQuestButton := $AddQuestButton
+@onready var addQuestButton := $C/DiscoverLandmarkButton
 @onready var mainLogic = get_node("/root/GameLogic")
 
 signal open_quest_tab(quest: Quest, _interactible: bool)
