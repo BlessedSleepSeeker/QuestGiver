@@ -1,0 +1,16 @@
+{
+    "StarterDungeon": {
+        "Name": "The Evil Tower of Rinaga",
+        "IconFileName": "rinagaDungeon",
+        "FlavorText": "Every adventurer's first dungeon",
+        "Type": [3],
+        "Difficulty": 12
+    },
+    "MuddyCavern": {
+        "Name": "Muddy's Cavern",
+        "IconFileName": "muddyCavern",
+        "FlavorText": "\"Mud is dangerous... It could kill you !\"",
+        "Type": [3],
+        "Difficulty": 79
+    }
+}

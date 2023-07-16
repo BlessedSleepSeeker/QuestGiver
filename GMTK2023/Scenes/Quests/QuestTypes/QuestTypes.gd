@@ -25,7 +25,7 @@ func parseListFromJSON() -> void:
 func loadFromQuestTypeList():
 	for _i in questTypeList:
 		var instance = defaultTypeScene.instantiate()
-		instance.new(questTypeList[_i].Name, questTypeList[_i].Difficulty, questTypeList[_i].ReputationLevelRequired)
+		instance.new(questTypeList[_i].Name, questTypeList[_i].Difficulty)
 		add_child(instance)
 
 func getQuestTypeByName(_name: String) -> QuestType:

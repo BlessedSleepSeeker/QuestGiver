@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 @onready var playerInventory = get_node("/root/GameLogic/Player/Inventory")
-@onready var labl = $NbrGold
+@onready var labl = $Center/NbrGold
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

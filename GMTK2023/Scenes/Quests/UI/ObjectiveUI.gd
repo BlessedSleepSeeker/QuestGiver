@@ -8,7 +8,7 @@ signal modified(obj: Objective)
 @onready var textureCheckIcon: TextureRect = textureCheck.get_node("StatusIcon")
 
 @onready var buttonType: ObjectiveSelectButton = $ButtonType
-@onready var buttonCharacter: ObjectiveSelectButton = $ButtonChar
+@onready var buttonLandmark: ObjectiveSelectButton = $ButtonChar
 @onready var buttonReward: ObjectiveSelectButton = $ButtonReward
 
 var status: Dictionary
@@ -16,7 +16,7 @@ var status: Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connectToButton(buttonType)
-	connectToButton(buttonCharacter)
+	connectToButton(buttonLandmark)
 	connectToButton(buttonReward)
 
 func connectToObjective():
@@ -37,15 +37,15 @@ func generate() -> void:
 	if objective:
 		if objective.type:
 			buttonType.updateUI(objective.type)
-		if objective.character:
-			buttonCharacter.updateUI(objective.character)
+		if objective.landmark:
+			buttonLandmark.updateUI(objective.landmark)
 		if objective.reward:
 			buttonReward.updateUI(objective.reward)
 
 func setInteraction(_interactible: bool):
 	_interactible = !_interactible
 	buttonType.disabled = _interactible
-	buttonCharacter.disabled = _interactible
+	buttonLandmark.disabled = _interactible
 	buttonReward.disabled = _interactible
 
 func generateStatusIcon() -> void:
@@ -59,15 +59,15 @@ func generateStatusIcon() -> void:
 func _open_window(_type):
 	if _type != buttonType.buttonType:
 		buttonType.closeWindow()
-	if _type != buttonCharacter.buttonType:
-		buttonCharacter.closeWindow()
+	if _type != buttonLandmark.buttonType:
+		buttonLandmark.closeWindow()
 	if _type != buttonReward.buttonType:
 		buttonReward.closeWindow()
 
 func _objective_selected(_type: String, obj: Node):
 	match _type:
 		"QUEST_TYPE": objective.setType(obj)
-		"CHAR": objective.setCharacter(obj)
+		"CHAR": objective.setLandmark(obj)
 		"PLAYER_ITEMS": objective.setReward(obj)
 
 #callback if needed

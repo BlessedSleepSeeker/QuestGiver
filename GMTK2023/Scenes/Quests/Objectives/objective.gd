@@ -8,7 +8,7 @@ class_name Objective
 @export var expirationDate := 5
 
 @export var type: QuestType = null
-@export var character: Character = null
+@export var landmark: Landmark = null
 @export var reward: Item = null
 
 @export var completed: bool = false
@@ -39,10 +39,10 @@ var IconPath: String
 func _ready():
 	pass
 
-func new(_id: int, _type: QuestType, _character: Character):
+func new(_id: int, _type: QuestType, _landmark: Landmark):
 	setId(_id)
 	setType(_type)
-	setCharacter(_character)
+	setLandmark(_landmark)
 
 func setId(_id):
 	id = _id
@@ -52,8 +52,8 @@ func setType(_type: QuestType):
 	type = _type
 	updated.emit()
 
-func setCharacter(_character: Character):
-	character = _character
+func setLandmark(_landmark: Landmark):
+	landmark = _landmark
 	updated.emit()
 
 func setReward(_reward: Item):
@@ -68,8 +68,8 @@ func getValue() -> int:
 func calcDifficulty():
 	var a = 0
 	var b = 0
-	if character:
-		b = character.getDifficulty()
+	if landmark:
+		b = landmark.getDifficulty()
 	return (a + b)
 
 func tryObjective(heroSkill: int) -> bool:
@@ -81,8 +81,8 @@ func tryObjective(heroSkill: int) -> bool:
 	objective_failed.emit(self)
 	return false
 
-func setCharacterByName(_name: String,):
-	character = mainLogic.getCharacterByName(_name)
+func setLandmarkByName(_name: String,):
+	landmark = mainLogic.getLandmarkByName(_name)
 	updated.emit()
 
 # false is item
@@ -122,8 +122,8 @@ func getIconFor(_step: String) -> Texture2D:
 			if type:
 				return type.getIcon()
 		"CHAR":
-			if character:
-				return character.getIcon()
+			if landmark:
+				return landmark.getIcon()
 		"PLAYER_ITEMS":
 			if reward:
 				return reward.getIcon()
@@ -134,7 +134,7 @@ func getFlavorTextFor(_step: String) -> String:
 		"QUEST_TYPE":
 			return type.typeName
 		"CHAR":
-			return character.getFlavorText()
+			return landmark.getFlavorText()
 		"PLAYER_ITEMS":
 			return reward.getFlavorText()
 	return "༼ つ ◕_◕ ༽つ Something went wrong. Here's an easter egg to cover for it. ༼ つ ◕_◕ ༽つ"

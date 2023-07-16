@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg7ch2ds6ab5n"
-path="res://.godot/imported/rinagaDungeon.png-4fefa2c98e55a2b73ddf72a40f728a40.ctex"
+path="res://.godot/imported/rinagaDungeon.png-d9588aa4274aa247953e365a738e49e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Characters/rinagaDungeon.png"
-dest_files=["res://.godot/imported/rinagaDungeon.png-4fefa2c98e55a2b73ddf72a40f728a40.ctex"]
+source_file="res://Sprites/UI/Landmarks/rinagaDungeon.png"
+dest_files=["res://.godot/imported/rinagaDungeon.png-d9588aa4274aa247953e365a738e49e6.ctex"]
 
 [params]
 

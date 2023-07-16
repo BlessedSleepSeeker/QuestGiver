@@ -17,7 +17,7 @@ func _ready():
 func loadType():
 	match buttonType:
 		"QUEST_TYPE": loadQuestType()
-		"CHAR": loadCharacters()
+		"CHAR": loadLandmarks()
 		"PLAYER_ITEMS": loadPlayerItems()
 	pickWindow.setWindowType(buttonType)
 	pickWindow.generate()
@@ -25,8 +25,8 @@ func loadType():
 func loadQuestType() -> void:
 	pickWindow.setOption(mainLogic.getQuestTypes())
 
-func loadCharacters() -> void:
-	pickWindow.setOption(mainLogic.getCharacters())
+func loadLandmarks() -> void:
+	pickWindow.setOption(mainLogic.getLandmarks())
 
 func loadPlayerItems() -> void:
 	pickWindow.setOption(mainLogic.getPlayerItems())

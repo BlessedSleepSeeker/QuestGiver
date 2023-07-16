@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgvn1b11ybbdl"]
+
+[ext_resource type="Script" path="res://Scenes/Landmarks/Landmark.gd" id="1_o2fk0"]
+
+[node name="Landmark" type="Node"]
+script = ExtResource("1_o2fk0")

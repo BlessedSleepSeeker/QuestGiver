@@ -5,13 +5,8 @@
 [ext_resource type="Script" path="res://Scenes/MainUI/GoldDisplay.gd" id="2_p5537"]
 
 [node name="GoldDisplay" type="HBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -238.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+offset_right = 58.0
+offset_bottom = 32.0
 size_flags_vertical = 0
 tooltip_text = "Your gold !"
 theme = ExtResource("1_bgnh1")
@@ -22,7 +17,10 @@ layout_mode = 2
 texture = ExtResource("2_kv3nb")
 stretch_mode = 2
 
-[node name="NbrGold" type="Label" parent="."]
+[node name="Center" type="CenterContainer" parent="."]
 layout_mode = 2
+
+[node name="NbrGold" type="Label" parent="Center"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "0"
-vertical_alignment = 2

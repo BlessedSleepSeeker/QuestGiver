@@ -1,37 +1,18 @@
 {
-    "0": {
-        "Name": "Kill",
-        "Difficulty": 10,
-        "ReputationLevelRequired": 2
+    "Discover": {
+        "Name": "Discover",
+        "Difficulty": 3
     },
-    "1": {
-        "Name": "Fetch",
-        "Difficulty": 6,
-        "ReputationLevelRequired": 1
+    "Scout": {
+        "Name": "Scout",
+        "Difficulty": 8
     },
-    "2": {
-        "Name": "Escort",
-        "Difficulty": 5,
-        "ReputationLevelRequired": 1
-    },
-    "3": {
+    "Clean": {
         "Name": "Explore",
-        "Difficulty": 15,
-        "ReputationLevelRequired": 1
+        "Difficulty": 15
     },
-    "4": {
-        "Name": "Shame",
-        "Difficulty": 25,
-        "ReputationLevelRequired": 4
-    },
-    "5": {
-        "Name": "Seduce",
-        "Difficulty": 12,
-        "ReputationLevelRequired": 2
-    },
-    "6": {
-        "Name": "Steal",
-        "Difficulty": 10,
-        "ReputationLevelRequired": 3
+    "Loot": {
+        "Name": "Loot",
+        "Difficulty": 15
     }
 }

@@ -35,10 +35,10 @@ func generateTypeIcon():
 		textureType.tooltip_text = objective.type.getTooltip()
 
 func generateCharIcon():
-	if objective.character:
-		if objective.character.getIcon():
-			textureChar.get_node("IconChar").texture = objective.character.getIcon()
-		textureChar.tooltip_text = objective.character.getTooltip()
+	if objective.landmark:
+		if objective.landmark.getIcon():
+			textureChar.get_node("IconChar").texture = objective.landmark.getIcon()
+		textureChar.tooltip_text = objective.landmark.getTooltip()
 
 func generateRewardIcon():
 	if objective.reward:

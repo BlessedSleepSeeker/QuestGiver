@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dciwjb28vncsc"]
+
+[ext_resource type="Script" path="res://Scenes/Landmarks/Landmarks.gd" id="1_20ewt"]
+
+[node name="Landmarks" type="Node"]
+script = ExtResource("1_20ewt")

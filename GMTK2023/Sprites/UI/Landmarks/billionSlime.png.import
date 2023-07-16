@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ile6lgp5d35t"
-path="res://.godot/imported/aganir.png-402adc9ae589aa923c37ba8bc7f2a860.ctex"
+uid="uid://6rxdt1yhywtu"
+path="res://.godot/imported/billionSlime.png-3cd4aedfd889e70805653a58ae708153.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Characters/aganir.png"
-dest_files=["res://.godot/imported/aganir.png-402adc9ae589aa923c37ba8bc7f2a860.ctex"]
+source_file="res://Sprites/UI/Landmarks/billionSlime.png"
+dest_files=["res://.godot/imported/billionSlime.png-3cd4aedfd889e70805653a58ae708153.ctex"]
 
 [params]
 

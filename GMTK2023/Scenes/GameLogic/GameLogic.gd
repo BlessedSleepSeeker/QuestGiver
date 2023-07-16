@@ -4,7 +4,7 @@ class_name GameLogic
 @onready var player: Player = $Player
 @onready var inventory: Inventory = $Player/Inventory
 @onready var quests: Quests = $Quests
-@onready var characters: Characters = $Characters
+@onready var landmarks: Landmarks = $Landmarks
 @onready var adventurers: Adventurers = $Adventurers
 @onready var items: Items = $Items
 @onready var questTypes: QuestTypes = $QuestTypes
@@ -24,7 +24,7 @@ func _ready():
 	get_node("MainGameUI/Margin/VBoxContainer/MovementButtons/Center/MarginContainer/VBoxContainer/MainButtonsLine/SleepButton/ConfirmationDialog").sleep_time.connect(_sleep_transition)
 	get_node("MainGameUI/Margin/VBoxContainer/Center/EndOfDayReport").report_finished.connect(_report_finished)
 
-	characters.parseListFromJSON()
+	landmarks.parseListFromJSON()
 	questTypes.parseListFromJSON()
 	items.parseListFromJSON()
 	generateGameState()
@@ -35,8 +35,8 @@ func generateGameState() -> void:
 	player.generateStarterGold()
 	items.generateStarterItem()
 
-func getCharacterByName(_name: String) -> Character:
-	return characters.getCharacterByName(_name)
+func getLandmarkByName(_name: String) -> Landmark:
+	return landmarks.getLandmarkByName(_name)
 
 func getItemFromPlayer(_name: String) -> Item:
 	return inventory.getItem(_name)
@@ -85,8 +85,8 @@ func _report_finished():
 func getQuestTypes() -> Array:
 	return questTypes.getAll()
 
-func getCharacters() -> Array:
-	return characters.getAll()
+func getLandmarks() -> Array:
+	return landmarks.getAll()
 
 func getAllItems() -> Array:
 	return items.getAllItems()

@@ -5,11 +5,12 @@
 [ext_resource type="Script" path="res://Scenes/MainUI/CalendarDisplay.gd" id="1_qwg1l"]
 
 [node name="CalendarDisplay" type="HBoxContainer"]
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -259.0
 offset_bottom = 32.0
-grow_horizontal = 2
-size_flags_horizontal = 3
+grow_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_4uek7")
 alignment = 2

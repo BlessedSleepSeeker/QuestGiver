@@ -4,7 +4,6 @@ class_name QuestType
 @export_group("Mechanics")
 @export var typeName: String = ""
 @export var difficulty: int = 0
-@export var reputationRequired: int = 0
 
 @export_group("Textures")
 @export var icon: Texture2D = null
@@ -18,10 +17,9 @@ func _ready():
 		buildIconPath()
 		loadIcon()
 
-func new(_typeName: String, _difficulty: int, _reputationRequired: int) -> void:
+func new(_typeName: String, _difficulty: int) -> void:
 	typeName = _typeName
 	difficulty = _difficulty
-	reputationRequired = _reputationRequired
 	buildIconPath()
 	loadIcon()
 
