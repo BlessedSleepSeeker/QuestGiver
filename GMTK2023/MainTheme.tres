@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://blu2ho5t3snyv"]
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://blu2ho5t3snyv"]
 
 [ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/UI/DefaultButton/hoverDefaultItem.png" id="1_g3utj"]
 [ext_resource type="FontFile" uid="uid://y06ktkg88vy4" path="res://Fonts/sci-bi.ttf" id="1_k1t8o"]
@@ -51,6 +51,10 @@ texture_margin_top = 11.0
 texture_margin_right = 11.0
 texture_margin_bottom = 11.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nxjat"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nefw"]
 texture_margin_left = 6.0
 texture_margin_right = 6.0
@@ -87,6 +91,11 @@ texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ywr16"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+vertical = true
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmls5"]
 texture = ExtResource("8_ox62k")
 texture_margin_left = 6.0
@@ -105,6 +114,7 @@ Button/styles/hover = SubResource("StyleBoxTexture_gkj5e")
 Button/styles/normal = SubResource("StyleBoxTexture_qo3os")
 Button/styles/pressed = SubResource("StyleBoxTexture_ygn6p")
 ColorPicker/constants/margin = 0
+HSeparator/styles/separator = SubResource("StyleBoxLine_nxjat")
 ItemList/constants/icon_margin = 0
 Label/constants/line_spacing = 1
 Label/styles/normal = SubResource("StyleBoxTexture_1nefw")
@@ -133,6 +143,7 @@ Tree/constants/scrollbar_margin_bottom = 0
 Tree/constants/scrollbar_margin_left = 0
 Tree/constants/scrollbar_margin_right = 0
 Tree/constants/scrollbar_margin_top = 0
+VSeparator/styles/separator = SubResource("StyleBoxLine_ywr16")
 Window/colors/title_color = Color(0.875, 0.875, 0.875, 1)
 Window/colors/title_outline_modulate = Color(1, 1, 1, 1)
 Window/constants/close_h_offset = 18
@@ -140,7 +151,7 @@ Window/constants/close_v_offset = 24
 Window/constants/resize_margin = 4
 Window/constants/title_height = 36
 Window/constants/title_outline_size = 0
-Window/font_sizes/title_font_size = 16
+Window/font_sizes/title_font_size = 22
 Window/fonts/title_font = ExtResource("1_k1t8o")
 Window/icons/close = ExtResource("9_rehs3")
 Window/icons/close_highlight = ExtResource("11_rhugp")

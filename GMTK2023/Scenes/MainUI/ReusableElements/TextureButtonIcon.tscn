@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgm2r0dmvqpvj"]
+
+[ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="1_ylvdw"]
+[ext_resource type="Texture2D" uid="uid://b3iew63o5k2o" path="res://Sprites/UI/DefaultButton/pressedDefaultItem.png" id="2_x80kh"]
+[ext_resource type="Texture2D" uid="uid://bcr32q8w6rr7y" path="res://Sprites/UI/DefaultButton/hoverDefaultItem.png" id="3_id85k"]
+[ext_resource type="Texture2D" uid="uid://m18vs842s5ob" path="res://Sprites/UI/DefaultButton/disabledDefaultItem.png" id="4_ar5iu"]
+[ext_resource type="Script" path="res://Scenes/MainUI/ReusableElements/TextureButtonIcon.gd" id="5_ioscj"]
+[ext_resource type="BitMap" uid="uid://kby8rdt2ia2i" path="res://Sprites/UI/ClickMasks/DefaultSizeClickMask.png" id="5_p105p"]
+[ext_resource type="Texture2D" uid="uid://6lq34d7p4phj" path="res://Sprites/UI/Quests/Objective/kill.png" id="7_dpwa0"]
+
+[node name="TextureButtonIcon" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.059
+offset_right = 0.32
+offset_bottom = 0.139997
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_ylvdw")
+texture_pressed = ExtResource("2_x80kh")
+texture_hover = ExtResource("3_id85k")
+texture_disabled = ExtResource("4_ar5iu")
+texture_click_mask = ExtResource("5_p105p")
+script = ExtResource("5_ioscj")
+iconTexture = ExtResource("7_dpwa0")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

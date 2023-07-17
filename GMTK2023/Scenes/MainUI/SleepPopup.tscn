@@ -8,6 +8,7 @@ transparent_bg = true
 title = "?"
 initial_position = 1
 size = Vector2i(400, 102)
+visible = true
 exclusive = false
 popup_window = true
 min_size = Vector2i(200, 41)
