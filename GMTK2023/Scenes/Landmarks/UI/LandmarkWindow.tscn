@@ -1,18 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://1nijdawdmujt"]
 
-[ext_resource type="Texture2D" uid="uid://jk0y2fr8sbrg" path="res://Sprites/UI/Buttons/LargeButton/defaultLargeButton.png" id="1_r42c6"]
+[ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_aok7e"]
 [ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="2_67f25"]
 [ext_resource type="PackedScene" uid="uid://cgm2r0dmvqpvj" path="res://Scenes/MainUI/ReusableElements/TextureButtonIcon.tscn" id="3_qhn44"]
 [ext_resource type="Texture2D" uid="uid://c8o0dgqxc264r" path="res://Sprites/UI/Quests/Objective/fetch.png" id="8_k7eq1"]
 
 [node name="LandmarkUI" type="Window"]
 transparent_bg = true
-snap_2d_transforms_to_pixel = true
-title = "RandomLandmark"
-initial_position = 2
-size = Vector2i(232, 164)
-wrap_controls = true
-popup_window = true
+title = "Landmark"
+position = Vector2i(0, 36)
+size = Vector2i(400, 200)
+theme = ExtResource("1_aok7e")
 
 [node name="Marg" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -24,89 +22,90 @@ grow_vertical = 2
 [node name="Buttons" type="VBoxContainer" parent="Marg"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Marg/Buttons"]
-layout_mode = 2
-
-[node name="LootCenter" type="CenterContainer" parent="Marg/Buttons/HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Marg/Buttons/HBoxContainer/LootCenter"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer"]
-layout_mode = 2
-
-[node name="LootIcon" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("1_r42c6")
-stretch_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="TextureRect" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect2" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect3" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect4" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect5" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="LootCenter2" type="CenterContainer" parent="Marg/Buttons/HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Marg/Buttons/HBoxContainer/LootCenter2"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer"]
-layout_mode = 2
-
-[node name="LootIcon" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("1_r42c6")
-stretch_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="TextureRect" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect2" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect3" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect4" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect5" type="TextureRect" parent="Marg/Buttons/HBoxContainer/LootCenter2/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
 [node name="C" type="CenterContainer" parent="Marg/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButtonIcon" parent="Marg/Buttons/C" instance=ExtResource("3_qhn44")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Marg/Buttons/C"]
+layout_mode = 2
+
+[node name="TextureButtonIcon" parent="Marg/Buttons/C/HBoxContainer" instance=ExtResource("3_qhn44")]
 layout_mode = 2
 iconTexture = ExtResource("8_k7eq1")
+
+[node name="TextureButtonIcon2" parent="Marg/Buttons/C/HBoxContainer" instance=ExtResource("3_qhn44")]
+layout_mode = 2
+iconTexture = ExtResource("8_k7eq1")
+
+[node name="TextureButtonIcon3" parent="Marg/Buttons/C/HBoxContainer" instance=ExtResource("3_qhn44")]
+layout_mode = 2
+iconTexture = ExtResource("8_k7eq1")
+
+[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Marg/Buttons/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+text = "Potential Loot"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer2/PanelContainer2"]
+layout_mode = 2
+text = "Danger level"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Marg/Buttons"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/HBoxContainer2/CenterContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect2" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect3" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect4" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect5" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="MarginContainer" type="MarginContainer" parent="Marg/Buttons/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="Marg/Buttons/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+value = 12.0
+show_percentage = false
