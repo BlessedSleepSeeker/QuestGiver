@@ -1,16 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://1nijdawdmujt"]
+[gd_scene load_steps=7 format=3 uid="uid://1nijdawdmujt"]
 
 [ext_resource type="Theme" uid="uid://blu2ho5t3snyv" path="res://MainTheme.tres" id="1_aok7e"]
 [ext_resource type="Texture2D" uid="uid://yi348bghvfsa" path="res://Sprites/UI/DefaultButton/normalDefaultItem.png" id="2_67f25"]
+[ext_resource type="Texture2D" uid="uid://j8iisv11grdi" path="res://Sprites/UI/Dialog/dialogClose200.png" id="2_x4s5y"]
+[ext_resource type="Texture2D" uid="uid://dprcgkisfkv5r" path="res://Sprites/UI/Dialog/dialogClosePressed200.png" id="3_0b03w"]
 [ext_resource type="PackedScene" uid="uid://cgm2r0dmvqpvj" path="res://Scenes/MainUI/ReusableElements/TextureButtonIcon.tscn" id="3_qhn44"]
 [ext_resource type="Texture2D" uid="uid://c8o0dgqxc264r" path="res://Sprites/UI/Quests/Objective/fetch.png" id="8_k7eq1"]
 
 [node name="LandmarkUI" type="Window"]
 transparent_bg = true
 title = "Landmark"
-position = Vector2i(0, 36)
-size = Vector2i(400, 200)
+initial_position = 1
+size = Vector2i(319, 194)
+wrap_controls = true
+popup_window = true
+min_size = Vector2i(300, 150)
 theme = ExtResource("1_aok7e")
+theme_override_constants/close_h_offset = 34
+theme_override_constants/close_v_offset = 34
+theme_override_font_sizes/title_font_size = 22
+theme_override_icons/close = ExtResource("2_x4s5y")
+theme_override_icons/close_pressed = ExtResource("3_0b03w")
 
 [node name="Marg" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -22,9 +32,80 @@ grow_vertical = 2
 [node name="Buttons" type="VBoxContainer" parent="Marg"]
 layout_mode = 2
 
-[node name="C" type="CenterContainer" parent="Marg/Buttons"]
+[node name="Flavor" type="Label" parent="Marg/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "flavor text mmm very tasty"
+autowrap_mode = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Marg/Buttons"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Marg/Buttons/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="Loot" type="Label" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+text = "Potential Loot"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Marg/Buttons/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="Diff" type="Label" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer2"]
+layout_mode = 2
+text = "Danger level"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Marg/Buttons/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer3"]
+layout_mode = 2
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer3/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect2" type="TextureRect" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer3/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect3" type="TextureRect" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer3/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="TextureRect4" type="TextureRect" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer3/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_67f25")
+
+[node name="MarginContainer4" type="MarginContainer" parent="Marg/Buttons/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="Marg/Buttons/CenterContainer/GridContainer/MarginContainer4"]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+value = 12.0
+show_percentage = false
+
+[node name="HSeparator" type="HSeparator" parent="Marg/Buttons"]
+layout_mode = 2
+
+[node name="C" type="CenterContainer" parent="Marg/Buttons"]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Marg/Buttons/C"]
 layout_mode = 2
@@ -40,72 +121,3 @@ iconTexture = ExtResource("8_k7eq1")
 [node name="TextureButtonIcon3" parent="Marg/Buttons/C/HBoxContainer" instance=ExtResource("3_qhn44")]
 layout_mode = 2
 iconTexture = ExtResource("8_k7eq1")
-
-[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Marg/Buttons/CenterContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer/PanelContainer"]
-layout_mode = 2
-text = "Potential Loot"
-
-[node name="MarginContainer2" type="MarginContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer2" type="PanelContainer" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Marg/Buttons/CenterContainer/HBoxContainer/MarginContainer2/PanelContainer2"]
-layout_mode = 2
-text = "Danger level"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Marg/Buttons"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Marg/Buttons/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="GridContainer" type="GridContainer" parent="Marg/Buttons/HBoxContainer2/CenterContainer"]
-layout_mode = 2
-columns = 4
-
-[node name="TextureRect" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect2" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect3" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect4" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="TextureRect5" type="TextureRect" parent="Marg/Buttons/HBoxContainer2/CenterContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("2_67f25")
-
-[node name="MarginContainer" type="MarginContainer" parent="Marg/Buttons/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ProgressBar" type="ProgressBar" parent="Marg/Buttons/HBoxContainer2/MarginContainer"]
-custom_minimum_size = Vector2(32, 16)
-layout_mode = 2
-value = 12.0
-show_percentage = false
